@@ -12,11 +12,6 @@ export function Message(name: string): <T>(messageType: { new(...args: any[]): T
 {
     return <T>(messageType: { new(...args: any[]): T }): void =>
     {
-        if (ObjectExtensions.isNull(messageType))
-        {
-            throw new Error('Missing message messageType.');
-        }
-
         messageType[messageTypeKey] = name || FunctionExtensions.getFunctionName(messageType);
     };
 }

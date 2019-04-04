@@ -190,7 +190,7 @@ export class MessageBusService extends ServiceBase
 
         if (!this.handlers.containsKey(type))
         {
-            return;
+            throw new Error('Token has been already unregistered.');
         }
 
         const handler = this.handlers.get(type);
@@ -200,6 +200,14 @@ export class MessageBusService extends ServiceBase
         {
             this.handlers.remove(type);
         }
+    }
+
+    /**
+     * Unregisters all the message handlers.
+     */
+    unregisterAll(): void
+    {
+        this.handlers.clear();
     }
 
     /**
@@ -235,12 +243,6 @@ export class MessageBusService extends ServiceBase
         for (let i = (handlers.count() - 1); i >= 0; i--)
         {
             const handler = handlers.get(i);
-
-            if (handler == null)
-            {
-                continue;
-            }
-
             accepted = true;
             await handler(message);
         }

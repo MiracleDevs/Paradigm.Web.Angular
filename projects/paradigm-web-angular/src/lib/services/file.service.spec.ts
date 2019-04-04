@@ -73,5 +73,18 @@ describe('FileService', () =>
                 done();
             });
         }, 1000);
+
+        it('should fail', (done: () => void) =>
+        {
+            const service: FileService = TestBed.get(FileService);
+            const fileReader = FileReader;
+
+            service.readAsText(null).then(null, error =>
+            {
+                expect(error).toBeDefined();
+                FileReader = fileReader;
+                done();
+            });
+        }, 1000);
     });
 });

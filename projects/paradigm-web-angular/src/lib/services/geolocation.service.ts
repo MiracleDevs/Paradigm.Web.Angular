@@ -83,6 +83,11 @@ export class GeolocationWatcher
     private watchIndex: number;
 
     /**
+     * Indicates if the watcher is being unregistered.
+     */
+    private beingUnregistered: boolean;
+
+    /**
      * Event called when the geolocation service reports new geolocation information.
      * @param coordinates the new geolocation coordinates.
      */
@@ -100,7 +105,7 @@ export class GeolocationWatcher
      */
     constructor(private geolocation: IGeolocationProvider)
     {
-        this.watchIndex = 0;
+        this.watchIndex = -1;
     }
 
     /**
@@ -109,7 +114,7 @@ export class GeolocationWatcher
      */
     register(index: number): void
     {
-        if (this.watchIndex !== 0)
+        if (!this.isDisposed())
         {
             throw new Error('This watcher can not be registered again.');
         }
@@ -123,12 +128,15 @@ export class GeolocationWatcher
      */
     unregister(): void
     {
-        if (this.watchIndex === 0)
+        if (this.isDisposed())
         {
             throw new Error('This watcher has not been properly registered.');
         }
 
+        this.beingUnregistered = true;
         this.geolocation.unregisterWatcher(this);
+        this.beingUnregistered = false;
+        this.watchIndex = -1;
     }
 
     /**
@@ -137,6 +145,22 @@ export class GeolocationWatcher
     getWatchIndex(): number
     {
         return this.watchIndex;
+    }
+
+    /**
+     * Indicates if this watcher is disposed.
+     */
+    isDisposed(): boolean
+    {
+        return this.watchIndex < 0;
+    }
+
+    /**
+     * Indicates if the watcher is being unregistered.
+     */
+    isBeingUnregistered(): boolean
+    {
+        return this.beingUnregistered;
     }
 }
 
@@ -232,6 +256,11 @@ export class NavigationGeolocationProvider implements IGeolocationProvider
      */
     unregisterWatcher(watcher: GeolocationWatcher): void
     {
+        if (!watcher.isBeingUnregistered())
+        {
+            throw new Error('Can not call this method directly. Call GeolocationWatcher.unregister instead.');
+        }
+
         if (this.isAvailable())
         {
             this.getGeoLocator().clearWatch(watcher.getWatchIndex());
@@ -243,7 +272,10 @@ export class NavigationGeolocationProvider implements IGeolocationProvider
      */
     isAvailable(): boolean
     {
-        return !ObjectExtensions.isNull(navigator.geolocation);
+        return !ObjectExtensions.isNull(navigator.geolocation) &&
+            !ObjectExtensions.isNull(navigator.geolocation.getCurrentPosition) &&
+            !ObjectExtensions.isNull(navigator.geolocation.watchPosition) &&
+            !ObjectExtensions.isNull(navigator.geolocation.clearWatch);
     }
 
     /**
@@ -258,7 +290,7 @@ export class NavigationGeolocationProvider implements IGeolocationProvider
 @Injectable({
     providedIn: 'root'
 })
-export class GeolocationService extends ServiceBase implements IGeolocationProvider
+export class GeolocationService extends ServiceBase
 {
     /**
      * Reference to a geolocation provider.
@@ -306,15 +338,6 @@ export class GeolocationService extends ServiceBase implements IGeolocationProvi
     registerWatcher(): GeolocationWatcher
     {
         return this.geolocationProvider.registerWatcher();
-    }
-
-    /**
-     * Unregisters the geolocation watcher.
-     * @param watcher the watcher that will be unregistered.
-     */
-    unregisterWatcher(watcher: GeolocationWatcher): void
-    {
-        this.geolocationProvider.unregisterWatcher(watcher);
     }
 
     /**

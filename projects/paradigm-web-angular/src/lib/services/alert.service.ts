@@ -112,7 +112,7 @@ export class AlertService extends ServiceBase
                 return LogType.Error;
         }
 
-        return LogType.Information;
+        throw new Error('The alert type is not recognized.');
     }
 
     /**

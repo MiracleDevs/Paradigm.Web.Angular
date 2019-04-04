@@ -1,10 +1,63 @@
 import { TestBed } from '@angular/core/testing';
 import { AlertService, AlertType } from './alert.service';
+import { ILogProvider, LoggingService } from './logging.service';
+
+class MockLogProvider implements ILogProvider
+{
+    traceMessage: string;
+
+    debugMessage: string;
+
+    infoMessage: string;
+
+    warnMessage: string;
+
+    errorMessage: string;
+
+    criticalMessage: string;
+
+    trace(message: string): void
+    {
+        this.traceMessage = message;
+    }
+
+    debug(message: string): void
+    {
+        this.debugMessage = message;
+    }
+
+    info(message: string): void
+    {
+        this.infoMessage = message;
+    }
+
+    warn(message: string): void
+    {
+        this.warnMessage = message;
+    }
+
+    error(message: string): void
+    {
+        this.errorMessage = message;
+    }
+
+    critical(message: string): void
+    {
+        this.criticalMessage = message;
+    }
+}
 
 describe('AlertService', () =>
 {
+    const loggingProvider = new MockLogProvider();
 
-    beforeEach(() => TestBed.configureTestingModule({}));
+    beforeEach(() =>
+    {
+        TestBed.configureTestingModule({});
+        const loggingService: LoggingService = TestBed.get(LoggingService);
+        loggingService.setLogProvider(loggingProvider);
+        loggingService.setMessageTemplateForAll('{3}');
+    });
 
     describe('creating the service', () =>
     {
@@ -29,6 +82,11 @@ describe('AlertService', () =>
 
             expect(service.getAlerts().count()).toBe(0);
         });
+
+        it('should fail if get log type with a wrong alert type', () =>
+        {
+            expect(() => AlertService.getLogType(-1)).toThrow();
+        });
     });
 
     describe('working with messages', () =>
@@ -39,7 +97,11 @@ describe('AlertService', () =>
 
             service.addMessage('testing message');
 
-            expect(service.getAlerts().count()).toBe(1);
+            const alert = service.getAlerts().get(0);
+            expect(alert.message).toBe('testing message');
+            expect(alert.type).toBe(AlertType.Message);
+            expect(alert.typeName).toBe('Message');
+            expect(loggingProvider.infoMessage).toBe('testing message');
         });
 
         it('should remove a message by index', () =>
@@ -121,6 +183,7 @@ describe('AlertService', () =>
             expect(alert.message).toBe('testing warning');
             expect(alert.type).toBe(AlertType.Warning);
             expect(alert.typeName).toBe('Warning');
+            expect(loggingProvider.warnMessage).toBe('testing warning');
         });
 
         it('should remove a warning by index', () =>
@@ -174,7 +237,11 @@ describe('AlertService', () =>
 
             service.addError('testing error');
 
-            expect(service.getAlerts().count()).toBe(1);
+            const alert = service.getAlerts().get(0);
+            expect(alert.message).toBe('testing error');
+            expect(alert.type).toBe(AlertType.Error);
+            expect(alert.typeName).toBe('Error');
+            expect(loggingProvider.errorMessage).toBe('testing error');
         });
 
         it('should remove a error by index', () =>

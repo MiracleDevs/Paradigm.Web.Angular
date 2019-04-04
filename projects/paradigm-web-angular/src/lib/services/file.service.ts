@@ -83,14 +83,23 @@ export class FileService extends ServiceBase
                 resolve(fileReader.result);
             }
 
-            function onError(e: ErrorEvent)
+            function onError(e: any)
             {
+                console.log(e.message);
                 removeEventListeners();
                 reject(e);
             }
 
             addEventListeners();
-            action(fileReader);
+
+            try
+            {
+                action(fileReader);
+            }
+            catch (error)
+            {
+                onError(error);
+            }
         });
     }
 }

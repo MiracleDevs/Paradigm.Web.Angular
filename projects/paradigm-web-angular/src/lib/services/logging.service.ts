@@ -5,7 +5,7 @@
  */
 
 import { ServiceBase } from './base.service';
-import { DateExtensions, Dictionary, StringExtensions } from '@miracledevs/paradigm-ui-web-shared';
+import { DateExtensions, Dictionary, StringExtensions, ObjectExtensions } from '@miracledevs/paradigm-ui-web-shared';
 import { Injectable } from '@angular/core';
 
 /**
@@ -123,16 +123,7 @@ export class LoggingService extends ServiceBase
     {
         super();
         this.logProvider = console;
-        const message = '[{0}][{1}] - {3}{2}';
-        this.messageTemplates = new Array<string>();
-
-        this.messageTemplates.push(message);
-        this.messageTemplates.push(message);
-        this.messageTemplates.push(message);
-        this.messageTemplates.push(message);
-        this.messageTemplates.push(message);
-        this.messageTemplates.push(message);
-
+        this.setMessageTemplateForAll('[{0}][{1}] - {3}{2}');
         this.minimumLevel = LogType.Information;
     }
 
@@ -165,7 +156,41 @@ export class LoggingService extends ServiceBase
             throw new Error(LoggingService.typeNotRecognized);
         }
 
+        if (ObjectExtensions.isNull(message))
+        {
+            throw new Error('The message template can not be null or undefined.');
+        }
+
         this.messageTemplates[type] = message;
+    }
+
+    /**
+     * Sets the message template for all the types.
+     * There are some predefined content placeholders the user can utilize
+     * to configure the custom messages:
+     *
+     * {0}: The time when the log was added.
+     *
+     * {1}: The type of the log (Trace, Debug , Information, etc)
+     *
+     * {2}: A custom tag value provided by the user.
+     *
+     * {3}: The log message.
+     */
+    setMessageTemplateForAll(message: string): void
+    {
+        if (ObjectExtensions.isNull(message))
+        {
+            throw new Error('The message template can not be null or undefined.');
+        }
+
+        this.messageTemplates = [];
+        this.messageTemplates.push(message);
+        this.messageTemplates.push(message);
+        this.messageTemplates.push(message);
+        this.messageTemplates.push(message);
+        this.messageTemplates.push(message);
+        this.messageTemplates.push(message);
     }
 
     /**
@@ -193,6 +218,11 @@ export class LoggingService extends ServiceBase
         if (type < 0 || type >= this.messageTemplates.length)
         {
             throw new Error(LoggingService.typeNotRecognized);
+        }
+
+        if (ObjectExtensions.isNull(message))
+        {
+            throw new Error('The message can not be null or undefined.');
         }
 
         if (type < this.minimumLevel)
