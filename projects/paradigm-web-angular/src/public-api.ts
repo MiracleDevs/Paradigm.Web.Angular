@@ -11,4 +11,6 @@ export * from './lib/services/file.service';
 export * from './lib/services/logging.service';
 export * from './lib/services/message-bus.service';
 export * from './lib/services/modal.service';
+export * from './lib/services/geolocation.service';
+
 export * from './lib/paradigm-web-angular.module';
