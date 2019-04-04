@@ -4,4 +4,4 @@ node_js:
 script:
   - npm install
   - ng build --project=paradigm-web-angular
-  - ng test --project=paradigm-web-angular
+  - ng test --project=paradigm-web-angular --watch=false
