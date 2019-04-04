@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - node
+script:
+  - npm install
+  - ng build --project=paradigm-web-angular
+  - ng test --project=paradigm-web-angular
