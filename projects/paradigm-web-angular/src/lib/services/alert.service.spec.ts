@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { AlertService, AlertType } from './alert.service';
 
 describe('AlertService', () =>

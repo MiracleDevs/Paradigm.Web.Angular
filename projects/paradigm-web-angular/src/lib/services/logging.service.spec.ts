@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { LoggingService, ILogProvider, LogType } from './logging.service';
-import { IPerfLoggingPrefs } from 'selenium-webdriver/chrome';
 
 class MockLogProvider implements ILogProvider
 {

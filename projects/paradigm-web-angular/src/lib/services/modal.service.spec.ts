@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { ModalService } from './modal.service';
 import { ModalComponentBase } from '../components/modal-base.component';
-import { Injector, Component, ViewContainerRef, NgModule, ViewRef } from '@angular/core';
+import { Injector, Component, ViewContainerRef, NgModule } from '@angular/core';
 
 @Component({
     selector: 'lib-container',

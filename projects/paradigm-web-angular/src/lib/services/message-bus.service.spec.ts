@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { MessageBusService, RegistrationToken } from './message-bus.service';
 import { Message } from '../decorators/message';
 

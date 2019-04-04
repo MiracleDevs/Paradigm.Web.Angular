@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { GeolocationService, IGeolocationProvider, Coordinate, GeolocationWatcher } from './Geolocation.service';
+import { GeolocationService, IGeolocationProvider, Coordinate, GeolocationWatcher } from './geolocation.service';
 
 class MockAvailableGeolocationProvider implements IGeolocationProvider
 {
