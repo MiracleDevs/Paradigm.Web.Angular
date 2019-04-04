@@ -3,25 +3,26 @@
  * Copyright (c) 2017 Miracle Devs, Inc
  * Licensed under MIT (https://github.com/MiracleDevs/Paradigm.Web.Angular/blob/master/LICENSE)
  */
+
 import { ObjectExtensions, FunctionExtensions } from '@miracledevs/paradigm-ui-web-shared';
 
 const messageTypeKey = '$messageType';
 
-export function Message(name: string): <T>(constructor: { new(...args: any[]): T }) => void
+export function Message(name: string): <T>(messageType: { new(...args: any[]): T }) => void
 {
-    return <T>(constructor: { new(...args: any[]): T }): void =>
+    return <T>(messageType: { new(...args: any[]): T }): void =>
     {
-        if (ObjectExtensions.isNull(constructor))
+        if (ObjectExtensions.isNull(messageType))
         {
-            throw new Error('Missing message constructor.');
+            throw new Error('Missing message messageType.');
         }
 
-        constructor[messageTypeKey] = name || FunctionExtensions.getFunctionName(constructor);
+        messageType[messageTypeKey] = name || FunctionExtensions.getFunctionName(messageType);
     };
 }
 
-export function getMessageType<T>(constructor: { new(...args: any[]): T } | Function): string
+export function getMessageType<T>(messageType: { new(...args: any[]): T } | Function): string
 {
-    return constructor[messageTypeKey];
+    return messageType[messageTypeKey];
 }
 

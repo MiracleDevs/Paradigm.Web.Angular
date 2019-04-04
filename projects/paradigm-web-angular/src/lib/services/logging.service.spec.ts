@@ -81,7 +81,7 @@ describe('LoggingService', () =>
 
             service.setMinimumLevel(LogType.Trace);
             service.setLogProvider(provider);
-            service.setCustomMessage(LogType.Trace, '<{1}><{2}><{3}>');
+            service.setMessageTemplate(LogType.Trace, '<{1}><{2}><{3}>');
             service.trace('test', 'tag');
 
             expect(provider.traceMessage).toBe('<Trace><tag><test>');
@@ -104,7 +104,8 @@ describe('LoggingService', () =>
 
     describe('executing the service', () =>
     {
-        it('should log traces', () => {
+        it('should log traces', () =>
+        {
             const service: LoggingService = TestBed.get(LoggingService);
             const provider = new MockLogProvider();
 
@@ -115,7 +116,8 @@ describe('LoggingService', () =>
             expect(provider.traceMessage).toBeDefined();
         });
 
-        it('should log debug info', () => {
+        it('should log debug info', () =>
+        {
             const service: LoggingService = TestBed.get(LoggingService);
             const provider = new MockLogProvider();
 
@@ -126,7 +128,8 @@ describe('LoggingService', () =>
             expect(provider.debugMessage).toBeDefined();
         });
 
-        it('should log information', () => {
+        it('should log information', () =>
+        {
             const service: LoggingService = TestBed.get(LoggingService);
             const provider = new MockLogProvider();
 
@@ -137,7 +140,8 @@ describe('LoggingService', () =>
             expect(provider.infoMessage).toBeDefined();
         });
 
-        it('should log warnings', () => {
+        it('should log warnings', () =>
+        {
             const service: LoggingService = TestBed.get(LoggingService);
             const provider = new MockLogProvider();
 
@@ -148,7 +152,8 @@ describe('LoggingService', () =>
             expect(provider.warnMessage).toBeDefined();
         });
 
-        it('should log error messages', () => {
+        it('should log error messages', () =>
+        {
             const service: LoggingService = TestBed.get(LoggingService);
             const provider = new MockLogProvider();
 
@@ -159,7 +164,8 @@ describe('LoggingService', () =>
             expect(provider.errorMessage).toBeDefined();
         });
 
-        it('should log critical messages', () => {
+        it('should log critical messages', () =>
+        {
             const service: LoggingService = TestBed.get(LoggingService);
             const provider = new MockLogProvider();
 
