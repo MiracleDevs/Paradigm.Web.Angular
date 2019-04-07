@@ -4,15 +4,18 @@
  * Licensed under MIT (https://github.com/MiracleDevs/Paradigm.Web.Angular/blob/master/LICENSE)
  */
 
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { ServiceBase } from './base.service';
 import { Dictionary, ArrayList, Guid, ObjectExtensions } from '@miracledevs/paradigm-ui-web-shared';
 import { getMessageType } from '../decorators/message';
 
+
+export type MessageHandler<T> = (message: T) => void | Promise<void>;
+
 /**
  * Represents a message bus registration token.
  */
-export class RegistrationToken
+export class RegistrationToken<T>
 {
     /**
      * A reference to the @see MessageBusService.
@@ -22,7 +25,7 @@ export class RegistrationToken
     /**
      * The inner message type.
      */
-    private innerType: Function;
+    private innerType: Type<T>;
 
     /**
      * A guid identifying this registration.
@@ -32,7 +35,7 @@ export class RegistrationToken
     /**
      * Gets the message type.
      */
-    get type(): Function
+    get type(): Type<T>
     {
         return this.innerType;
     }
@@ -50,7 +53,7 @@ export class RegistrationToken
      * @param messageBus a reference to the message bus.
      * @param type the message type.
      */
-    constructor(messageBus: MessageBusService, type: Function)
+    constructor(messageBus: MessageBusService, type: Type<T>)
     {
         this.messageBus = messageBus;
         this.innerType = type;
@@ -71,27 +74,27 @@ export class RegistrationToken
  * It holds a method that must be called when certain
  * message is received.
  */
-export class MessageBusHandler
+export class MessageBusHandler<T>
 {
     /**
      * The registration token that identifies this handler.
      */
-    private innerToken: RegistrationToken;
+    private innerToken: RegistrationToken<T>;
 
     /**
      * The handler or function that should be called when the message is received.
      */
-    private innerHandler: Function;
+    private innerHandler: MessageHandler<T>;
 
     /**
      * Gets the registration token that identifies this handler.
      */
-    get token(): RegistrationToken { return this.innerToken; }
+    get token(): RegistrationToken<T> { return this.innerToken; }
 
     /**
      * Gets the handler function that should be called when the message is received.
      */
-    get handler(): Function { return this.innerHandler; }
+    get handler(): MessageHandler<T> { return this.innerHandler; }
 
     /**
      * Creates a new instance of @see MessageBusHandler
@@ -99,7 +102,7 @@ export class MessageBusHandler
      * @param type the message type.
      * @param handler the message handler.
      */
-    constructor(messageBus: MessageBusService, type: Function, handler: Function)
+    constructor(messageBus: MessageBusService, type: Type<T>, handler: MessageHandler<T>)
     {
         this.innerHandler = handler;
         this.innerToken = new RegistrationToken(messageBus, type);
@@ -114,7 +117,7 @@ export class MessageBusService extends ServiceBase
     /**
      * A collection of message types and all their handlers or observers.
      */
-    private handlers: Dictionary<string, ArrayList<MessageBusHandler>>;
+    private handlers: Dictionary<string, ArrayList<MessageBusHandler<any>>>;
 
     /**
      * Creates a new instance of @see MessageBusService
@@ -122,7 +125,7 @@ export class MessageBusService extends ServiceBase
     constructor()
     {
         super();
-        this.handlers = new Dictionary<string, ArrayList<MessageBusHandler>>();
+        this.handlers = new Dictionary<string, ArrayList<MessageBusHandler<any>>>();
     }
 
     /**
@@ -137,7 +140,7 @@ export class MessageBusService extends ServiceBase
      * Indicates if the given message type is registered and has handlers associated to it.
      * @param messageType the message type.
      */
-    isRegistered<T>(messageType: new (...args: any[]) => T): boolean
+    isRegistered<T>(messageType: Type<T>): boolean
     {
         const type = getMessageType(messageType);
         return this.handlers.containsKey(type);
@@ -147,7 +150,7 @@ export class MessageBusService extends ServiceBase
      * Gets the amount of handler or observers a given message has.
      * @param messageType the message type.
      */
-    handlerCount<T>(messageType: new (...args: any[]) => T): number
+    handlerCount<T>(messageType: Type<T>): number
     {
         const type = getMessageType(messageType);
 
@@ -165,13 +168,13 @@ export class MessageBusService extends ServiceBase
      * @param messageType the message type.
      * @param handler the message handler.
      */
-    register<T>(messageType: { new(...args: any[]): T }, handler: (x: T) => void | Promise<void>): RegistrationToken
+    register<T>(messageType: Type<T>, handler: MessageHandler<T>): RegistrationToken<T>
     {
         const type = getMessageType(messageType);
 
         if (!this.handlers.containsKey(type))
         {
-            this.handlers.add(type, new ArrayList<MessageBusHandler>());
+            this.handlers.add(type, new ArrayList<MessageBusHandler<T>>());
         }
 
         const messageBusHandler = new MessageBusHandler(this, messageType, handler);
@@ -184,7 +187,7 @@ export class MessageBusService extends ServiceBase
      * Removes a handler registration from the collection.
      * @param token the registration token.
      */
-    unregister(token: RegistrationToken): void
+    unregister<T>(token: RegistrationToken<T>): void
     {
         const type = getMessageType(token.type);
 
@@ -215,7 +218,7 @@ export class MessageBusService extends ServiceBase
      * @param message the message to be sent.
      * @param token if specified, the message will be sent only to one handler.
      */
-    async send<T>(message: T, token?: RegistrationToken): Promise<boolean>
+    async send<T>(message: T, token?: RegistrationToken<T>): Promise<boolean>
     {
         if (ObjectExtensions.isNull(message))
         {
@@ -227,7 +230,7 @@ export class MessageBusService extends ServiceBase
             throw new Error('Message does not have a constructor, and the system can not infer the type.');
         }
 
-        const type = getMessageType(message.constructor);
+        const type = getMessageType(message.constructor as Type<T>);
 
         if (!this.handlers.containsKey(type))
         {

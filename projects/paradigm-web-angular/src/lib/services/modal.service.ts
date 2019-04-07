@@ -9,6 +9,10 @@ import { ModalComponentBase } from '../components/modal-base.component';
 import { ArrayList, ObjectExtensions } from '@miracledevs/paradigm-ui-web-shared';
 import { ServiceBase } from './base.service';
 
+export type ModalResolve<TResult> = (result: TResult) => void;
+
+export type ModalReject = (reason: string) => void;
+
 /**
  * Represents a modal dialog instance.
  * This class lifespan depends on the modal dialog lifespan.
@@ -23,17 +27,17 @@ export class ModalInstance<TParameters, TResult>
     /**
      * The type of the modal component.
      */
-    readonly type: Type<ModalComponentBase<TParameters, TResult>>
+    readonly type: Type<ModalComponentBase<TParameters, TResult>>;
 
     /**
      * Resolves and finish successfully the modal dialog.
      */
-    resolve: (result?: TResult) => void;
+    resolve: ModalResolve<TResult>;
 
     /**
      * Rejects and finish unsuccessfully the modal dialog.
      */
-    reject: (reason?: string) => void;
+    reject: ModalReject;
 
     /**
      * Gets the component ref associated to the modal dialog.

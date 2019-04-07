@@ -4,19 +4,19 @@
  * Licensed under MIT (https://github.com/MiracleDevs/Paradigm.Web.Angular/blob/master/LICENSE)
  */
 
-import { ObjectExtensions, FunctionExtensions } from '@miracledevs/paradigm-ui-web-shared';
+import { Type } from '@angular/core';
 
 const messageTypeKey = '$messageType';
 
-export function Message(name: string): <T>(messageType: { new(...args: any[]): T }) => void
+export function Message(name: string): <T>(messageType: Type<T>) => void
 {
-    return <T>(messageType: { new(...args: any[]): T }): void =>
+    return <T>(messageType: Type<T>): void =>
     {
-        messageType[messageTypeKey] = name || FunctionExtensions.getFunctionName(messageType);
+        messageType[messageTypeKey] = name;
     };
 }
 
-export function getMessageType<T>(messageType: { new(...args: any[]): T } | Function): string
+export function getMessageType<T>(messageType: Type<T>): string
 {
     return messageType[messageTypeKey];
 }

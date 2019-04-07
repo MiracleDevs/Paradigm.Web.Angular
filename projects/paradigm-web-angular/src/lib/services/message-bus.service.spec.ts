@@ -35,7 +35,7 @@ describe('MessageBusService', () =>
         it('should register and unregister a message', () =>
         {
             const service: MessageBusService = TestBed.get(MessageBusService);
-            let token: RegistrationToken;
+            let token: RegistrationToken<MockMessage>;
 
             expect(() => token = service.register(MockMessage, () => { })).not.toThrow();
             expect(token).not.toBe(null);

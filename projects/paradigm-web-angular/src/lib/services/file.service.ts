@@ -85,7 +85,6 @@ export class FileService extends ServiceBase
 
             function onError(e: any)
             {
-                console.log(e.message);
                 removeEventListeners();
                 reject(e);
             }
