@@ -7,8 +7,9 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
     declarations: [],
-    imports: [
-    ],
+    imports: [],
     exports: []
 })
-export class ParadigmWebAngularModule { }
+export class ParadigmWebAngularModule
+{
+}

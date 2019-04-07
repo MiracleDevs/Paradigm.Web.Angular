@@ -7,7 +7,7 @@
 import { Injectable, Type } from '@angular/core';
 import { ServiceBase } from './base.service';
 import { Dictionary, ArrayList, Guid, ObjectExtensions } from '@miracledevs/paradigm-ui-web-shared';
-import { getMessageType } from '../decorators/message';
+import { getMessageName } from '../decorators/message';
 
 
 export type MessageHandler<T> = (message: T) => void | Promise<void>;
@@ -142,7 +142,7 @@ export class MessageBusService extends ServiceBase
      */
     isRegistered<T>(messageType: Type<T>): boolean
     {
-        const type = getMessageType(messageType);
+        const type = getMessageName(messageType);
         return this.handlers.containsKey(type);
     }
 
@@ -152,7 +152,7 @@ export class MessageBusService extends ServiceBase
      */
     handlerCount<T>(messageType: Type<T>): number
     {
-        const type = getMessageType(messageType);
+        const type = getMessageName(messageType);
 
         if (!this.handlers.containsKey(type))
         {
@@ -170,7 +170,7 @@ export class MessageBusService extends ServiceBase
      */
     register<T>(messageType: Type<T>, handler: MessageHandler<T>): RegistrationToken<T>
     {
-        const type = getMessageType(messageType);
+        const type = getMessageName(messageType);
 
         if (!this.handlers.containsKey(type))
         {
@@ -189,7 +189,7 @@ export class MessageBusService extends ServiceBase
      */
     unregister<T>(token: RegistrationToken<T>): void
     {
-        const type = getMessageType(token.type);
+        const type = getMessageName(token.type);
 
         if (!this.handlers.containsKey(type))
         {
@@ -230,7 +230,7 @@ export class MessageBusService extends ServiceBase
             throw new Error('Message does not have a constructor, and the system can not infer the type.');
         }
 
-        const type = getMessageType(message.constructor as Type<T>);
+        const type = getMessageName(message.constructor as Type<T>);
 
         if (!this.handlers.containsKey(type))
         {

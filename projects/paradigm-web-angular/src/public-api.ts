@@ -1,6 +1,9 @@
-/*
- * Public API Surface of paradigm-web-angular
+/*!
+ * Paradigm Framework - Angular Wrapper
+ * Copyright (c) 2017 Miracle Devs, Inc
+ * Licensed under MIT (https://github.com/MiracleDevs/Paradigm.Web.Angular/blob/master/LICENSE)
  */
+
 export * from './lib/components/base.component';
 export * from './lib/components/modal-base.component';
 

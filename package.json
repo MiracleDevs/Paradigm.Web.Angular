@@ -4,7 +4,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build",
+        "build": "ng build paradigm-web-angular",
         "test": "ng test paradigm-web-angular --code-coverage",
         "lint": "ng lint",
         "e2e": "ng e2e"

@@ -1,8 +1,29 @@
 {
-    "name": "paradigm-web-angular",
+    "name": "@miracledevs/paradigm-web-angular",
     "version": "0.0.1",
+    "description": "An angular wrapper with base functionality and helper services.",
+    "author": "Miracle Devs",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MiracleDevs/Paradigm.Web.Angular.git"
+    },
+    "private": false,
+    "keywords": [
+        "miracledevs",
+        "paradigm",
+        "ui",
+        "javascript",
+        "typescript",
+        "angular",
+        "component",
+        "service",
+        "spa",
+        "single page application"
+    ],
     "peerDependencies": {
         "@angular/common": "^7.2.0",
-        "@angular/core": "^7.2.0"
+        "@angular/core": "^7.2.0",
+        "@miracledevs/paradigm-ui-web-shared": "^1.0.4"
     }
 }

@@ -6,18 +6,28 @@
 
 import { Type } from '@angular/core';
 
-const messageTypeKey = '$messageType';
+const messageNameKey = '$messageType';
 
+/**
+ * Decorates a class that needs to be marked as a message to use in conjunction
+ * with the @see MessageBusService
+ * @param name  the name of the message.
+ */
 export function Message(name: string): <T>(messageType: Type<T>) => void
 {
     return <T>(messageType: Type<T>): void =>
     {
-        messageType[messageTypeKey] = name;
+        messageType[messageNameKey] = name;
     };
 }
 
-export function getMessageType<T>(messageType: Type<T>): string
+/**
+ * Gets the message name from a given message type.
+ * The message type needs to be decorated with @see Message
+ * @param type the type of a message.
+ */
+export function getMessageName<T>(type: Type<T>): string
 {
-    return messageType[messageTypeKey];
+    return type[messageNameKey];
 }
 
