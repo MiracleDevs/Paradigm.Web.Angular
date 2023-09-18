@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>3. Core Components </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="3. Core Components ">
+    <meta name="generator" content="docfx 2.27.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <meta name="theme-color" content="#28b693">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container-fluid hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container-fluid body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article grid-right clearfix">
+          <div class="col-md-9 col-lg-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="3-core-components">3. Core Components</h1>
+
+<p>Paradigm ORM contains 4 libraries:</p>
+<ul>
+<li>Core library: This is a DB agnostic layer that contains shared logic and ORM specific code and interfaces</li>
+<li>4 implementation libraries: Implements core interfaces and provides connection to specific databases<ul>
+<li>MySql</li>
+<li>PostgreSql</li>
+<li>SQL Server</li>
+<li>Cassandra (and ScyllaDB)</li>
+</ul>
+</li>
+</ul>
+<p>Objects and classes covered in this document are implemented for each of the supported databases. The ORM is constructed over <code>System.Data</code> interfaces, and uses the particular clients to implement these interfaces. Even if the ORM is designed to use these, and have a similar interface, it uses its own set of interfaces that allows to add sync and async methods for all the objects consistently, even if one of the client does not allows async actions. Now we&#39;ll see a brief description of what each object do.</p>
+<div class="NOTE"><h5>Note</h5><p>While we always try to use the official connector for each database, for MySql we had to go in another direction. Oracle&#39;s official connector does not truly supports async methods, so we decided to change the Oracle connector and use another implementation called <a href="https://mysql-net.github.io/MySqlConnector/">MySql Connector</a>. This is a new implementation of MySql protocol that fully supports async methods. Also, it&#39;s an active repository and the team behind the connector respond fast and efficiently.</p>
+</div>
+<h2 id="31-database-connectors">3.1. Database Connectors</h2>
+<p>The <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a> represents a connection to a database.
+It also works as factory for database specific objects:</p>
+<ul>
+<li>Commands</li>
+<li>Transactions</li>
+<li>Formatters</li>
+<li>etc.
+Each database implementation has its own <strong>Database Connector</strong>:</li>
+<li>MySql: <a class="xref" href="../../api/Paradigm.ORM.Data.MySql.MySqlDatabaseConnector.html">MySqlDatabaseConnector</a></li>
+<li>PostgreSql: <a class="xref" href="../../api/Paradigm.ORM.Data.PostgreSql.PostgreSqlDatabaseConnector.html">PostgreSqlDatabaseConnector</a></li>
+<li>SqlServer: <a class="xref" href="../../api/Paradigm.ORM.Data.SqlServer.SqlDatabaseConnector.html">SqlDatabaseConnector</a></li>
+<li>Cassandra: <a class="xref" href="../../api/Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.html">CqlDatabaseConnector</a></li>
+</ul>
+<p>Connecting to a database using the connector is a trivial operation. All the database classes are designed to share the <code>System.Data</code> method conventions, with some minor changes to allow a clear interface for the rest of the engine. The basic idea is to call the constructor and pass the connection string, or to create the instance with the parameterless constructor and then call the Initialize method.</p>
+<h4 id="sync-connection">Sync Connection</h4>
+<p>Connecting synchronously:</p>
+<pre><code class="lang-csharp">
+using(var connector = new MySqlDatabaseConnector(&quot;Server=localhost;Database=TestDb;Uid=root;Password=*****&quot;)
+{
+    connector.Open();
+    // your logic here.
+    connector.Close();
+}
+</code></pre><h4 id="async-connection">Async Connection</h4>
+<p>Connecting asynchronously:</p>
+<pre><code class="lang-csharp">
+using(var connector = new MySqlDatabaseConnector(&quot;Server=localhost;Database=TestDb;Uid=root;Password=*****&quot;))
+{
+    await connector.OpenAsync();
+    // your logic here.
+    await connector.CloseAsync();
+}
+</code></pre><h4 id="dependency-injection">Dependency Injection</h4>
+<p>As mentioned before, there are two constructors available: a parameterless constructor, and one that receives the connection string. Internally, the second constructor, calls the <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseConnector.html#MiracleDevs_ORM_Data_Database_IDatabaseConnector_Initialize_System_String_">Initialize(string)</a> method.
+If you are planning on using Dependency Injection, the database connector should be created using the parameterless constructor, so you must call the initialize method by hand:</p>
+<pre><code class="lang-csharp">// register the connector.
+builder.RegisterScoped&lt;IDatabaseConnector, MySqlDatabaseConnector&gt;();
+
+...
+
+// resolve a database connection and initialize the connection.
+// we do not manually dispose the connector because the service provider
+// will dispose it for us.
+var connector = serviceProvider.GetService&lt;IDatabaseConnector&gt;();
+connector.Initialize(&quot;Server=localhost;Database=TestDb;Uid=root;Password=*****&quot;);
+connector.Open();
+// your logic here
+connector.Close();
+</code></pre><p>If you intend to use MiracleDevs Enterprise libraries for an MVC site, note that there is already a Middleware prepared to instantiate and configure a connection for each request. [ADD HERE THE LINK TO THE DOC]</p>
+<h2 id="32-database-commands">3.2. Database Commands</h2>
+<p>As mentioned before, one of the responsibilities of <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a> is to create command instances. A command object provides a way to execute instructions on the database.
+Like <code>System.Data</code>, <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseCommand.html">IDatabaseCommand</a> needs to be configured before being executed. You should provide the command text, the instruction that will be executed on the database, and the command type; normal values are <code>Text</code> or <code>StoredProcedure</code>.
+Also, there are 3 different ways in which a command can be executed:</p>
+<ul>
+<li><strong>Reader:</strong> If you are planning to read data from the database and you need the results.</li>
+<li><strong>Scalar:</strong> If you are planning to return a scalar value (integer, string, date, etc.).</li>
+<li><strong>NonQuery:</strong> For non data retrieval operations like inserts, updates, etc.</li>
+</ul>
+<pre><code class="lang-csharp">if (!connector.IsOpened())
+    connection.Open();
+
+using(var command = connector.CreateCommand())
+{
+    command.CommandText = &quot;SELECT * FROM `SomeTable`&quot;;
+    command.CommandType = CommandType.Text;
+
+    using(var reader = command.ExecuteReader())
+    {
+        // map the results here.
+    }
+}
+</code></pre><p>There are plenty of ways to simplify this operation using extension methods like <a class="xref" href="../../api/Paradigm.ORM.Data.Extensions.DatabaseConnectorExtensions.html#MiracleDevs_ORM_Data_Extensions_DatabaseConnectorExtensions_ExecuteReader_MiracleDevs_ORM_Data_Database_IDatabaseConnector_System_String_System_Action_MiracleDevs_ORM_Data_Database_IDatabaseReader__">this one</a>.
+The ORM also ships with several objects that can greatly simplify the command execution. They are explained in detail in the corresponding section, but here it&#39;s a list of some of them:</p>
+<ul>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html">DatabaseAccess</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.DatabaseAccess-1.html">DatabaseAccess&lt;TEntity&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Querying.Query-1.html">Query&lt;TResultType&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Querying.CustomQuery-1.html">CustomQuery&lt;TResultType&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ScalarStoredProcedure-2.html">ScalarStoredProcedure&lt;TParameters, TResult&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.html">NonQueryStoredProcedure&lt;TParameters&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-2.html">ReaderStoredProcedure&lt;TParameters, TResult&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-3.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-4.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-5.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-6.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-7.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-8.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6, TResult7&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-9.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6, TResult7, TResult8&gt;</a></li>
+</ul>
+<p>The same code we saw above, translates to:</p>
+<pre><code class="lang-csharp">connector.ExecuteReader(&quot;SELECT * FROM `SomeTable`&quot;, reader =&gt; {
+    // map the results here.
+});
+</code></pre><h2 id="33-database-transactions">3.3. Database Transactions</h2>
+<p>The connector also allows creation and usage of database transactions. Internally, the connector creates a transaction stack, and will set the transaction for all the commands being executed inside a given scope, so you should just need to worry about creating and disposing the transactions.</p>
+<pre><code class="lang-csharp">using(var transaction = connector.CreateTransaction())
+{
+    connector.ExecuteNonQuery(&quot;INSERT INTO [dbo].[Table] ([Value1], [Value2]) VALUES (1, 2)&quot;);
+    transaction.Commit();
+}
+</code></pre><p>Rolling back a transaction scope is also possible. You can do it either by executing the methods <code>transaction.Rollback()</code> or <code>await transaction.RollbackAsync()</code> or letting the transaction be disposed without an explicit commitment. By default, transactions will be rolled back at disposal or connection close if they were not committed. More info can be found <a href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/local-transactions">here</a>.</p>
+<h2 id="34-command-builder-factory">3.4. Command Builder Factory</h2>
+<p>Paradigm ORM provides a way to generate standard CRUD commands automatically, using mapping information. Instead of having to create <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> sentences, the ORM provides what we call Command Builders. There are 6 standard command builders:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ISelectOneCommandBuilder.html">ISelectOneCommandBuilder</a></td>
+<td>Creates a command that is used to execute a SELECT statement for one specific row. Expects the id values to retrieve the row.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ISelectCommandBuilder.html">ISelectCommandBuilder</a></td>
+<td>Creates a command that is used to execute a SELECT statement.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ILastInsertIdCommandBuilder.html">ILastInsertIdCommandBuilder</a></td>
+<td>Creates a command that is used to retrieve the last inserted id. The ORM allows batch operations, and therefore it needs a way to retrieve ids sequentially inside a batch.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.IInsertCommandBuilder.html">IInsertCommandBuilder</a></td>
+<td>Creates a command that is used to execute an INSERT statement.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.IUpdateCommandBuilder.html">IUpdateCommandBuilder</a></td>
+<td>Creates a command that is used to execute an UPDATE statement.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.IDeleteCommandBuilder.html">IDeleteCommandBuilder</a></td>
+<td>Creates a command that is used to execute a DELETE statement.</td>
+</tr>
+</tbody>
+</table>
+<p>These classes are used internally by the <code>DatabaseAccess</code> classes to handle CRUD operations, but they can be accessed by the user in case they are needed. The <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a> can be used to retrieve the command builder factory for that specific database using <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseConnector.html#MiracleDevs_ORM_Data_Database_IDatabaseConnector_GetCommandBuilderFactory">this method</a>:</p>
+<pre><code class="lang-csharp">
+var descriptor = new TableTypeDescriptor(typeof(Client));
+var factory = connector.GetCommandBuilderFactory();
+
+var selectOneCommandBuilder = factory.CreateSelectOneCommandBuilder(descriptor);
+var selectCommandBuilder = factory.CreateSelectCommandBuilder(descriptor);
+var insertCommandBuilder = factory.CreateInsertCommandBuilder(descriptor);
+var updateCommandBuilder = factory.CreateUpdateCommandBuilder(descriptor);
+var deleteCommandBuilder = factory.CreateDeleteCommandBuilder(descriptor);
+var lastInsertIdCommandBuilder = factory.CreateLastInsertIdCommandBuilder();
+</code></pre><p>If for some reason you need to use all the commands more than once, you can use <a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.CommandBuilderManager.html">CommandBuilderManager</a> which handles all the command builders for you.</p>
+<div class="TIP"><h5>Tip</h5><p>If you plan to use these objects in your implementation, have in mind that each command builder will create a command instance only when instantiated. If you need new commands each time, you&#39;ll have to dispose and create new builders. The command builders prevent additional creation and disposal of commands to avoid unnecessary garbage collection. When executing a command builder that requires parameters, the command builder itself will be in charge of setting the correct parameter values.</p>
+</div>
+<h2 id="35-schema-provider">3.5. Schema Provider</h2>
+<p>The connector also provides a way to retrieve the database schema. The schema can be retrieved partially or in full. Out of the box, the ORM allows you to get:</p>
+<ul>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html#MiracleDevs_ORM_Data_Database_Schema_ISchemaProvider_GetTables_System_String_System_String___">Tables</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html#MiracleDevs_ORM_Data_Database_Schema_ISchemaProvider_GetViews_System_String_System_String___">Views</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html#MiracleDevs_ORM_Data_Database_Schema_ISchemaProvider_GetStoredProcedures_System_String_System_String___">Stored Procedures</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html#MiracleDevs_ORM_Data_Database_Schema_ISchemaProvider_GetColumns_System_String_System_String_">Columns</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html#MiracleDevs_ORM_Data_Database_Schema_ISchemaProvider_GetConstraints_System_String_System_String_">Constraints</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html#MiracleDevs_ORM_Data_Database_Schema_ISchemaProvider_GetParameters_System_String_System_String_">Parameters</a></li>
+</ul>
+<p>If you need specific schema info, or other database objects like functions, you&#39;ll have to create your own queries. If multiple users request more schema retrieval options, we&#39;ll consider them for future releases.</p>
+<pre><code class="lang-csharp">const string databaseName = &quot;databaseName&quot;;
+var provider = connector.GetSchemaProvider();
+var tables = provider.GetTables(databaseName);
+var procedures = provider.GetStoredProcedures(databaseName);
+
+foreach(var table in tables)
+{
+    var columns = provider.GetColumns(databaseName, table.Name);
+    var constraints = provider.GetConstraints(databaseName, table.Name);
+}
+
+foreach(var procedure in procedures)
+{
+    var parameters = provider.GetParameters(databaseName, procedure.Name);
+}
+</code></pre><h2 id="36-command-format-provider">3.6. Command Format Provider</h2>
+<p>This helper class can be also retrieved from the <code>IDatabaseConnector</code> object, and provides a way to properly format strings like table names, column values. Its implementation can vary between databases.</p>
+<pre><code class="lang-csharp">var formatProvider = connector.GetCommandFormatProvider();
+
+var columnName = formatProvider.GetEscapedName(&quot;ColumnName&quot;);
+var separator = formatProvider.GetQuerySeparator();
+var stringValue = formatProvider.GetColumnValue(&quot;some string value&quot;, typeof(string));
+</code></pre><p>There are currently 3 methods available:</p>
+<p><strong><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ICommandFormatProvider.html#MiracleDevs_ORM_Data_CommandBuilders_ICommandFormatProvider_GetEscapedName_System_String_">GetEscapedName(string)</a></strong>: formats the object name with the proper enclosing characters. For Example:</p>
+<ul>
+<li>Sql Server: <code>[ColumnName]</code></li>
+<li>My Sql: <code>`ColumnName` </code></li>
+<li>Postgre Sql: <code>&quot;ColumnName&quot;</code></li>
+</ul>
+<p><strong><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ICommandFormatProvider.html#MiracleDevs_ORM_Data_CommandBuilders_ICommandFormatProvider_GetQuerySeparator">GetQuerySeparator()</a></strong>: returns the query separator string for the database. Currently all the databases use the same separator: <code>;</code>.</p>
+<p><strong><a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ICommandFormatProvider.html#MiracleDevs_ORM_Data_CommandBuilders_ICommandFormatProvider_GetColumnValue_System_Object_System_Type_">GetColumnValue(Object, Type)</a></strong>: Formats the column value with the proper enclosing type if any. For example:</p>
+<ul>
+<li>int: <code>4</code></li>
+<li>float: <code>3.45</code></li>
+<li>string: <code>&#39;some string value&#39;</code></li>
+<li>date: <code>&#39;03-12-14&#39;</code></li>
+</ul>
+<h2 id="37-db-type-to-net-type-converter">3.7. Db Type to .NET Type Converter</h2>
+<p>This class converts from DB types to .NET types and back. The DB type is expressed as a string type like <code>tinyint</code> or <code>varchar</code>.</p>
+<pre><code class="lang-csharp">var converter = connector.GetDbStringTypeConverter();
+
+var netType = converter.GetType(&quot;varchar&quot;, true);       // netType will be string.
+var dbType = convert.GetDbStringType(typeof(DateTime));  // dbType will be datetime.
+</code></pre><p>The converter also provides methods to the .NET type from schema objects like parameters or columns. If you need to retrieve the schema and get the proper .NET type, you can use both classes in conjunction:</p>
+<pre><code class="lang-csharp">var converter = connector.GetDbStringTypeConverter();
+var provider = connector.GetSchemaProvider();
+
+var tables = provider.GetTables(databaseName);
+
+foreach(var table in tables)
+{
+    var columns = provider.GetColumns(databaseName, table.Name);
+
+    foreach(var column in columns)
+    {
+        var columnType = converter.GetType(column);
+    }
+}
+</code></pre><h2 id="38-db-type-value-range-provider">3.8. Db Type Value Range Provider</h2>
+<p>This class provides [min, max] ranges for db types that have a fixed size, like int or date. Given a DB string type, the provider can return the minimum or maximum value. This class can be used to validate entities before sending them to the database.</p>
+<pre><code class="lang-csharp">// Sql Server connector
+var provider = connector.GetDbTypeValueRangeProvider();
+
+var min = provider.GetMinValue(&quot;int&quot;); // will return -2147483648
+var max = provider.GetMaxValue(&quot;int&quot;); // will return  2147483647
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-3 col-lg-offset-1" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/doc/articles/3.core/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <div class="container-fluid">
+          <!-- <span class="pull-right"><a href="#top">Back to top</a></span> -->
+          
+          <div class="footer-logo">
+            <a href="http://miracledevs.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" viewbox="0 0 160 31" height="31"><style>.md-logo-0{fill:#5DC4E9;} .md-logo-1{fill:#D2534C;} .md-logo-2{fill:#46B8AF;} .md-logo-3{fill:#52A7C7;} .md-logo-4{fill:#B64941;} .md-logo-5{fill:#3FA39C;} .md-logo-6{fill:#444444;}</style><path class="md-logo-0" d="M41.6 0L27.9 20.4l2.7 2L41.1 30c.2.2.5 0 .5-.2V0z"></path><path class="md-logo-1" d="M41.6 0L13.7 20.4l2.2 3.3 4.8 7.2c.1.1.2.1.2 0L40.7 1.4l.9-1.4z"></path><path class="md-logo-2" d="M41.6 0L12.8 9.4 0 0v29.8c0 .2.3.4.5.2L41.6 0z"></path><path class="md-logo-3" d="M27.9 20.4l2.7 2L41.6.6V0z"></path><path class="md-logo-4" d="M13.7 20.4l2.2 3.3L40.7 1.4l.9-1.4z"></path><path class="md-logo-5" d="M0 0v13.5l12.8-4.1z"></path><path class="md-logo-6" d="M55.5 22.2V7.9h3l4.2 9.5 3.8-9.5h3v14.3h-2.8v-8l-3.4 8.1h-1l-3.8-8.1v8.1h-3zM73.5 10.7c-.6 0-1-.2-1.3-.5-.3-.3-.4-.7-.4-1 0-.4.1-.7.4-1 .3-.3.7-.5 1.3-.5s1 .2 1.3.5c.3.3.4.7.4 1 0 .4-.1.7-.4 1-.3.4-.8.5-1.3.5zm-1.4 11.5V11.9h2.8v10.3h-2.8zM77.2 22.2V11.9h2.5l.1.9c.4-.4.8-.7 1.2-.9.4-.2.8-.2 1.2-.2.2 0 .5 0 .8.1.3.1.5.1.8.2l-.5 2.4c-.3-.1-.6-.2-.8-.3-.2-.1-.5-.1-.7-.1-.4 0-.8.1-1.1.3-.3.2-.6.4-.8.6v7.2h-2.7zM90.2 22.2l-.1-.8c-.3.3-.7.6-1.1.7-.5.2-1 .3-1.5.3s-.9-.1-1.3-.2-.8-.4-1.1-.6c-.3-.3-.6-.6-.8-1-.2-.4-.3-.9-.3-1.4 0-.5.1-1 .3-1.4.2-.4.5-.7.9-1 .4-.3.8-.5 1.2-.7.5-.2 1-.3 1.5-.4.4-.1.7-.1 1.2-.2.4 0 .8-.1 1.1-.1v-.3c0-.4-.1-.7-.4-1-.3-.3-.6-.4-1-.4-.2 0-.5.1-.9.2s-.7.4-1.1.7l-1.9-1.3.9-.9c.3-.2.7-.4 1.1-.5.4-.1.7-.2 1.1-.3.4 0 .7-.1 1-.1.6 0 1.1.1 1.6.2s.9.4 1.3.7c.4.3.6.7.8 1.2.2.5.3 1.1.3 1.8V22h-2.8zm-.2-4.8c-.3 0-.6 0-.9.1-.3 0-.6.1-.9.1-.6.1-1 .3-1.3.6s-.4.6-.4.9c0 .3.1.6.4.8.3.2.6.3 1.1.3.4 0 .7-.1 1-.2.3-.1.6-.3.9-.5v-2.1zM103.9 19.7c-.4.9-1 1.6-1.8 2.1-.7.4-1.6.7-2.6.7-.7 0-1.3-.1-1.9-.3-.6-.2-1.1-.6-1.6-1s-.8-1-1.1-1.7c-.3-.7-.4-1.4-.4-2.3 0-.9.1-1.7.4-2.4.3-.7.6-1.3 1.1-1.7.4-.5 1-.8 1.6-1 .6-.2 1.2-.3 1.8-.3.6 0 1.2.1 1.7.3s.9.4 1.3.7c.4.3.7.6.9 1 .2.4.4.7.5 1.1l-2.2 1.1c-.2-.7-.5-1.2-.9-1.4-.4-.3-.8-.4-1.2-.4-.3 0-.6.1-.8.2-.3.1-.5.3-.7.6-.2.3-.4.6-.5 1-.1.4-.2.9-.2 1.4 0 1 .2 1.7.7 2.3.4.5 1 .8 1.7.8.5 0 1-.1 1.3-.4.3-.3.6-.7.9-1.2l2 .8zM105.1 22.2V7.9h2.8v14.3h-2.8zM112.4 17.7c.1.9.3 1.5.8 1.9.5.4 1 .6 1.6.6.5 0 .9-.1 1.3-.3.4-.2.8-.6 1.2-1.2l2.1 1.3c-.6.9-1.3 1.5-2 1.9-.8.4-1.7.5-2.7.5-.7 0-1.3-.1-1.9-.3-.6-.2-1.2-.5-1.6-1-.5-.4-.8-1-1.1-1.7-.3-.7-.4-1.5-.4-2.4 0-.9.1-1.6.4-2.3.3-.7.6-1.2 1.1-1.7.5-.5 1-.8 1.6-1 .6-.2 1.3-.4 1.9-.4 1.4 0 2.6.5 3.5 1.5.9 1 1.3 2.5 1.4 4.6h-7.2zm4.2-1.9c-.1-.7-.3-1.2-.7-1.5-.4-.3-.8-.5-1.3-.5-.2 0-.5 0-.7.1-.2.1-.5.2-.7.4-.2.2-.4.4-.5.7-.1.3-.2.5-.3.9h4.2zM121.4 22.2V7.9h3.7c.6 0 1.1 0 1.7.1.6.1 1.2.3 1.7.5s1 .6 1.4.9c.4.4.8.8 1.1 1.4.3.5.5 1.1.7 1.8.2.7.3 1.4.3 2.2 0 1-.1 1.9-.3 2.7-.2.8-.5 1.5-1 2.1-.4.6-.9 1.1-1.4 1.5-.6.4-1.2.7-1.8.9-.3.1-.7.2-1.2.2-.4 0-.9.1-1.2.1h-3.7zm1.7-1.5h1.8c.3 0 .7 0 1.1-.1.4 0 .8-.1 1.1-.2.4-.2.8-.4 1.2-.7.4-.3.7-.7 1-1.1.3-.4.5-1 .7-1.6.2-.6.2-1.3.2-2.1 0-1.2-.2-2.2-.6-3-.4-.8-.9-1.3-1.6-1.8-.4-.3-.9-.5-1.5-.6-.6-.1-1.1-.2-1.6-.2h-1.8v11.4zM135.1 17c0 1.3.3 2.3.9 3 .6.7 1.4 1.1 2.5 1.1.6 0 1.2-.2 1.6-.5.4-.3.8-.7 1.1-1.2l1.1.7c-.4.6-.9 1.2-1.4 1.6-.6.4-1.4.6-2.4.6-.8 0-1.5-.1-2.1-.4-.6-.2-1.1-.6-1.6-1-.4-.4-.8-1-1-1.7-.2-.7-.4-1.4-.4-2.3 0-.8.1-1.5.3-2.2.2-.6.5-1.2.9-1.7s.9-.8 1.4-1.1c.6-.2 1.2-.4 1.9-.4.8 0 1.4.1 2 .4.6.3 1 .6 1.4 1.1.4.5.6 1 .8 1.7.2.6.3 1.4.3 2.1h-7.3zm5.5-1.3c0-.4-.1-.8-.3-1.2-.2-.3-.4-.6-.6-.8-.2-.2-.5-.4-.8-.5-.3-.1-.6-.2-.9-.2-.7 0-1.3.2-1.8.6-.5.4-.8 1.1-1 2h5.4zM146.6 22.2L142.8 12h1.8l3 8.3 3.1-8.3h1.7l-3.8 10.2h-2zM153.9 19.7c.2.5.6.8.9 1.1.4.2.9.4 1.5.4 1.4 0 2.1-.5 2.1-1.5 0-.3 0-.6-.1-.8-.1-.2-.2-.4-.4-.6-.2-.2-.5-.3-.8-.5-.3-.1-.7-.3-1.2-.5s-.9-.4-1.3-.5c-.4-.2-.6-.4-.9-.6-.2-.2-.4-.5-.5-.8-.1-.3-.2-.6-.2-1 0-.8.3-1.5.9-1.9.6-.5 1.4-.7 2.4-.7.8 0 1.5.1 2.1.4.6.3 1 .7 1.4 1.2l-1.2.9c-.3-.3-.6-.6-1-.9-.4-.2-.8-.3-1.3-.3-.6 0-1 .1-1.3.4-.3.2-.4.5-.4.9 0 .2 0 .4.1.6.1.2.2.3.4.4.2.1.5.3.8.4.3.1.7.3 1.2.5.9.3 1.7.7 2.1 1.2.5.5.7 1.2.7 2 0 .5-.1.9-.3 1.3-.2.4-.4.7-.8 1-.3.3-.7.5-1.1.6-.4.1-.9.2-1.5.2-1 0-1.8-.2-2.4-.6-.6-.4-1-.8-1.4-1.4l1.5-.9z"></path></svg>
+            </a>
+          </div>
+          <div>
+            <div>Powered by <strong><a href="http://miracledevs.com" target="_blank">MiracleDevs</a></strong> ©2017. Code licensed under the MIT License.</div>
+            <div> Documentation generated by DocFX.</div>
+          </div>
+        </div>
+      </div>    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NonQueryStoredProcedure&lt;TParameters&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NonQueryStoredProcedure&lt;TParameters&gt;
+   ">
+    <meta name="generator" content="docfx 2.27.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <meta name="theme-color" content="#28b693">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container-fluid hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container-fluid body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article grid-right clearfix">
+          <div class="col-md-9 col-lg-8">
+            <article class="content wrap" id="_content" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1">
+  
+  
+  <h1 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1" class="text-break">Class NonQueryStoredProcedure&lt;TParameters&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Provides the means to execute non query stored procedures.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html">StoredProcedureBase</a>&lt;TParameters&gt;</div>
+    <div class="level2"><span class="xref">NonQueryStoredProcedure&lt;TParameters&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Paradigm.ORM.Data.StoredProcedures.INonQueryStoredProcedure-1.html">INonQueryStoredProcedure</a>&lt;TParameters&gt;</div>
+    <div><a class="xref" href="Paradigm.ORM.Data.StoredProcedures.IRoutine.html">IRoutine</a></div>
+    <div><span class="xref">IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_ServiceProvider">StoredProcedureBase&lt;TParameters&gt;.ServiceProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_Connector">StoredProcedureBase&lt;TParameters&gt;.Connector</a>
+    </div>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_Command">StoredProcedureBase&lt;TParameters&gt;.Command</a>
+    </div>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_Dispose">StoredProcedureBase&lt;TParameters&gt;.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_SetParametersValue__0_">StoredProcedureBase&lt;TParameters&gt;.SetParametersValue(TParameters)</a>
+    </div>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_BeforeInitialize">StoredProcedureBase&lt;TParameters&gt;.BeforeInitialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_AfterInitialize">StoredProcedureBase&lt;TParameters&gt;.AfterInitialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html#Paradigm_ORM_Data_StoredProcedures_StoredProcedureBase_1_GetRoutineName">StoredProcedureBase&lt;TParameters&gt;.GetRoutineName()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.html">Paradigm.ORM.Data.StoredProcedures</a></h6>
+  <h6><strong>Assembly</strong>: Paradigm.ORM.Data.dll</h6>
+  <h5 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NonQueryStoredProcedure&lt;TParameters&gt; : StoredProcedureBase&lt;TParameters&gt;, INonQueryStoredProcedure&lt;TParameters&gt;, IRoutine, IDisposable</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TParameters</span></td>
+        <td><p>The type of the parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Instead of sending individual parameters to the procedure, the orm expects a  <see cref="!:TParameters"></see> type
+containing or referencing the mapping information, where individual parameters will be mapped to properties.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_IServiceProvider_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure%601.%23ctor(IServiceProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data/StoredProcedures/NonQueryStoredProcedure.cs/#L24">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.#ctor*"></a>
+  <h4 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_IServiceProvider_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.#ctor(IServiceProvider)">NonQueryStoredProcedure(IServiceProvider)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.html">NonQueryStoredProcedure&lt;TParameters&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NonQueryStoredProcedure(IServiceProvider serviceProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IServiceProvider</span></td>
+        <td><span class="parametername">serviceProvider</span></td>
+        <td><p>The service provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_IServiceProvider_Paradigm_ORM_Data_Database_IDatabaseConnector_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure%601.%23ctor(IServiceProvider%2CParadigm.ORM.Data.Database.IDatabaseConnector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data/StoredProcedures/NonQueryStoredProcedure.cs/#L41">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.#ctor*"></a>
+  <h4 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_IServiceProvider_Paradigm_ORM_Data_Database_IDatabaseConnector_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.#ctor(IServiceProvider,Paradigm.ORM.Data.Database.IDatabaseConnector)">NonQueryStoredProcedure(IServiceProvider, IDatabaseConnector)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.html">NonQueryStoredProcedure&lt;TParameters&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NonQueryStoredProcedure(IServiceProvider serviceProvider, IDatabaseConnector connector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IServiceProvider</span></td>
+        <td><span class="parametername">serviceProvider</span></td>
+        <td><p>The service provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a></td>
+        <td><span class="parametername">connector</span></td>
+        <td><p>The database connector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_Paradigm_ORM_Data_Database_IDatabaseConnector_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure%601.%23ctor(Paradigm.ORM.Data.Database.IDatabaseConnector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data/StoredProcedures/NonQueryStoredProcedure.cs/#L32">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.#ctor*"></a>
+  <h4 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1__ctor_Paradigm_ORM_Data_Database_IDatabaseConnector_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.#ctor(Paradigm.ORM.Data.Database.IDatabaseConnector)">NonQueryStoredProcedure(IDatabaseConnector)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.html">NonQueryStoredProcedure&lt;TParameters&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NonQueryStoredProcedure(IDatabaseConnector connector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a></td>
+        <td><span class="parametername">connector</span></td>
+        <td><p>The database connector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_ExecuteNonQuery__0_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure%601.ExecuteNonQuery(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data/StoredProcedures/NonQueryStoredProcedure.cs/#L56">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_ExecuteNonQuery_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.ExecuteNonQuery*"></a>
+  <h4 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_ExecuteNonQuery__0_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.ExecuteNonQuery(`0)">ExecuteNonQuery(TParameters)</h4>
+  <div class="markdown level1 summary"><p>Executes the stored procedure as a non query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ExecuteNonQuery(TParameters parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TParameters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>The parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Number of affected rows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_ExecuteNonQueryAsync__0_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure%601.ExecuteNonQueryAsync(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data/StoredProcedures/NonQueryStoredProcedure.Async.cs/#L16">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_ExecuteNonQueryAsync_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.ExecuteNonQueryAsync*"></a>
+  <h4 id="Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1_ExecuteNonQueryAsync__0_" data-uid="Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure`1.ExecuteNonQueryAsync(`0)">ExecuteNonQueryAsync(TParameters)</h4>
+  <div class="markdown level1 summary"><p>Executes the stored procedure as a non query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(TParameters parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TParameters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>The parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>Number of affected rows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.INonQueryStoredProcedure-1.html">INonQueryStoredProcedure&lt;TParameters&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.StoredProcedures.IRoutine.html">IRoutine</a>
+  </div>
+  <div>
+      <span class="xref">IDisposable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFails__1_System_Object_Action_System_String_">ObjectExtensions.ThrowIfFails&lt;TException&gt;(Object, Action, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFails__2_System_Object_Func___1__System_String_">ObjectExtensions.ThrowIfFails&lt;TException, TResult&gt;(Object, Func&lt;TResult&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFailsAsync__1_System_Object_Func_Task__System_String_">ObjectExtensions.ThrowIfFailsAsync&lt;TException&gt;(Object, Func&lt;Task&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFailsAsync__2_System_Object_Func_Task___1___System_String_">ObjectExtensions.ThrowIfFailsAsync&lt;TException, TResult&gt;(Object, Func&lt;Task&lt;TResult&gt;&gt;, String)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html">StoredProcedureBase</a>&lt;TParameters&gt;</div>
+      <div><a class="xref" href="Paradigm.ORM.Data.StoredProcedures.INonQueryStoredProcedure-1.html">INonQueryStoredProcedure</a>&lt;TParameters&gt;</div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-3 col-lg-offset-1" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_StoredProcedures_NonQueryStoredProcedure_1.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data/StoredProcedures/NonQueryStoredProcedure.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <div class="container-fluid">
+          <!-- <span class="pull-right"><a href="#top">Back to top</a></span> -->
+          
+          <div class="footer-logo">
+            <a href="http://miracledevs.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" viewbox="0 0 160 31" height="31"><style>.md-logo-0{fill:#5DC4E9;} .md-logo-1{fill:#D2534C;} .md-logo-2{fill:#46B8AF;} .md-logo-3{fill:#52A7C7;} .md-logo-4{fill:#B64941;} .md-logo-5{fill:#3FA39C;} .md-logo-6{fill:#444444;}</style><path class="md-logo-0" d="M41.6 0L27.9 20.4l2.7 2L41.1 30c.2.2.5 0 .5-.2V0z"></path><path class="md-logo-1" d="M41.6 0L13.7 20.4l2.2 3.3 4.8 7.2c.1.1.2.1.2 0L40.7 1.4l.9-1.4z"></path><path class="md-logo-2" d="M41.6 0L12.8 9.4 0 0v29.8c0 .2.3.4.5.2L41.6 0z"></path><path class="md-logo-3" d="M27.9 20.4l2.7 2L41.6.6V0z"></path><path class="md-logo-4" d="M13.7 20.4l2.2 3.3L40.7 1.4l.9-1.4z"></path><path class="md-logo-5" d="M0 0v13.5l12.8-4.1z"></path><path class="md-logo-6" d="M55.5 22.2V7.9h3l4.2 9.5 3.8-9.5h3v14.3h-2.8v-8l-3.4 8.1h-1l-3.8-8.1v8.1h-3zM73.5 10.7c-.6 0-1-.2-1.3-.5-.3-.3-.4-.7-.4-1 0-.4.1-.7.4-1 .3-.3.7-.5 1.3-.5s1 .2 1.3.5c.3.3.4.7.4 1 0 .4-.1.7-.4 1-.3.4-.8.5-1.3.5zm-1.4 11.5V11.9h2.8v10.3h-2.8zM77.2 22.2V11.9h2.5l.1.9c.4-.4.8-.7 1.2-.9.4-.2.8-.2 1.2-.2.2 0 .5 0 .8.1.3.1.5.1.8.2l-.5 2.4c-.3-.1-.6-.2-.8-.3-.2-.1-.5-.1-.7-.1-.4 0-.8.1-1.1.3-.3.2-.6.4-.8.6v7.2h-2.7zM90.2 22.2l-.1-.8c-.3.3-.7.6-1.1.7-.5.2-1 .3-1.5.3s-.9-.1-1.3-.2-.8-.4-1.1-.6c-.3-.3-.6-.6-.8-1-.2-.4-.3-.9-.3-1.4 0-.5.1-1 .3-1.4.2-.4.5-.7.9-1 .4-.3.8-.5 1.2-.7.5-.2 1-.3 1.5-.4.4-.1.7-.1 1.2-.2.4 0 .8-.1 1.1-.1v-.3c0-.4-.1-.7-.4-1-.3-.3-.6-.4-1-.4-.2 0-.5.1-.9.2s-.7.4-1.1.7l-1.9-1.3.9-.9c.3-.2.7-.4 1.1-.5.4-.1.7-.2 1.1-.3.4 0 .7-.1 1-.1.6 0 1.1.1 1.6.2s.9.4 1.3.7c.4.3.6.7.8 1.2.2.5.3 1.1.3 1.8V22h-2.8zm-.2-4.8c-.3 0-.6 0-.9.1-.3 0-.6.1-.9.1-.6.1-1 .3-1.3.6s-.4.6-.4.9c0 .3.1.6.4.8.3.2.6.3 1.1.3.4 0 .7-.1 1-.2.3-.1.6-.3.9-.5v-2.1zM103.9 19.7c-.4.9-1 1.6-1.8 2.1-.7.4-1.6.7-2.6.7-.7 0-1.3-.1-1.9-.3-.6-.2-1.1-.6-1.6-1s-.8-1-1.1-1.7c-.3-.7-.4-1.4-.4-2.3 0-.9.1-1.7.4-2.4.3-.7.6-1.3 1.1-1.7.4-.5 1-.8 1.6-1 .6-.2 1.2-.3 1.8-.3.6 0 1.2.1 1.7.3s.9.4 1.3.7c.4.3.7.6.9 1 .2.4.4.7.5 1.1l-2.2 1.1c-.2-.7-.5-1.2-.9-1.4-.4-.3-.8-.4-1.2-.4-.3 0-.6.1-.8.2-.3.1-.5.3-.7.6-.2.3-.4.6-.5 1-.1.4-.2.9-.2 1.4 0 1 .2 1.7.7 2.3.4.5 1 .8 1.7.8.5 0 1-.1 1.3-.4.3-.3.6-.7.9-1.2l2 .8zM105.1 22.2V7.9h2.8v14.3h-2.8zM112.4 17.7c.1.9.3 1.5.8 1.9.5.4 1 .6 1.6.6.5 0 .9-.1 1.3-.3.4-.2.8-.6 1.2-1.2l2.1 1.3c-.6.9-1.3 1.5-2 1.9-.8.4-1.7.5-2.7.5-.7 0-1.3-.1-1.9-.3-.6-.2-1.2-.5-1.6-1-.5-.4-.8-1-1.1-1.7-.3-.7-.4-1.5-.4-2.4 0-.9.1-1.6.4-2.3.3-.7.6-1.2 1.1-1.7.5-.5 1-.8 1.6-1 .6-.2 1.3-.4 1.9-.4 1.4 0 2.6.5 3.5 1.5.9 1 1.3 2.5 1.4 4.6h-7.2zm4.2-1.9c-.1-.7-.3-1.2-.7-1.5-.4-.3-.8-.5-1.3-.5-.2 0-.5 0-.7.1-.2.1-.5.2-.7.4-.2.2-.4.4-.5.7-.1.3-.2.5-.3.9h4.2zM121.4 22.2V7.9h3.7c.6 0 1.1 0 1.7.1.6.1 1.2.3 1.7.5s1 .6 1.4.9c.4.4.8.8 1.1 1.4.3.5.5 1.1.7 1.8.2.7.3 1.4.3 2.2 0 1-.1 1.9-.3 2.7-.2.8-.5 1.5-1 2.1-.4.6-.9 1.1-1.4 1.5-.6.4-1.2.7-1.8.9-.3.1-.7.2-1.2.2-.4 0-.9.1-1.2.1h-3.7zm1.7-1.5h1.8c.3 0 .7 0 1.1-.1.4 0 .8-.1 1.1-.2.4-.2.8-.4 1.2-.7.4-.3.7-.7 1-1.1.3-.4.5-1 .7-1.6.2-.6.2-1.3.2-2.1 0-1.2-.2-2.2-.6-3-.4-.8-.9-1.3-1.6-1.8-.4-.3-.9-.5-1.5-.6-.6-.1-1.1-.2-1.6-.2h-1.8v11.4zM135.1 17c0 1.3.3 2.3.9 3 .6.7 1.4 1.1 2.5 1.1.6 0 1.2-.2 1.6-.5.4-.3.8-.7 1.1-1.2l1.1.7c-.4.6-.9 1.2-1.4 1.6-.6.4-1.4.6-2.4.6-.8 0-1.5-.1-2.1-.4-.6-.2-1.1-.6-1.6-1-.4-.4-.8-1-1-1.7-.2-.7-.4-1.4-.4-2.3 0-.8.1-1.5.3-2.2.2-.6.5-1.2.9-1.7s.9-.8 1.4-1.1c.6-.2 1.2-.4 1.9-.4.8 0 1.4.1 2 .4.6.3 1 .6 1.4 1.1.4.5.6 1 .8 1.7.2.6.3 1.4.3 2.1h-7.3zm5.5-1.3c0-.4-.1-.8-.3-1.2-.2-.3-.4-.6-.6-.8-.2-.2-.5-.4-.8-.5-.3-.1-.6-.2-.9-.2-.7 0-1.3.2-1.8.6-.5.4-.8 1.1-1 2h5.4zM146.6 22.2L142.8 12h1.8l3 8.3 3.1-8.3h1.7l-3.8 10.2h-2zM153.9 19.7c.2.5.6.8.9 1.1.4.2.9.4 1.5.4 1.4 0 2.1-.5 2.1-1.5 0-.3 0-.6-.1-.8-.1-.2-.2-.4-.4-.6-.2-.2-.5-.3-.8-.5-.3-.1-.7-.3-1.2-.5s-.9-.4-1.3-.5c-.4-.2-.6-.4-.9-.6-.2-.2-.4-.5-.5-.8-.1-.3-.2-.6-.2-1 0-.8.3-1.5.9-1.9.6-.5 1.4-.7 2.4-.7.8 0 1.5.1 2.1.4.6.3 1 .7 1.4 1.2l-1.2.9c-.3-.3-.6-.6-1-.9-.4-.2-.8-.3-1.3-.3-.6 0-1 .1-1.3.4-.3.2-.4.5-.4.9 0 .2 0 .4.1.6.1.2.2.3.4.4.2.1.5.3.8.4.3.1.7.3 1.2.5.9.3 1.7.7 2.1 1.2.5.5.7 1.2.7 2 0 .5-.1.9-.3 1.3-.2.4-.4.7-.8 1-.3.3-.7.5-1.1.6-.4.1-.9.2-1.5.2-1 0-1.8-.2-2.4-.6-.6-.4-1-.8-1.4-1.4l1.5-.9z"></path></svg>
+            </a>
+          </div>
+          <div>
+            <div>Powered by <strong><a href="http://miracledevs.com" target="_blank">MiracleDevs</a></strong> ©2017. Code licensed under the MIT License.</div>
+            <div> Documentation generated by DocFX.</div>
+          </div>
+        </div>
+      </div>    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

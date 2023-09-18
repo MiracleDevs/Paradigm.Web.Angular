@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>4. Shared Components </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="4. Shared Components ">
+    <meta name="generator" content="docfx 2.27.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <meta name="theme-color" content="#28b693">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container-fluid hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container-fluid body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article grid-right clearfix">
+          <div class="col-md-9 col-lg-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="4-shared-components">4. Shared Components</h1>
+
+<p>In this document we&#39;ll go over a brief description of all shared objects in Paradigm ORM. Shared objects hold all the database-agnostic logic that&#39;s reused across implementations. This is the true heart of the ORM functionality, handling mappings and conceptual models.</p>
+<h2 id="41-attributes">4.1. Attributes</h2>
+<p>Paradigm ORM makes extensive use of attributes to provide mapping and navigation information. Instead of using external <code>xml</code> or <code>json</code> configuration, the mapping configuration is provided in the code itself using attributes and decorators.
+We&#39;ll summarize all the different attributes by type below.</p>
+<h3 id="411-table-attributes">4.1.1. Table Attributes</h3>
+<h4 id="paradigmormdataattributestableattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.TableAttribute.html">TableAttribute</a></h4>
+<p>Indicates that the class or interface will be mapped to a table or view. If the table and class names are the same, then the name can be ignored. You can also provide the schema and catalog for a given table.</p>
+<div class="NOTE"><h5>Note</h5><p>Not all databases allow multiple schemas or catalogs. In MySql the schema refers to the database. In Sql Server, the catalog refers to the database, and the schema to a group inside the database.</p>
+</div>
+<pre><code class="lang-csharp">[Table(&quot;client&quot;, Schema=&quot;mysql.test.database&quot;)]
+public interface IClientTable
+{
+
+}
+</code></pre><h4 id="paradigmormdataattributestabletypeattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.TableTypeAttribute.html">TableTypeAttribute</a></h4>
+<p>Indicates that the class will be mapped to a table or view, but the mapping information is provided by another type.</p>
+<pre><code class="lang-csharp">[TableType(typeof(IClientTable))]
+public class Client
+{
+
+}
+</code></pre><h3 id="412-column-attributes">4.1.2. Column Attributes</h3>
+<h4 id="paradigmormdataattributescolumnattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.ColumnAttribute.html">ColumnAttribute</a></h4>
+<p>Indicates that a property will be mapped to a table or view column. If the column and property names are the same, the name can be ignored. When working with <code>SQL Server</code>, the column type should be provided as well.</p>
+<pre><code class="lang-csharp">[Column(&quot;name&quot;, &quot;varchar&quot;)]
+public string Name { get; set; }
+</code></pre><h4 id="paradigmormdataattributesidentityattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.IdentityAttribute.html">IdentityAttribute</a></h4>
+<p>Indicates that the property will be mapped to an identity column. Identity columns are auto numeric, auto increment properties (SQL Server: <code>IDENTITY</code>, MySql: <code>AUTO_INCREMENT</code>, PostgreSql: <code>SERIAL</code>). Each database call them in different ways, and the implementation details may vary. The ORM just need to know if its responsible for the value, or can ignore it.</p>
+<pre><code class="lang-csharp">[Identity]
+public int Id { get; set; }
+</code></pre><h4 id="paradigmormdataattributesprimarykeyattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></h4>
+<p>Indicates that the column is part of the primary key.</p>
+<pre><code class="lang-csharp">[PrimaryKey]
+public int Id { get; set; }
+</code></pre><h4 id="paradigmormdataattributesforeignkeyattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.ForeignKeyAttribute.html">ForeignKeyAttribute</a></h4>
+<p>Indicates that the column is part of a foreign key to another table. This attribute is not necessary if you are planning to create the classes by hand. If you use the dbfirst tool, the tool will populate this information automatically. This data can later be used to provide better error handling, ex. when a foreign key is failing, etc.</p>
+<pre><code class="lang-csharp">[ForeignKey(&quot;FK_Address_Client&quot;, &quot;Address&quot;, &quot;ClientId&quot;, &quot;Client&quot;, &quot;Id&quot;)]
+public int ClientId { get; set; }
+</code></pre><h4 id="paradigmormdataattributesuniquekeyattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.UniqueKeyAttribute.html">UniqueKeyAttribute</a></h4>
+<p>Indicates that the column is part of a unique constraint. Like the <code>ForeignKeyAttribute</code> above, this attribute is not mandatory and will be automatically provided by the dbfirst tool.</p>
+<pre><code class="lang-csharp">[Unique(&quot;UX_Client_Name&quot;, &quot;name&quot;)]
+public string Name { get; set; }
+</code></pre><h4 id="paradigmormdataattributessizeattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.SizeAttribute.html">SizeAttribute</a></h4>
+<p>If the column is a sizeable type like <code>VARCHAR</code>, <code>BINARY</code>, etc, this attribute allows to provide the size for the column.</p>
+<pre><code class="lang-csharp">[Size(255)]
+public string Description { get; set; }
+</code></pre><h4 id="paradigmormdataattributesnumericattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NumericAttribute.html">NumericAttribute</a></h4>
+<p>If the column type is a numeric type, this attribute provides a description for the numeric scale and precision.</p>
+<pre><code class="lang-csharp">[Numeric(20,9)]
+public decimal Credit { get; set; }
+</code></pre><h4 id="paradigmormdataattributesrangeattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RangeAttribute.html">RangeAttribute</a></h4>
+<p>If the column type has a minimum and maximum value, this attribute provides the range values. This is helpful for numbers and dates. For example, each database handle date ranges differently.</p>
+<pre><code class="lang-csharp">[Range(&quot;1000-01-01T00:00:00.0000000&quot;, &quot;9999-12-31T23:59:59.0000000&quot;)]
+public DateTime CreationDate { get; set; }
+</code></pre><h4 id="paradigmormdataattributesnotnullableattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NotNullableAttribute.html">NotNullableAttribute</a></h4>
+<p>Indicates if the column does not allow null values.</p>
+<pre><code class="lang-csharp">[NotNullable]
+public DateTime CreationDate { get; set; }
+</code></pre><h4 id="paradigmormdataattributesnavigationattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NavigationAttribute.html">NavigationAttribute</a></h4>
+<p>The <code>NavigationAttribute</code> <strong>does not map</strong> to a column. It provides a way to indicate that the property references a relation to another entity, and should be taken into account when retrieving or storing data.</p>
+<pre><code class="lang-csharp">[Navigation(typeof(Address), &quot;Id&quot;, &quot;ClientId&quot;)]
+public List&lt;IAddress&gt; Addresses { get; set; }
+</code></pre><h3 id="413-routine-attributes">4.1.3. Routine Attributes</h3>
+<h4 id="paradigmormdataattributesroutineattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RoutineAttribute.html">RoutineAttribute</a></h4>
+<p>Indicates that the class or interface will be mapped to a stored procedure parameter object. If the stored procedure and class names are the same, the name can be ignored. You can also provide the schema and catalog of a given procedure.</p>
+<div class="NOTE"><h5>Note</h5><p>We used &quot;Routine&quot; instead of simply &quot;StoredProcedure&quot; because in the future we could map functions as well. Both functions and procedures are considered routines, so we let the doors open.</p>
+</div>
+<div class="NOTE"><h5>Note</h5><p>Not all databases allow multiple schemas or catalogs. In MySql the schema refers to the database. In Sql Server, the catalog refers to the database, and the schema to a group inside the database.</p>
+</div>
+<pre><code class="lang-csharp">[Routine(&quot;SearchClient&quot;, Schema=&quot;mysql.test.database&quot;)]
+public interface ISearchClientParameters
+{
+
+}
+</code></pre><h4 id="paradigmormdataattributesroutinetypeattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RoutineTypeAttribute.html">RoutineTypeAttribute</a></h4>
+<p>Indicates that the class will be mapped to a stored procedure, but the mapping information is provided by another type.</p>
+<pre><code class="lang-csharp">[RoutineType(typeof(ISearchClientParameters))]
+public class SearchClientParameters: ISearchClientParameters
+{
+
+}
+</code></pre><h4 id="paradigmormdataattributesroutineresultattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RoutineResultAttribute.html">RoutineResultAttribute</a></h4>
+<p>Indicates the result types of a stored procedure. This value is not mandatory, and will be automatically provided by the dbfirst tool.</p>
+<pre><code class="lang-csharp">[RoutineResult(&quot;Client&quot;))]
+public class SearchClientParameters: ISearchClientParameters
+{
+
+}
+</code></pre><h3 id="414-parameter-attributes">4.1.4. Parameter Attributes</h3>
+<h4 id="paradigmormdataattributesparameterattribute"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.ParameterAttribute.html">ParameterAttribute</a></h4>
+<p>Indicates that the property will be mapped to a routine parameter. If the parameter and property names are equals, the name can be ignored.</p>
+<pre><code class="lang-csharp">[Parameter(&quot;name&quot;, IsInput = true)]
+public string Name { get; set; }
+</code></pre><h4 id="paradigmormdataattributessizeattribute-1"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.SizeAttribute.html">SizeAttribute</a></h4>
+<p>If the parameter is a sizeable type like <code>VARCHAR</code>, <code>BINARY</code>, etc, this attribute allows to provide the size for the parameter.</p>
+<pre><code class="lang-csharp">[Size(50)]
+public string ClientName { get; set; }
+</code></pre><h4 id="paradigmormdataattributesnumericattribute-1"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NumericAttribute.html">NumericAttribute</a></h4>
+<p>If the parameter type is a numeric type, this attribute provides a description for the numeric scale and precision.</p>
+<pre><code class="lang-csharp">[Numeric(20,9)]
+public decimal Credit { get; set; }
+</code></pre><h4 id="paradigmormdataattributesrangeattribute-1"><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RangeAttribute.html">RangeAttribute</a></h4>
+<p>If the parameter type has a minimum and maximum value, this attribute allows to provide the range values. This is helpful for numbers and dates. For example, each database handle date ranges differently.</p>
+<pre><code class="lang-csharp">[Range(&quot;1000-01-01T00:00:00.0000000&quot;, &quot;9999-12-31T23:59:59.0000000&quot;)]
+public DateTime DateFrom { get; set; }
+</code></pre><h2 id="42-descriptors">4.2. Descriptors</h2>
+<p>Descriptors are classes that handle and provide mapping information between various database object and .NET types. Descriptors are used by many of the ORM core classes like mappers, database access objects, query and stored procedure executers, etc. Below we give a brief overview of each one.</p>
+<h3 id="421-table-type-descriptors">4.2.1. Table-Type descriptors</h3>
+<p>The Table-Type descriptor class describes how a table maps to a .NET type and vice versa. The table type descriptor extracts all the mapping information and produces a structure that is known by the rest of the ORM. The Table-type descriptor in particular has a complex mapping discovery algorithm that we describe below:</p>
+<ol>
+<li>If the class is decorated with the <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.TableAttribute.html">TableAttribute</a>, then search for all the properties (own and inherited) and look for attributes in them, or other parent classes or interfaces. Basically, you can decorate mapped properties in any of the hierarchy classes or interfaces.</li>
+<li>If the class is decorated with the <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.TableTypeAttribute.html">TableTypeAttribute</a>, the ORM will behave the same as (1) but will also include the referenced type, its base classes and interfaces. In the case of (2), the relation will be made by name. If a property in the referenced type or one of its parents is called like the object property, it will inherit the mapping decorators.</li>
+</ol>
+<p>This allow us to mix up different and interesting ways, and map properties across entities, leveraging OOP best practices. You&#39;ll find more examples in the <a href="../../tutorials/1.gettingstarted/index.html#net-mappings">tutorial section</a>.</p>
+<p>Creating a new table-type descriptor is pretty straightforward. From it you can extract information about mapped properties, primary keys, identity columns and more:</p>
+<pre><code class="lang-csharp">var descriptor = new TableTypeDescriptor(typeof(Client));
+
+// retrieves all the properties with mapping decorations.
+var allProperties = descriptor.MappingProperties;
+
+// retrieves the properties without the identity column if any.
+var simpleProperties = descriptor.SimpleProperties;
+
+// retrieves only the properties that map to a primary key column.
+var primaryKeyProperties = descriptor.PrimaryKeys;
+
+// retrieves the identity property if any.
+var identityProperty = descriptor.IdentityProperty;
+
+// retrieves the navigation properties.
+var navigationProperties = descriptor.NavigationProperties;
+
+// gets the .net type name.
+var typeName = descriptor.TypeName;
+
+// gets the table name.
+var tableName = descriptor.TableName;
+
+// gets the catalog name if any.
+var catalogName = descriptor.CatalogName;
+
+// gets the schema name if any.
+var schemaName = descriptor.SchemaName;
+</code></pre><p>Having the property mappings, a table-type descriptor also can tell if an object is new or not. Always assuming that the default values won&#39;t represent a valid Id.
+This method also works with multiple primary keys. If at least one of the primaries does not have value (or is equal to its default value) it will be considered as new:</p>
+<pre><code class="lang-csharp">var descriptor = new TableTypeDescriptor(typeof(Client));
+var newClient = new Client();
+
+if (descriptor.IsNew(newClient))
+{
+    System.Console.WriteLine(&quot;The client is new.&quot;);
+}
+</code></pre><h3 id="422-custom-type-descriptors">4.2.2. Custom-Type descriptors</h3>
+<p>In some cases, you just need to map a result from a custom query, and you don&#39;t need the complex mapping rules, or event the table type; you just need the column mapping. For this purpose the <a class="xref" href="../../api/Paradigm.ORM.Data.Descriptors.CustomTypeDescriptor.html">CustomTypeDescriptor</a> allows to have only column mappings. This type is used by the <a class="xref" href="../../api/Paradigm.ORM.Data.Querying.CustomQuery-1.html">CustomQuery&lt;TResultType&gt;</a> to handle the result set. Also, mappers accepts both the custom-type and table-type mappings.</p>
+<pre><code class="lang-csharp">var descriptor = new CustomTypeDescriptor(typeof(Client));
+
+// retrieves all the properties with mapping decorations.
+var properties = descriptor.MappingProperties;
+</code></pre><h3 id="423-column-property-descriptors">4.2.3. Column-Property descriptors</h3>
+<p>The column-property descriptor class describes how a column is mapped to a property and vice versa. Only table-type and custom-type descriptors can create column property descriptors.</p>
+<p>With the column-property information, the ORM knows how to manage primary keys, identity columns, value types, etc.</p>
+<pre><code class="lang-csharp">var descriptor = new CustomTypeDescriptor(typeof(Client));
+var propertyDescriptor = descriptor.IdentityProperty;
+
+// retrieves the property name.
+var propertyName = propertyDescriptor.PropertyName;
+
+// retrieves the column name.
+var columnName = propertyDescriptor.ColumnName;
+
+// retrieves the property .net type.
+var propertyType = propertyDescriptor.PropertyType;
+
+// if the property type is nullable, returns the generic argument.
+var notNullableType = propertyDescriptor.NotNullablePropertyType;
+
+// retrieves the db type.
+var dataType = propertyDescriptor.dataType;
+
+// retrieves the dbtype maximum size.
+var maxSize = propertyDescriptor.MaxSize;
+
+// retrieves the numeric precision.
+var precision = propertyDescriptor.Precision;
+
+// retrieves the numeric scale.
+var scale = propertyDescriptor.Scale;
+
+// indicates if the column is the identity of the table.
+var isIdentity = propertyDescriptor.IsIdentity;
+
+// indicates if the column is one of the primary keys.
+var isPrimaryKey = propertyDescriptor.IsPrimaryKey;
+
+// indicates if the column is part of a foreign key.
+var isForeignKey = propertyDescriptor.IsForeignKey;
+
+// indicates if the column is part of a unique key.
+var isUniqueKey = propertyDescriptor.IsUniqueKey;
+</code></pre><h3 id="424-navigation-descriptors">4.2.4. Navigation descriptors</h3>
+<p>The navigation-property descriptor class describes how a property from one entity is connected to another entity by either a 1-to-1 or 1-to-many relationship. This is helpful when working with complex entities and domain aggregates. Only a table-type descriptor can create navigation descriptors.</p>
+<p>Navigation descriptors are used extensively inside <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html">DatabaseAccess</a> and <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.NavigationDatabaseAccess.html">NavigationDatabaseAccess</a> to handle the relationships when selecting, inserting, updating and deleting entities. If you want these relationships to be automatically handled by the system, try using the <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html">DatabaseAccess</a> class.</p>
+<pre><code class="lang-csharp">var descriptor = new CustomTypeDescriptor(typeof(Client));
+var navigationDescriptor = descriptor.NavigationDescriptors.First();
+
+// Gets the name of the property decorated with the navigation information.
+var propertyName = navigationDescriptor.PropertyName;
+
+// Gets the type of the property decorated with the navigation information.
+var propertyType = navigationDescriptor.PropertyType;
+
+// Gets the table type descriptor for the source type.
+var fromDescriptor = navigationDescriptor.FromDescriptor;
+
+// Gets the table type descriptor for the referenced type.
+var toDescriptor = navigationDescriptor.ToDescriptor;
+
+// Gets the navigation attributes.
+var navigationAttributes = navigationDescriptor.NavigationAttributes;
+
+// Gets the navigation key descriptors.
+var navigationKeyDescriptors = navigationDescriptor.NavigationKeyDescriptors;
+
+// Gets a value indicating whether this instance is the aggregate root on the navigation.
+var isAggregateRoot = navigationDescriptor.IsAggregateRoot;
+</code></pre><div class="IMPORTANT"><h5>Important</h5><p>The property <code>IsAggregateRoot</code> doesn&#39;t mean that the &quot;from&quot; entity is the aggregate root of a hierarchy of domain objects. This value describes the entity &quot;from&quot; priority in this current relationship.</p>
+</div>
+<h3 id="425-routine-type-descriptors">4.2.5. Routine-Type descriptors</h3>
+<p>The routine-type descriptor class describes how a stored procedure maps to a .net type and vice versa. Stored procedures will be mapped as a type that we call &quot;parameters&quot;.</p>
+<div class="NOTE"><h5>Note</h5><p>A parameter object is a collection of all the stored procedure parameters mapped to properties. When calling stored procedures, you can use these parameter objects to execute them using the proper classes.</p>
+</div>
+<p>The routine-type descriptor works exactly like the table-type descriptor. You have two different attributes to map, and the logic behind the parameter acquisition works in similar way, searching in base classes and interfaces, or referenced types.
+For more information on how stored procedures are mapped, go to the <a href="../../tutorials/1.gettingstarted/index.html#stored-procedures">tutorial section</a>.</p>
+<h3 id="426-parameter-property-descriptors">4.2.6. Parameter-Property descriptors</h3>
+<p>The parameter-property descriptor class describes how a stored procedure parameter maps to a property. Only the routine-type descriptor can create parameter-property descriptors. These descriptors are similar to column-property with some small differences. Some of the mapping attributes can be used with parameters as well. See the attribute section.</p>
+<h2 id="43-database-reader-mappers">4.3. Database Reader Mappers</h2>
+<p>The database reader mappers are in charge of mapping from a database result to one or more class instances.</p>
+<p>When performing reading operations with either a select or a stored procedure, the ORM will provide a <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseReader.html">IDatabaseReader</a> instance. This object works as a reading cursor. Instead of manually processing all the results, mappers take the table-type or custom-type descriptor, and map the results automatically.</p>
+<pre><code class="lang-csharp">var mapper = new DatabaseReaderMapper(typeof(Client));
+
+var clients = connector.ExecuteReader(&quot;SELECT * FROM Client&quot;, reader =&gt; mapper.Map(reader));
+</code></pre><p>As we can see in the example above, first we need to create a mapper for a given type (the type needs to be mapped), and then we execute a <code>SELECT</code> reader operation and pass the resulting <a class="xref" href="../../api/Paradigm.ORM.Data.Database.IDatabaseReader.html">IDatabaseReader</a> to the mapper. The mapper will return a collection of clients.</p>
+<p>When working with DbFirst, the tool will create typed mappers, and will override the protected <code>MapRow</code> method to avoid the use of reflection, and to map line by line. The DbFirst tool knows the object structure, and can optimize the mapping process.</p>
+<pre><code class="lang-csharp">    public interface IAddressTypeDatabaseReaderMapper
+        : IDatabaseReaderMapper&lt;AddressType&gt;
+    {
+    }
+
+    public class AddressTypeDatabaseReaderMapper
+        : DatabaseReaderMapper&lt;AddressType&gt;,
+          IAddressTypeDatabaseReaderMapper
+    {
+        #region Protected Methods
+
+        protected override object MapRow(IDatabaseReader reader)
+        {
+            var entity = new AddressType();
+
+            entity.Id = reader.GetInt32(0);
+
+            entity.Name =  reader.IsDBNull(1)
+                ? default(string)
+                : reader.GetString(1);
+
+            entity.Code =  reader.IsDBNull(2)
+                ? default(string)
+                : reader.GetString(2);
+
+           entity.Description =  reader.IsDBNull(3)
+                ? default(string)
+                : reader.GetString(3);
+
+            return entity;
+        }
+
+        protected override async Address&lt;object&gt; MapRowAsync(IDatabaseReader reader)
+        {
+            var entity = new AddressType();
+
+            entity.Id = reader.GetInt32(0);
+
+            entity.Name = await reader.IsDBNullAsync(1)
+                ? default(string)
+                : reader.GetString(1);
+
+            entity.Code = await reader.IsDBNullAsync(2)
+                ? default(string)
+                : reader.GetString(2);
+
+            entity.Description = await reader.IsDBNullAsync(3)
+                ? default(string)
+                : reader.GetString(3);
+
+            return entity;
+        }
+
+        #endregion
+    }
+}
+</code></pre><p>In this example we can see how the DbFirst generates a proper typed mapper for the entity AddressType. First of all, the system generates a mapper interface, and then a mapper implementation. For the implementation, it overrides the methods <code>MapRow</code> and <code>MapRowAsync</code>. This will provide a little performance boost on entities with several fields, instead of mapping with reflection, boxing and un-boxing values.</p>
+<p>The DbFirst tool also provide a summary file with all the registrations needed both for mapping and DI. If we take a look to that file, we can see the following lines:</p>
+<pre><code class="lang-csharp">builder.Register&lt;ITaskTypeDatabaseReaderMapper, TaskTypeDatabaseReaderMapper&gt;();
+builder.Register&lt;IDatabaseReaderMapper&lt;TaskType&gt;, TaskTypeDatabaseReaderMapper&gt;();
+</code></pre><p>In the first line we can see that is registering the interface and the implementation of the previous example. But in the second line it is registering a generic interface <code>IDatabaseReaderMapper&lt;TaskType&gt;</code> for the same implementation. This is important: while this line may not make much sense now, it&#39;s a key aspect of Paradigm ORM. The inner workings of the ORM doesn&#39;t know your concrete interface or class, but can ask the service provider for a <code>IDatabaseReaderMapper&lt;TEntity&gt;</code> for a given entity. If the service provider does not respond with a proper mapper, the system will create a regular <a class="xref" href="../../api/Paradigm.ORM.Data.Mappers.IDatabaseReaderMapper.html">IDatabaseReaderMapper</a> instead. If you want the ORM to use your faster mappers, you have to register them under this generic type definition.</p>
+<div class="NOTE"><h5>Note</h5><p>All the ORM classes are prepared to work with dependency injection and most of them expect a <code>IServiceProvider</code> reference in one of their constructors.</p>
+</div>
+<h2 id="44-database-access">4.4. Database Access</h2>
+<p>The database access object provides a way to create, read, update and delete entities (CRUD). If you are familiar with Entity Framework, database access is similar to a DbContext. There are some key differences though. The database access object handles one entity in particular, and all its navigation relationships to other entities. When creating a database access object, a .NET type or a table-type descriptor needs to be provided. The database access object does not need any type of model or context to work: a table-type descriptor is enough to allow these objects to create all the commands, and create navigation database objects for each one of the navigation properties.</p>
+<p>See:</p>
+<ul>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.IDatabaseAccess.html">IDatabaseAccess</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html">DatabaseAccess</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.IDatabaseAccess-1.html">IDatabaseAccess&lt;TEntity&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.DatabaseAccess-1.html">DatabaseAccess&lt;TEntity&gt;</a></li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>In these documents we explain all the different classes that make up the ORM, but the <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html">DatabaseAccess</a> is the most important class to understand. It holds all the logic to work domain and relational models.</p>
+</div>
+<p>Let&#39;s see how to create and use a Database Access object.</p>
+<p><strong>Creating a new instance</strong></p>
+<pre><code class="lang-csharp">using(var databaseAccess = new DatabaseAccess&lt;Client&gt;(connector))
+{
+}
+</code></pre><p><strong>Inserting a new clients</strong></p>
+<pre><code class="lang-csharp">databaseAccess.Insert(clients);
+</code></pre><p><strong>Reading clients</strong></p>
+<pre><code class="lang-csharp">var clients = databaseObject.Select();
+</code></pre><p><strong>Reading some of the clients</strong></p>
+<pre><code class="lang-csharp">var clients = databaseObject.Select($&quot;`{nameof(Client.Name)}` LIKE &#39;%{value}&#39;&quot;);
+</code></pre><p><strong>Updating clients</strong></p>
+<pre><code class="lang-csharp">databaseAccess.Update(clients);
+</code></pre><p><strong>Deleting clients</strong></p>
+<pre><code class="lang-csharp">databaseAccess.Delete(clients);
+</code></pre><p>All operations are straightforward enough to use and understand. This being said, there are some implementation details to discuss. First of all, the database access object differs from a DbContext in the sense that the database object does not try to mimic a Unit of Work. In other words, when you execute the <code>INSERT</code>, <code>UPDATE</code> or <code>DELETE</code>, the action will be immediately executed on the database. If you want to emulate the functionality of entity framework and its <a href="https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=vs.113).aspx">SaveChanges</a>, you could use a transaction scope as detailed above.</p>
+<p>Another important fact about the database object is the batch capability. The <code>INSERT</code>, <code>UPDATE</code> and <code>DELETE</code> methods can be called for a single entity, or for many. Whenever possible you should actually try and calling it for multiple entities, as database access object batch all the operations and save roundtrips to the database ultimately enhancing performance.</p>
+<p>When working with DbFirst, the tool will create a concrete interface and implementation for a specific type, like we saw in the previous point with the mappers. Database access object can work with dependency injection as well.
+Let&#39;s take a look to the auto-generated code:</p>
+<pre><code class="lang-csharp">public partial interface IClientDatabaseAccess : IDatabaseAccess&lt;Client&gt;
+{
+    #region Properties
+
+    IAddressDatabaseAccess AddressDatabaseAccess { get; }
+
+    IProjectDatabaseAccess ProjectDatabaseAccess { get; }
+
+    #endregion
+}
+
+public partial class ClientDatabaseAccess : DatabaseAccess&lt;Client&gt;, IClientDatabaseAccess
+{
+    #region Properties
+
+    public IAddressDatabaseAccess AddressDatabaseAccess { get; private set; }
+
+    public IProjectDatabaseAccess ProjectDatabaseAccess { get; private set; }
+
+    #endregion
+
+    #region Constructor
+
+    public ClientDatabaseAccess(IServiceProvider provider) : base(provider)
+    {
+    }
+
+    #endregion
+
+    #region Protected Methods
+
+    protected override void AfterInitialize()
+    {
+        base.AfterInitialize();
+
+        this.AddressDatabaseAccess = this.NavigationDatabaseAccesses.FirstOrDefault(x =&gt; x.NavigationPropertyDescriptor.PropertyName == nameof(Client.Address))?.DatabaseAccess as IAddressDatabaseAccess;
+
+        if (this.AddressDatabaseAccess == null)
+            throw new Exception(&quot;ClientDatabaseAccess couldn&#39;t retrieve a reference to AddressDatabaseAccess.&quot;);
+
+        this.ProjectDatabaseAccess = this.NavigationDatabaseAccesses.FirstOrDefault(x =&gt; x.NavigationPropertyDescriptor.PropertyName == nameof(Client.Projects))?.DatabaseAccess as IProjectDatabaseAccess;
+
+        if (this.ProjectDatabaseAccess == null)
+            throw new Exception(&quot;ClientDatabaseAccess couldn&#39;t retrieve a reference to ProjectDatabaseAccess.&quot;);
+
+    }
+
+    #endregion
+}
+</code></pre><p>Like we saw with mappers, the DbFirst tool creates the interface and the implementation for us. Both are concrete, related to one specific type. The DbFirst also knows the navigation relationships of a given type and will save a reference to the related database access object in case it&#39;s needed. Also, like all the other auto-generated files, both the interface and the class are declared as partials just in case you need to add custom logic to the object. Be mindful to add that logic somewhere else as these partial classes will be overridden every time the DBFirst tool is run.
+The DbFirst tool also generates a summary file with all the registrations, as we saw before. Let&#39;s take a look to this specific registration:</p>
+<pre><code class="lang-csharp">builder.Register&lt;IClientDatabaseAccess, ClientDatabaseAccess&gt;();
+builder.Register&lt;IDatabaseAccess&lt;Client&gt;, ClientDatabaseAccess&gt;();
+</code></pre><p>Again, it&#39;s registering the concrete interface, and the generic interface for type <code>Client</code> to the concrete class. The logic is the same as with mappers. Whenever the ORM needs a database access object for a given type, will ask for <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.IDatabaseAccess-1.html">IDatabaseAccess&lt;TEntity&gt;</a> where TEntity is <code>Client</code>. So it&#39;s important that both are registered. If not, the ORM will utilize the base <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html">DatabaseAccess</a> instead.</p>
+<h2 id="45-queries">4.5. Queries</h2>
+<p>The ORM provides a way to easily execute <code>SELECT</code> queries from known types.
+There are two query types:</p>
+<ul>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Querying.Query-1.html">Query&lt;TResultType&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.Querying.CustomQuery-1.html">CustomQuery&lt;TResultType&gt;</a></li>
+</ul>
+<p>The main difference between both, is how they manage the <code>SELECT</code> command inside.</p>
+<h3 id="451-standard-query">4.5.1. Standard Query</h3>
+<p>The standard query object, utilizes a <a class="xref" href="../../api/Paradigm.ORM.Data.Descriptors.ITableTypeDescriptor.html">ITableTypeDescriptor</a> and a  <a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ISelectCommandBuilder.html">ISelectCommandBuilder</a> to create a standard <code>SELECT</code> query. The execution methods allows the user to pass a custom <code>WHERE</code> clause, but the content of the select can not be altered in any way. Also, all the properties of an object will be retrieved.
+So, as a brief summary:</p>
+<ul>
+<li>Creates the <code>SELECT</code> statement automatically.</li>
+<li>All the mapped properties are selected.</li>
+<li>Can receive a custom <code>WHERE</code> clause on each execution.</li>
+<li>Does not retrieve navigation entities, only the main entity.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-csharp">using(var query = new Query&lt;Client&gt;(connector))
+{
+    var clients = query.Execute();
+}
+</code></pre><p>The standard query is a good match when you have to return a table or view that you already mapped. The query object is currently being used by the <a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html">ISchemaProvider</a> to select the tables, views and stored procedures.</p>
+<h3 id="452-custom-query">4.5.2. Custom Query</h3>
+<p>The custom query object, uses a <a class="xref" href="../../api/Paradigm.ORM.Data.Descriptors.ICustomTypeDescriptor.html">ICustomTypeDescriptor</a> to know how to map a result, but won&#39;t create the <code>SELECT</code> statement. The user must provide the <code>SELECT</code> body without a <code>WHERE</code> clause.</p>
+<ul>
+<li>Does not creates the <code>SELECT</code> statement automatically, expects the user to provide it.</li>
+<li>All the mapped properties are selected.</li>
+<li>Can receive a custom <code>WHERE</code> clause on each execution.</li>
+<li>Does not retrieve navigation entities, only the main entity.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-csharp">using(var query = new CustomQuery&lt;Client&gt;(connector, &quot;SELECT * FROM `client`&quot;))
+{
+    var clients = query.Execute();
+}
+</code></pre><p>The custom query can be used when the <code>SELECT</code> requires more logic than only listing columns, for example using a <code>CASE WHEN</code> or call a function. The custom query object is currently being used by the <a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html">ISchemaProvider</a> to select the columns, constraints and parameters.</p>
+<h2 id="46-stored-procedures">4.6. Stored Procedures</h2>
+<p>The ORM provides a way to execute stored procedures out of the box. There are 3 types of stored procedures, depending on how they&#39;ll be executed: Reader, Scalar and Non Query. All the types share the same approach to execute, with some minor differences.</p>
+<p>Before showing each type of stored procedure, we&#39;ll describe how the ORM handles the procedures. For the ORM, a stored procedure is made of at least two objects: The procedure parameters object, and the procedure caller.
+The procedure parameter object is a POCO object (plain old csharp object) containing all the stored procedure parameters, mapped to properties.</p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-csharp">[Routine(&quot;SearchClients&quot;)]
+public class SearchClientsParameters
+{
+    [Parameter]
+    public string ClientName { get; set; }
+
+    [Parameter]
+    public string Address { get; set; }
+
+    [Parameter]
+    public decimal CreditFrom { get; set; }
+
+    [Parameter]
+    public decimal CreditTo { get; set; }
+}
+</code></pre><div class="IMPORTANT"><h5>Important</h5><p>The <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RoutineAttribute.html">RoutineAttribute</a> is mandatory for the caller to know what stored procedure to execute. The parameters object also supports the <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RoutineTypeAttribute.html">RoutineTypeAttribute</a>, to separate the mapping from the object itself. The same rules we saw on TableTypeDescriptors apply for RoutineTypeDescriptors.</p>
+</div>
+<p>The idea behind the stored procedure parameters object is to pass all the parameters at once, instead of passing each one individually. This can also come in handy if the stored procedure firm changes: you just need to add or remove parameters. Instead of having to change all the layers from the client to the data access layer, you just alter one object and call it a day.</p>
+<p>As we mentioned before, there are two type of objects, the parameters and the callers. The ORM provides 3 different callers, one for each type of stored procedures. Each one is explained in detail below.</p>
+<h3 id="461-reader">4.6.1. Reader</h3>
+<p>A reader procedures returns a reading cursor to the database, and retrieves one or more results. The ORM supports up to 8 different result sets from a reading operation. If your stored procedure returns more results, you can extend and create your own callers.</p>
+<p>See:</p>
+<ul>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-2.html">ReaderStoredProcedure&lt;TParameters, TResult&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-3.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-4.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-5.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-6.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-7.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-8.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6, TResult7&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-9.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6, TResult7, TResult8&gt;</a></li>
+</ul>
+<p>When executing stored procedures with more than one result, the caller will return a tuple of lists, where each tuple item is one of the results.</p>
+<pre><code class="lang-csharp">var caller = new ReaderStoredProcedure&lt;SearchClientsParameters, Client, ClientAdditionalInformation, Address&gt;(connector);
+var results = caller.Execute(parameters);
+</code></pre><h3 id="462-scalar">4.6.2. Scalar</h3>
+<p>A scalar procedure returns a scalar value as a result. They are similar to reader procedures, but have less parameters and possibilities:</p>
+<p>See: <a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ScalarStoredProcedure-2.html">ScalarStoredProcedure&lt;TParameters, TResult&gt;</a></p>
+<pre><code class="lang-csharp">var caller = new ScalarStoredProcedure&lt;GetClientsCount, int&gt;(connector);
+var clientsCount = caller.Execute(parameters);
+</code></pre><h3 id="463-non-query">4.6.3. Non Query</h3>
+<p>A non query procedure does not returns any type of result. The non query procedures are perfect to execute operations on the database that don&#39;t need to inform back to the application. They are faster as well because there is no need to open a reading cursor to the database.</p>
+<p>See: <a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.html">NonQueryStoredProcedure&lt;TParameters&gt;</a></p>
+<pre><code class="lang-csharp">var caller = new NonQueryStoredProcedure&lt;AfterSaveClient&gt;(connector);
+caller.Execute(parameters);
+</code></pre><h2 id="47-batch">4.7. Batch</h2>
+<p>As we saw in <a href="#44-database-access">4.5</a> the database access object will try to batch operations to avoid unnecessary roundtrips. Internally, each database access object will use an instance of <a class="xref" href="../../api/Paradigm.ORM.Data.Batching.BatchManager.html">BatchManager</a>. The batch manager, as the name implies, manage one or more batches. Either because you explicitly told the manager to add a new batch, or because the manager realized the batch reached its maximum, there can be multiple batches to execute.</p>
+<p>A batch manager contains one or more @Paradigm.ORM.Data.Batching.CommandBatch which in time contains one or more <a class="xref" href="../../api/Paradigm.ORM.Data.Batching.CommandBatchStep.html">CommandBatchStep</a>. Each time you add a new command to be executed by the batch manager, the manager will try to add the command to the current command batch, if its full, it will create a new one to add the command.</p>
+<p>But adding up commands is not the only thing a batch manager does. It also provides a way to react to the results of a batch execution either at a command level, or at a batch level. When adding new commands or asking for a new batch, you can pass a callback action to be called after the execution.</p>
+<pre><code class="lang-csharp">var batchManager = new BatchManager(connector);
+
+batchManager.Add(new CommandBatchStep(command1));
+batchManager.Add(new CommandBatchStep(command2, reader =&gt; /* do something here */));
+
+batchManager.AddNewBatch(() =&gt; /* do something after the first batch executed */);
+
+batchManager.Add(new CommandBatchStep(command3, reader =&gt; /* do something here */));
+
+batchManager.Execute();
+</code></pre><p>So, in this example, the batch manager will run two batches, one made of <code>command1</code> and <code>command2</code>, and then another batch made of <code>command3</code>.
+The manager will execute the batches in order. After executing the first batch, will see if their commands have a callback, and will call the action method passing the reader as parameter. Once the callback has been executed, the batch will move the reading cursor to the next result.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-3 col-lg-offset-1" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/doc/articles/4.shared/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <div class="container-fluid">
+          <!-- <span class="pull-right"><a href="#top">Back to top</a></span> -->
+          
+          <div class="footer-logo">
+            <a href="http://miracledevs.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" viewbox="0 0 160 31" height="31"><style>.md-logo-0{fill:#5DC4E9;} .md-logo-1{fill:#D2534C;} .md-logo-2{fill:#46B8AF;} .md-logo-3{fill:#52A7C7;} .md-logo-4{fill:#B64941;} .md-logo-5{fill:#3FA39C;} .md-logo-6{fill:#444444;}</style><path class="md-logo-0" d="M41.6 0L27.9 20.4l2.7 2L41.1 30c.2.2.5 0 .5-.2V0z"></path><path class="md-logo-1" d="M41.6 0L13.7 20.4l2.2 3.3 4.8 7.2c.1.1.2.1.2 0L40.7 1.4l.9-1.4z"></path><path class="md-logo-2" d="M41.6 0L12.8 9.4 0 0v29.8c0 .2.3.4.5.2L41.6 0z"></path><path class="md-logo-3" d="M27.9 20.4l2.7 2L41.6.6V0z"></path><path class="md-logo-4" d="M13.7 20.4l2.2 3.3L40.7 1.4l.9-1.4z"></path><path class="md-logo-5" d="M0 0v13.5l12.8-4.1z"></path><path class="md-logo-6" d="M55.5 22.2V7.9h3l4.2 9.5 3.8-9.5h3v14.3h-2.8v-8l-3.4 8.1h-1l-3.8-8.1v8.1h-3zM73.5 10.7c-.6 0-1-.2-1.3-.5-.3-.3-.4-.7-.4-1 0-.4.1-.7.4-1 .3-.3.7-.5 1.3-.5s1 .2 1.3.5c.3.3.4.7.4 1 0 .4-.1.7-.4 1-.3.4-.8.5-1.3.5zm-1.4 11.5V11.9h2.8v10.3h-2.8zM77.2 22.2V11.9h2.5l.1.9c.4-.4.8-.7 1.2-.9.4-.2.8-.2 1.2-.2.2 0 .5 0 .8.1.3.1.5.1.8.2l-.5 2.4c-.3-.1-.6-.2-.8-.3-.2-.1-.5-.1-.7-.1-.4 0-.8.1-1.1.3-.3.2-.6.4-.8.6v7.2h-2.7zM90.2 22.2l-.1-.8c-.3.3-.7.6-1.1.7-.5.2-1 .3-1.5.3s-.9-.1-1.3-.2-.8-.4-1.1-.6c-.3-.3-.6-.6-.8-1-.2-.4-.3-.9-.3-1.4 0-.5.1-1 .3-1.4.2-.4.5-.7.9-1 .4-.3.8-.5 1.2-.7.5-.2 1-.3 1.5-.4.4-.1.7-.1 1.2-.2.4 0 .8-.1 1.1-.1v-.3c0-.4-.1-.7-.4-1-.3-.3-.6-.4-1-.4-.2 0-.5.1-.9.2s-.7.4-1.1.7l-1.9-1.3.9-.9c.3-.2.7-.4 1.1-.5.4-.1.7-.2 1.1-.3.4 0 .7-.1 1-.1.6 0 1.1.1 1.6.2s.9.4 1.3.7c.4.3.6.7.8 1.2.2.5.3 1.1.3 1.8V22h-2.8zm-.2-4.8c-.3 0-.6 0-.9.1-.3 0-.6.1-.9.1-.6.1-1 .3-1.3.6s-.4.6-.4.9c0 .3.1.6.4.8.3.2.6.3 1.1.3.4 0 .7-.1 1-.2.3-.1.6-.3.9-.5v-2.1zM103.9 19.7c-.4.9-1 1.6-1.8 2.1-.7.4-1.6.7-2.6.7-.7 0-1.3-.1-1.9-.3-.6-.2-1.1-.6-1.6-1s-.8-1-1.1-1.7c-.3-.7-.4-1.4-.4-2.3 0-.9.1-1.7.4-2.4.3-.7.6-1.3 1.1-1.7.4-.5 1-.8 1.6-1 .6-.2 1.2-.3 1.8-.3.6 0 1.2.1 1.7.3s.9.4 1.3.7c.4.3.7.6.9 1 .2.4.4.7.5 1.1l-2.2 1.1c-.2-.7-.5-1.2-.9-1.4-.4-.3-.8-.4-1.2-.4-.3 0-.6.1-.8.2-.3.1-.5.3-.7.6-.2.3-.4.6-.5 1-.1.4-.2.9-.2 1.4 0 1 .2 1.7.7 2.3.4.5 1 .8 1.7.8.5 0 1-.1 1.3-.4.3-.3.6-.7.9-1.2l2 .8zM105.1 22.2V7.9h2.8v14.3h-2.8zM112.4 17.7c.1.9.3 1.5.8 1.9.5.4 1 .6 1.6.6.5 0 .9-.1 1.3-.3.4-.2.8-.6 1.2-1.2l2.1 1.3c-.6.9-1.3 1.5-2 1.9-.8.4-1.7.5-2.7.5-.7 0-1.3-.1-1.9-.3-.6-.2-1.2-.5-1.6-1-.5-.4-.8-1-1.1-1.7-.3-.7-.4-1.5-.4-2.4 0-.9.1-1.6.4-2.3.3-.7.6-1.2 1.1-1.7.5-.5 1-.8 1.6-1 .6-.2 1.3-.4 1.9-.4 1.4 0 2.6.5 3.5 1.5.9 1 1.3 2.5 1.4 4.6h-7.2zm4.2-1.9c-.1-.7-.3-1.2-.7-1.5-.4-.3-.8-.5-1.3-.5-.2 0-.5 0-.7.1-.2.1-.5.2-.7.4-.2.2-.4.4-.5.7-.1.3-.2.5-.3.9h4.2zM121.4 22.2V7.9h3.7c.6 0 1.1 0 1.7.1.6.1 1.2.3 1.7.5s1 .6 1.4.9c.4.4.8.8 1.1 1.4.3.5.5 1.1.7 1.8.2.7.3 1.4.3 2.2 0 1-.1 1.9-.3 2.7-.2.8-.5 1.5-1 2.1-.4.6-.9 1.1-1.4 1.5-.6.4-1.2.7-1.8.9-.3.1-.7.2-1.2.2-.4 0-.9.1-1.2.1h-3.7zm1.7-1.5h1.8c.3 0 .7 0 1.1-.1.4 0 .8-.1 1.1-.2.4-.2.8-.4 1.2-.7.4-.3.7-.7 1-1.1.3-.4.5-1 .7-1.6.2-.6.2-1.3.2-2.1 0-1.2-.2-2.2-.6-3-.4-.8-.9-1.3-1.6-1.8-.4-.3-.9-.5-1.5-.6-.6-.1-1.1-.2-1.6-.2h-1.8v11.4zM135.1 17c0 1.3.3 2.3.9 3 .6.7 1.4 1.1 2.5 1.1.6 0 1.2-.2 1.6-.5.4-.3.8-.7 1.1-1.2l1.1.7c-.4.6-.9 1.2-1.4 1.6-.6.4-1.4.6-2.4.6-.8 0-1.5-.1-2.1-.4-.6-.2-1.1-.6-1.6-1-.4-.4-.8-1-1-1.7-.2-.7-.4-1.4-.4-2.3 0-.8.1-1.5.3-2.2.2-.6.5-1.2.9-1.7s.9-.8 1.4-1.1c.6-.2 1.2-.4 1.9-.4.8 0 1.4.1 2 .4.6.3 1 .6 1.4 1.1.4.5.6 1 .8 1.7.2.6.3 1.4.3 2.1h-7.3zm5.5-1.3c0-.4-.1-.8-.3-1.2-.2-.3-.4-.6-.6-.8-.2-.2-.5-.4-.8-.5-.3-.1-.6-.2-.9-.2-.7 0-1.3.2-1.8.6-.5.4-.8 1.1-1 2h5.4zM146.6 22.2L142.8 12h1.8l3 8.3 3.1-8.3h1.7l-3.8 10.2h-2zM153.9 19.7c.2.5.6.8.9 1.1.4.2.9.4 1.5.4 1.4 0 2.1-.5 2.1-1.5 0-.3 0-.6-.1-.8-.1-.2-.2-.4-.4-.6-.2-.2-.5-.3-.8-.5-.3-.1-.7-.3-1.2-.5s-.9-.4-1.3-.5c-.4-.2-.6-.4-.9-.6-.2-.2-.4-.5-.5-.8-.1-.3-.2-.6-.2-1 0-.8.3-1.5.9-1.9.6-.5 1.4-.7 2.4-.7.8 0 1.5.1 2.1.4.6.3 1 .7 1.4 1.2l-1.2.9c-.3-.3-.6-.6-1-.9-.4-.2-.8-.3-1.3-.3-.6 0-1 .1-1.3.4-.3.2-.4.5-.4.9 0 .2 0 .4.1.6.1.2.2.3.4.4.2.1.5.3.8.4.3.1.7.3 1.2.5.9.3 1.7.7 2.1 1.2.5.5.7 1.2.7 2 0 .5-.1.9-.3 1.3-.2.4-.4.7-.8 1-.3.3-.7.5-1.1.6-.4.1-.9.2-1.5.2-1 0-1.8-.2-2.4-.6-.6-.4-1-.8-1.4-1.4l1.5-.9z"></path></svg>
+            </a>
+          </div>
+          <div>
+            <div>Powered by <strong><a href="http://miracledevs.com" target="_blank">MiracleDevs</a></strong> ©2017. Code licensed under the MIT License.</div>
+            <div> Documentation generated by DocFX.</div>
+          </div>
+        </div>
+      </div>    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

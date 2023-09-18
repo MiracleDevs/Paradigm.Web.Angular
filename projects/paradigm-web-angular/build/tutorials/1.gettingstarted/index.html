@@ -1,0 +1,673 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Getting Started </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Getting Started ">
+    <meta name="generator" content="docfx 2.27.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <meta name="theme-color" content="#28b693">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container-fluid hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container-fluid body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article grid-right clearfix">
+          <div class="col-md-9 col-lg-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<p>In this document we&#39;ll go over a basic overview of the ORM, how to use it, configure it and access the database. First we&#39;ll see how to do it manually, so you can understand how the ORM works, and later we&#39;ll show how to use the <a href="../../articles/5.dbfirst/index.html">DbFirst</a> tool and the Code Generator to scaffold all the code for you.</p>
+<h1 id="existing-database">Existing Database</h1>
+<p>Let&#39;s start and use an existing database. We distribute Paradigm ORM with a DbFirst tool that will assist you with the process, but we think pointing out the manual process first will help you understand how all the pieces click together.</p>
+<h2 id="database-structure">Database Structure</h2>
+<p>For this example we&#39;ll use 3 tables: </p>
+<ul>
+<li>Client </li>
+<li>Client Additional Information</li>
+<li><p>Address </p>
+<p>This is just an explanatory structure, and by no means should be taken as an optimal database model. We basically want a client entity with a list of addresses, and an optional information table.</p>
+</li>
+</ul>
+<p align="center">
+    <img src="../../images/orm-tutorial-01-database.png">
+</p>
+
+<pre><code class="lang-SQL">/* CLIENT TABLE */
+CREATE TABLE IF NOT EXISTS `testdb`.`client` (
+    `Id`                                INT NOT NULL AUTO_INCREMENT,
+    `ClientAdditionalInformationId`     INT NOT NULL,
+    `Name`                              NVARCHAR(200) NOT NULL,
+    `ContactName`                       NVARCHAR(200),
+    `ContactEmail`                      NVARCHAR(200),
+    `ContactPhone`                      NVARCHAR(200) NULL,   
+    `Notes`                             TEXT,   
+    `Active`                            BOOLEAN NOT NULL,
+    CONSTRAINT `PK_Client`              PRIMARY KEY (`Id` ASC),
+    CONSTRAINT `UX_Client_Name`         UNIQUE (`Name`),
+    CONSTRAINT `FK_Client_ClientAdditionalInformation` 
+       FOREIGN KEY (`ClientAdditionalInformationId`) 
+       REFERENCES `clientadditionalinformation` (`Id`),
+)  ENGINE=INNODB;
+
+
+/* CLIENT ADDITIONAL INFO TABLE */
+CREATE TABLE IF NOT EXISTS `testdb`.`clientadditionalinformation` (
+    `Id`                    INT NOT NULL AUTO_INCREMENT,
+    `CarrierId`             INT NOT NULL,
+    `PaymentMethodId`       INT NOT NULL,
+    `Credit`                DECIMAL(20, 9) NOT NULL DEFAULT 0,  
+    CONSTRAINT `PK_ClientAdditionalInformation` PRIMARY KEY (`Id` ASC),  
+    CONSTRAINT `FK_ClientAdditionalInformation_CarrierId` 
+       FOREIGN KEY (`CarrierId`) REFERENCES `carrier` (`Id`),
+    CONSTRAINT `FK_ClientAdditionalInformation_PaymentMethod` 
+       FOREIGN KEY (`PaymentMethodId`)  REFERENCES `paymentmethod` (`Id`)
+)  ENGINE=INNODB;
+
+
+/* ADDRESS TABLE */
+CREATE TABLE IF NOT EXISTS `testdb`.`address` (
+    `Id`                    INT AUTO_INCREMENT NOT NULL,
+    `ClientId`              INT NOT NULL,
+    `Address1`              NVARCHAR(200) NOT NULL,
+    `Address2`              NVARCHAR(200) NULL, 
+    `City`                  NVARCHAR(200) NOT NULL,
+    `State`                 NVARCHAR(200) NULL,
+    `Country`               NVARCHAR(200) NULL, 
+    `Notes`                 TEXT NULL,
+    CONSTRAINT `PK_Address`             PRIMARY KEY (`Id` ASC),
+    CONSTRAINT `FK_Address_ClientId`    FOREIGN KEY (`ClientId`)            
+                                        REFERENCES `client` (`Id`)
+)  ENGINE=INNODB;
+</code></pre><h2 id="net-mappings">.NET Mappings</h2>
+<p>The first step we need to take in order to retrieve data from the database, is determining how the table will be mapped to a .NET type. Paradigm ORM already provides a group of attributes for that purpose, and we&#39;re gonna decorate our classes with them.
+There are two ways to provide these mappings: either by decorating the class itself, or by decorating another class or interface. In the second case, we&#39;ll need to also decorate the class that we will use with the reference to the other class (where the mapping is). If this doesn&#39;t make sense now, it will surely do as we go over the examples.   </p>
+<h3 id="mapping-the-class">Mapping the class</h3>
+<p>We&#39;ll use the <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.TableAttribute.html">TableAttribute</a> to indicate that the classes will be mapped to specific database tables. </p>
+<div class="TIP"><h5>Tip</h5><p>If your database allows catalogs and schemas, and you want to separate distinct sectors of your app using different schemas, you can also provide them as parameters.</p>
+</div>
+<div class="TIP"><h5>Tip</h5><p>If the table and class name are equals, including upper and lower case characters, then the name parameter is not mandatory. You can just leave the [Table] attribute empty. This is ideal when working with SQL Server and you don&#39;t plan to use different schemas.</p>
+</div>
+<p>For columns, we have various attributes we can use to provide information about the mapping:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.ColumnAttribute.html">ColumnAttribute</a></td>
+<td>Indicates that the property will be mapped to a table or view column. If the column and property names are equal, the name can be ignored. When working with <code>SQL Server</code>, the column type should be provided as well.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.IdentityAttribute.html">IdentityAttribute</a></td>
+<td>Indicates that the property will be mapped to an identity column. Identity columns are auto numeric, auto increment properties (SQL Server: <code>IDENTITY</code>, MySql: <code>AUTO_INCREMENT</code>, PostgreSql: <code>SERIAL</code>). Each database refers to them in different ways, and the implementation details may vary. The ORM just need to know if it&#39;s responsible for the value, or can ignore it.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></td>
+<td>Indicates that the column is part of the primary key.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.ForeignKeyAttribute.html">ForeignKeyAttribute</a></td>
+<td>Indicates that the column is part of a foreign key to another table.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.UniqueKeyAttribute.html">UniqueKeyAttribute</a></td>
+<td>Indicates that the column is part of a unique constraint.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.SizeAttribute.html">SizeAttribute</a></td>
+<td>If the column is a sizeable type like <code>VARCHAR</code>, <code>BINARY</code>, etc, this attribute allows to provide the size for the column.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NumericAttribute.html">NumericAttribute</a></td>
+<td>If the column type is a numeric type, this attribute provides a description for the numeric scale and precision.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RangeAttribute.html">RangeAttribute</a></td>
+<td>If the column type has a minimum and maximum value, this attribute allows to provide the range values. This is helpful for numbers and dates. For example, each database handle date ranges differently.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NotNullableAttribute.html">NotNullableAttribute</a></td>
+<td>Indicates if the column does not allows null values.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NavigationAttribute.html">NavigationAttribute</a></td>
+<td>The <code>NavigationAttribute</code> <strong>does not map</strong> to a column. It provides a way to indicate that the property references a relation to another entity, and should be taken in account when retrieving or storing data.</td>
+</tr>
+</tbody>
+</table>
+<p> Ok, so let&#39;s go back to the client example we saw earlier. The client model should have two navigation relationships:</p>
+<ul>
+<li>Addresses                    (1-Many)</li>
+<li><p>ClientAdditionalInformation  (1-1)</p>
+<p>These properties will be called navigation properties from now on, and will be used to navigate between the aggregate root and the other entities.</p>
+</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Paradigm ORM was designed with a DDD (Domain-Driven Design) in mind, even if purposefully not built to be perfect or include every scenario possible. Having this in mind, when working with data models the main entity in the domain hierarchy will be called the <a href="https://martinfowler.com/bliki/DDD_Aggregate.html">aggregate root</a>. </p>
+</div>
+ <p align="center">
+    <img src="../../images/orm-tutorial-01-classes.png">
+</p>
+
+<pre><code class="lang-csharp">[Table(&quot;client&quot;)]
+public class Client
+{
+    #region Properties
+
+    [Column(Type = &quot;int&quot;), Identity, NotNullable, PrimaryKey]
+    public int Id { get; set; }
+
+    [Column(Type = &quot;int&quot;), NotNullable]
+    public int ClientAdditionalInformationId { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), NotNullable, Size(200)]
+    public string Name { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    public string ContactName { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    public string ContactEmail { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    public string ContactPhone { get; set; }
+
+    [Column(Type = &quot;text&quot;), Size(65535)]
+    public string Notes { get; set; }
+
+    [Column(Type = &quot;boolean&quot;), NotNullable]
+    public bool Active { get; set; }
+
+    [Navigation(typeof(ClientAdditionalInformation), &quot;ClientAdditionalInformationId&quot;, &quot;Id&quot;)]
+    public ClientAdditionalInformation ClientAdditionalInformation { get; set; }
+
+    [Navigation(typeof(Address), &quot;Id&quot;, &quot;ClientId&quot;)]
+    public List&lt;Address&gt; Addresses { get; set; }
+
+    #endregion
+}
+
+[Table(&quot;clientadditionalinformation&quot;)]
+public class ClientAdditionalInformation
+{
+    #region Properties
+
+    [Column(Type = &quot;int&quot;), Identity, NotNullable, PrimaryKey]
+    public int Id { get; set; }
+
+    [Column(Type = &quot;int&quot;), NotNullable]
+    public int CarrierId { get; set; }
+
+    [Column(Type = &quot;int&quot;), NotNullable]
+    public int PaymentMethodId { get; set; }
+
+    [Column(Type = &quot;decimal&quot;), NotNullable, Numeric(20, 9)]
+    public decimal Credit { get; set; }
+
+    #endregion
+}
+
+[Table(&quot;address&quot;)]
+public class Address
+{
+    #region Properties
+
+    [Column(Type = &quot;int&quot;), Identity, NotNullable, PrimaryKey]
+    public int Id { get; set; }
+
+    [Column(Type = &quot;int&quot;), NotNullable]
+    public int ClientId { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), NotNullable, Size(200)]
+    public string Address1 { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    public string Address2 { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), NotNullable, Size(200)]
+    public string City { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    public string State { get; set; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    public string Country { get; set; }
+
+    #endregion
+}
+</code></pre><p>Ok, so here we managed to create three classes, and successfully map the classes to the the table schema. It&#39;s a pretty straightforward process: it wasn&#39;t that painful, was it?
+But if you are a little bit like us, you&#39;re probably wondering whether having all that information in your domain may bring problems down the road, while also visually contaminating your code.
+Well, we feel you: we also believe having all that mapping information inside your domain classes, DTOs and entities is not the greatest idea, even moreso if you are deploying a medium to large sized system.
+So, as we mentioned at the begining of this section, we included a way for you to separate mapping information from your classes, leaving your domain clean, beautiful and database agnostic (at least in theory).
+To do this, we can use the <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.TableTypeAttribute.html">TableTypeAttribute</a> to reference another type, and tell the ORM to extract mapping information from that other class or interface. If we decide to do that, our sample code would end up looking something like this:</p>
+<pre><code class="lang-csharp">[Table(&quot;client&quot;)]
+public interface IClientTable
+{
+    #region Properties
+
+    [Column(Type = &quot;int&quot;), Identity, NotNullable, PrimaryKey]
+    int Id { get; }
+
+    [Column(Type = &quot;int&quot;), NotNullable]
+    int ClientAdditionalInformationId { get; }
+
+    [Column(Type = &quot;varchar&quot;), NotNullable, Size(200)]
+    string Name { get; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    string ContactName { get; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    string ContactEmail { get; }
+
+    [Column(Type = &quot;varchar&quot;), Size(200)]
+    string ContactPhone { get; }
+
+    [Column(Type = &quot;text&quot;), Size(65535)]
+    string Notes { get; }
+
+    [Column(Type = &quot;boolean&quot;), NotNullable]
+    bool Active { get; }
+
+    #endregion
+}
+
+...
+
+[TableType(typeof(IClientTable))]
+public class Client: IClientTable
+{
+    #region Properties
+
+    public int Id { get; set; }
+
+    public int ClientAdditionalInformationId { get; set; }
+
+    public string Name { get; set; }
+
+    public string ContactName { get; set; }
+
+    public string ContactEmail { get; set; }
+
+    public string ContactPhone { get; set; }
+
+    public string Notes { get; set; }
+
+    public bool Active { get; set; }
+
+    [Navigation(typeof(ClientAdditionalInformation), &quot;ClientAdditionalInformationId&quot;, &quot;Id&quot;)]
+    public ClientAdditionalInformation ClientAdditionalInformation { get; set; }
+
+    [Navigation(typeof(Address), &quot;Id&quot;, &quot;ClientId&quot;)]
+    public List&lt;Address&gt; Addresses { get; set; }
+
+    #endregion
+}
+</code></pre><div class="NOTE"><h5>Note</h5><p>You probably noticed that we didn&#39;t declare the navigation properties and the <code>[Navigation]</code> attributes in the table interface; we did that in the domain class. This seems to go against what we are talking here, but there is a design reason behind that decision. If you ever want to place your table interfaces in a different assembly, you&#39;ll need to reference them from the domain assembly, and that will produce a circular dependency. Also, the navigation mapping is not a database mapping per se, but part of the domain design, so it&#39;s ok that the table doesn&#39;t know how a specific domain will be mapped.</p>
+</div>
+<div class="IMPORTANT"><h5>Important</h5><p>There are multiple ways you can place your mapping attributes. You can place them on base classes, base interfaces, referenced classes, referenced base classes and interfaces, etc. And also, you can spread them between multiple classes. While that&#39;s not recommended, it can come in handy if you need to translate from a relational structure to a class hierarchy. See tip below for further details on this situation.</p>
+</div>
+<div class="TIP"><h5>Tip</h5><p>Suppose all your main transaction tables require audit information like <code>CreationUserId</code>, <code>CreationDate</code>, <code>ModificationUserId</code> and <code>ModificationDate</code>. Instead of mapping those fields on every single class, you could create an interface IAuditable with those fields, and their respective mappings. You can later implement that interface in each transaction class. Or even better, do a base abstract class with all the information, and just extend the functionalty. This is possible due to the flexibility of <a class="xref" href="../../api/Paradigm.ORM.Data.Descriptors.TableTypeDescriptor.html">TableTypeDescriptor</a> to create the mapping model, and allow complex hierarchy trees that will later be translated to the relational logic of the database.</p>
+</div>
+<div class="TIP"><h5>Tip</h5><p>The ORM allows navigation properties with multiple primary / foreign keys. If you need to navigate using more than just one primary / foreign key, you need to add more 
+<code>NavigationAttribute</code>to the navigation property:</p>
+<pre><code class="lang-csharp">[Navigation(typeof(SomeClass), &quot;FirstSourceKey&quot;, &quot;FirstReferencedKey&quot;)]
+[Navigation(typeof(SomeClass), &quot;SecondSourceKey&quot;, &quot;SecondReferencedKey&quot;)]
+public SomeClass NavigationProperty { get; get; }
+
+
+</code></pre></div>
+<p>Now that we have some entities to work with, we can move on to retrieving and storing data.</p>
+<h2 id="accessing-the-database">Accessing the database</h2>
+<p>The first thing we need to do next is to establish a connection to the database. We&#39;ll utilize the <a href="../../articles/3.core/index.html#31-database-connectors">DatabaseConnector</a> to establish the connection.</p>
+<pre><code class="lang-csharp">using(var connector = new MySqlDatabaseConnector(&quot;Server=localhost;Database=testdb;Uid=root;Password=*****&quot;)
+{
+    // opens the connection.
+    connector.Open();
+
+    // [Query execution code here]
+
+    // closes the connection.
+    connector.Close();
+}
+</code></pre><p>Ok, so we have the mappings, and an open connection to the database: we are ready to run some queries! All the ORM infrastructure is built around the <code>System.Data</code> interfaces, so we&#39;re going to start with ado-like queries, and move on to more advanced, and easier, queries using other aspects of Paradigm ORM. </p>
+<pre><code class="lang-csharp">// creates a new database command.
+using(var command = connector.CreateCommand())
+{
+    // configures the command type and query.
+    command.CommandText = &quot;SELECT * FROM Client&quot;;
+    command.CommandType = CommandType.Text;
+
+    // opens a reading operation to the database.
+    using(var reader = command.ExecuteReader())
+    {
+        // maps the results from database to the known type.
+        var clients = new DatabaseReaderMapper&lt;Client&gt;().Map(reader);
+    }
+}
+</code></pre><p>The code above is mostly self explanatory. It opens a connection to the database, creates a command, and then executes the query. Using the <code>@Paradigm.ORM.Data.Mappers.Generic.DatabaseReaderMapper</code> class, it gets the resulting clients.
+In the example above we went to the database and back, but it&#39;s still a good deal of code just to get data: it should be easier and cleaner to do such a standard task. We have several other ways to write this down, but internally this is basically what is happening behind the scenes.
+We&#39;ll see how to translate the code to make it easier to read. There are many ways to do this: the one you choose will depend on the situation and what you need to accomplish.</p>
+<h3 id="using-extension-methods">Using Extension Methods</h3>
+<p>The interface <code>@Paradigm.ORM.Data.Database.IDatabaseConnector</code> has various extension methods available for all the different database types that can help you with repetitive tasks, and is also in charge of disposing every disposable object for you. In particular, we want to use the executing extensions:</p>
+<ul>
+<li>ExecuteReader</li>
+<li>ExecuteNonQuery</li>
+<li>ExecuteScalar</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>All the methods enumerated above have <code>sync</code> and <code>async</code> implementations. In general, most of the methods are both <code>sync</code> and <code>async</code>. We strongly recommend to use <code>async</code> whenever you can.</p>
+</div>
+<pre><code class="lang-csharp">connector.ExecuteReader(&quot;SELECT * FROM Client&quot;, reader =&gt; 
+{
+    var clients = new DatabaseReaderMapper&lt;Client&gt;().Map(reader);
+});
+</code></pre><h3 id="using-queries">Using Queries</h3>
+<p>There are also a set of objects that can handle data retrieval operations for you, althought they are better suited for code re-use.</p>
+<table>
+<thead>
+<tr>
+<th>Query</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Paradigm.ORM.Data.Querying.Query</td>
+<td>Represents a <code>SELECT * Table</code> for a given type. You can provide a WHERE clause. All columns will be retrieved.</td>
+</tr>
+<tr>
+<td>@Paradigm.ORM.Data.Querying.CustomQuery</td>
+<td>Represents a custom <code>SELECT</code> statement, where the user must provide the sentence. The selected columns must be configured (mapped) in the entity.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<pre><code class="lang-csharp">using(var query = new Query&lt;Client&gt;(connector))
+{
+    var clients = query.Execute();
+}
+</code></pre><p><strong>Custom Query</strong></p>
+<pre><code class="lang-csharp">using(var query = new CustomQuery&lt;Client&gt;(connector, $&quot;SELECT `{nameof(Client.Id)}`, `{nameof(Client.Name)}` FROM `client`&quot;))
+{
+    var clients = query.Execute();
+}
+</code></pre><p><strong>Extensions</strong></p>
+<p>There are also extension methods to execute queries, but have in mind that you&#39;ll be creating a query object, and a <code>TableTypeDescriptor</code> just for one operation:</p>
+<pre><code class="lang-csharp">var clients = connector.Query&lt;Client&gt;();
+</code></pre><p><strong>Summary</strong>
+Summarizing: we saw how to configure the mapping between tables and types, how to open a connection and how to map and retrieve data. But there is more to working with data than just retrieving it from the data source, and even for data retrieval there is another option that will include relationships with other entities. We&#39;ll explore this option in the next point.</p>
+<h2 id="crud-operations">CRUD Operations</h2>
+<p>In this point we&#39;ll cover how to store and delete data. In order to do that, will see how the <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.IDatabaseAccess.html">IDatabaseAccess</a> operates, and what happens when you have relationships between entities.</p>
+<h3 id="database-access">Database Access</h3>
+<p>The <code>DatabaseAccess</code> class handles CRUD operations for a given type, including the relationships with other types. The <code>DatabaseAccess</code> object is one of the cornerstones of Paradigm ORM. If you want to see more:</p>
+<ul>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.IDatabaseAccess.html">IDatabaseAccess</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html">DatabaseAccess</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.IDatabaseAccess-1.html">IDatabaseAccess&lt;TEntity&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.DatabaseAccess-1.html">DatabaseAccess&lt;TEntity&gt;</a></li>
+</ul>
+<div class="WARNING"><h5>Warning</h5><ul>
+<li>(1 To 1) is fully supported.</li>
+<li>(1 To Many) is fully supported.</li>
+<li>(Many To Many) is NOT supported.</li>
+</ul>
+</div>
+<p>Internally, the database access will create an instance of a @Paradigm.ORM.Data.ITableTypeDescriptor, a <a class="xref" href="../../api/Paradigm.ORM.Data.Mappers.IDatabaseReaderMapper.html">IDatabaseReaderMapper</a> and a <a class="xref" href="../../api/Paradigm.ORM.Data.CommandBuilders.ICommandBuilderManager.html">ICommandBuilderManager</a> (other objects as well) and with them will operate the different data access operations. You can think of it as a Entity Framework DatabaseContext with only one publicly exposed DbSet. Internally they do completely different things, but the role for the end user is somewhat similar. </p>
+<p>So, let&#39;s see how to use this class to do more interesting things than just retrieving data from a table:</p>
+<h4 id="inserting-data">Inserting Data</h4>
+<p>Let&#39;s create a new client, populate it with some addresses and store it into our database.</p>
+<pre><code class="lang-csharp">using(var databaseAccess = new DatabaseAccess&lt;Client&gt;())
+{
+    var client = new Client 
+    {
+        Name = &quot;JS Logistics &amp; Transport&quot;,
+        ContactName = &quot;John Smith&quot;,
+        ContactEmail = &quot;jsmith@jslt.com&quot;,
+        ContactPhone = &quot;555-5452354&quot;,
+
+        ClientAdditionalInformation = new ClientAdditionalInformation
+        {
+            CarrierId = 1,
+            PaymentMethodId = 1
+            Credit = new Decimal(100.34),
+        },
+
+        Addresses = new List&lt;Address&gt;() 
+        {
+            new Address 
+            {
+                Address1 = &quot;10034 Wallyswood ST&quot;,
+                City = &quot;Texas City&quot;,
+                State = &quot;Texas&quot;,
+                Country &quot;USA&quot;
+            },
+            new Address 
+            {
+                Address1 = &quot;14012 Vineyard BLVD&quot;,
+                City = &quot;Miami&quot;,
+                State = &quot;Florida&quot;,
+                Country &quot;USA&quot;
+            }
+        }
+    };
+
+    databaseAccess.Insert(client);
+}
+</code></pre><p>After executing this code, you should find one new client, one new client additional information and two new addresses inserted in your tables. </p>
+<p>As you can see, it&#39;s a pretty straightforward process. As we&#39;ll find out later, the update and delete operations are pretty much the same. But it&#39;s important to note that the <code>DatabaseAccess</code> not only inserts the main class, but also inserts the childs and resolves the id of the newly created entites. </p>
+<div class="IMPORTANT"><h5>Important</h5><p>If you are an Entity Framework user, you&#39;ll probably notice the lack of <code>SaveChanges</code> or other form of data commitment. Paradigm ORM <strong>commits immediately</strong>, so if you want to replicate Entity Framework&#39;s way of doing things, you will need to use transactions.</p>
+</div>
+<div class="TIP"><h5>Tip</h5><p>If you want to insert more than one entity, please use the <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.IDatabaseAccess-1.html#MiracleDevs_ORM_Data_DatabaseAccess_Generic_IDatabaseAccess_1_Insert_System_Collections_Generic_IEnumerable__0__">Insert(IEnumerable{TEntity})</a> method. The ORM uses command batching to optimize bulk operations, and reduce roundtrips to the database.</p>
+</div>
+<h4 id="selecting-data">Selecting Data</h4>
+<p>Selecting data from the database is also really simple, so lets retrieve the client we inserted in the previous point:</p>
+<pre><code class="lang-csharp">using(var databaseAccess = new DatabaseAccess&lt;Client&gt;(connector))
+{
+    var clients = databaseAccess.Select();
+}
+</code></pre><p>We should have our client, additional information and addresses in the client collection.</p>
+<div class="NOTE"><h5>Note</h5><p>The difference between the <code>DatabaseAccess.Select</code> and previous selection methods, is that this method will retrieve the client and all its related entities. So it&#39;s better suited for working with complex domain models. </p>
+</div>
+<h4 id="updating-data">Updating Data</h4>
+<p>Let&#39;s open the client, and change some of the fields:</p>
+<pre><code class="lang-csharp">using(var databaseAccess = new DatabaseAccess&lt;Client&gt;())
+{
+    var client = databaseAccess
+                    .Select($&quot;{nameof(Client.Name)}=&#39;JS Logistics &amp; Transport&#39;&quot;)
+                    .FirstOrDefault();
+
+    if (client == null)
+        throw new Exception(&quot;Client not found&quot;);
+
+    client.Name = &quot;JS Systems&quot;;
+    client.Addresses[0].State = &quot;TX&quot;;
+    client.Addresses[1].State = &quot;FL&quot;;
+
+    databaseAccess.Update(client);
+}
+</code></pre><p>The client, additional information and addresses should have their new values updated. Like the insert before, the update runs inmediately.</p>
+<div class="NOTE"><h5>Note</h5><p>To select the desired client, we&#39;re using the select method, and passing a where clause. As we are aiming for velocity, there are no plans to add LINQ and IQuery support in the short run, as EF does. Also worth mentioning, Paradigm ORM supports Stored Procedures. If the query is sufficiently complex, we suggest you target a view or a stored procedure instead.</p>
+</div>
+<div class="TIP"><h5>Tip</h5><p>If you have the entity id, the <code>DatabaseAccess</code> ships with a method to retrieve by Id: <a class="xref" href="../../api/Paradigm.ORM.Data.DatabaseAccess.Generic.IDatabaseAccess-1.html#MiracleDevs_ORM_Data_DatabaseAccess_Generic_IDatabaseAccess_1_SelectOne_System_Object___">SelectOne</a>.</p>
+</div>
+<h4 id="deleting-data">Deleting Data</h4>
+<p>Let&#39;s open the client, and change some of the fields:</p>
+<pre><code class="lang-csharp">using(var databaseAccess = new DatabaseAccess&lt;Client&gt;())
+{
+    databaseAccess.Delete(databaseAccess.Select());
+}
+</code></pre><p>All the clients and their respective related entities should be deleted from your database.</p>
+<h2 id="stored-procedures">Stored Procedures</h2>
+<p>One of the reasons behind our efforts with Paradigm ORM was to make stored procedures first class citizens. After years working with enterprise applications, using Entity Framework as our main database access, we always had to migrate one by one all the queries and complex procedures to the database. And that makes sense, Why would you move data from one server to another in order to process data when the first server is more capable to handle it? I know, there are other concerns here, like code maintenance, modularity, etc; but either way you&#39;re breaking all that taking the data out of its context to search and modify it, and that&#39;s never good for perfomance. So, as certain hippie 2000 years ago said: </p>
+<blockquote><p><em>Render unto Caesar the things that are Caesar&#39;s, and unto God the things that are God&#39;s</em></p>
+</blockquote>
+<p>The ORM supports 3 types of stored procedures. Like commands, you have reading operations, scalar operations and non queries. Each has its own class, and knows how to operate and do the call. </p>
+<ul>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ScalarStoredProcedure-2.html">ScalarStoredProcedure&lt;TParameters, TResult&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.html">NonQueryStoredProcedure&lt;TParameters&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-2.html">ReaderStoredProcedure&lt;TParameters, TResult&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-3.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-4.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-5.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-6.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-7.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-8.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6, TResult7&gt;</a></li>
+<li><a class="xref" href="../../api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-9.html">ReaderStoredProcedure&lt;TParameters, TResult1, TResult2, TResult3, TResult4, TResult5, TResult6, TResult7, TResult8&gt;</a></li>
+</ul>
+<p>All the Procedure types expect a generic argument, representing a parameter class.
+We&#39;ll se what a stored procedure parameter is in the next point.</p>
+<div class="TIP"><h5>Tip</h5><p>For data reading operations, there are 8 classes, all generic, that differs only in the amount of result sets. The ORM supports up to 8 different types of results from a stored procedure. If you have to return more than that, you can treat them differently, or do your own caller.</p>
+</div>
+<h3 id="parameters">Parameters</h3>
+<p>Stored Procedure Parameters are regular .NET types containing the stored procedure individual parameters. Imagine an stored procedure as follows:</p>
+<pre><code class="lang-SQL">CREATE STORED PROCEDURE `testdb`.`SearchClients` (
+    `ClientName`        VARCHAR(200),
+    `ContactName`       VARCHAR(200),
+    `CreditFrom`        DECIMAL(20, 9),
+    `CreditTo`          DECIMAL(20, 9)
+)
+BEGIN
+...
+END;
+</code></pre><p>Instead of sending a list of parameters in the execute method, we prefer to use an object; some kind of DTO that can traverse the different layers of the application. If the firm of the stored procedure changes, you just need to change the parameter object instead of all the methods in the method chain (controller, provider, domain, repository, database acccess, etc).</p>
+<p>Like table-mapped types, the user must provide some minimal mapping information for the ORM. This operates exactly as you&#39;d expect after reading how table and types are mapped. The stored procedure classes will use these mapping descriptions to execute and map the results.</p>
+<p>If you want to provide the map information inside the class directly, you can use <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RoutineAttribute.html">RoutineAttribute</a> or if you prefer to use an interface and leave the object clean, you can use  <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.RoutineTypeAttribute.html">RoutineTypeAttribute</a>.
+The individual parameters can be mapped with the <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.ParameterAttribute.html">ParameterAttribute</a>, but you can also you <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.SizeAttribute.html">SizeAttribute</a> and <a class="xref" href="../../api/Paradigm.ORM.Data.Attributes.NumericAttribute.html">NumericAttribute</a> to provide more information about the parameters.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>As for today, the ORM does not have a way to send table type arguments to a stored procedure.</p>
+</div>
+<p>Let&#39;s see an example using the previous stored procedure:</p>
+<pre><code class="lang-csharp">[Routine(&quot;SearchClients&quot;)]
+public class SearchClientsParameters 
+{
+    [Parameter(&quot;ClientName&quot;, &quot;varchar&quot;, true), Size(200)]
+    public string ClientName { get; set; }
+
+    [Parameter(&quot;ContactName&quot;, &quot;varchar&quot;, true), Size(200)]
+    public string ContactName { get; set; }
+
+    [Parameter(&quot;CreditFrom&quot;, &quot;decimal&quot;, true), Numeric(20, 9)]
+    public decimal CreditFrom { get; set; }
+
+    [Parameter(&quot;CreditTo&quot;, &quot;decimal&quot;, true), Numeric(20, 9)]
+    public decimal CreditTo { get; set; }
+}
+</code></pre><div class="TIP"><h5>Tip</h5><p>Like the other attributes, if the parameter and property names are equals, you can ignore the rest of the parameters.</p>
+</div>
+<p>So you just have to provide the stored procedure name, and the parameters mapping information. That&#39;s fine, but how do you execute that stored procedure? All the 3 types have an Execute and ExecuteAsync method, that will do the magic. Let&#39;s see an example for each one of the types. </p>
+<h3 id="reader">Reader</h3>
+<p>Let&#39;s see how to execute the search clients procedure:</p>
+<pre><code class="lang-csharp">// the stored procedure will return a Tuple&lt;List&lt;Client&gt;, List&lt;Address&gt;&gt;
+var results = new ReaderStoredProcedure&lt;SearchClientsParameters, Client, ClientAdditionalInformation, Address&gt;(connector).Execute(parameters);
+
+foreach (var client in results.Item1)
+{
+    client.ClientAdditionalInformation = results.Item2.Find(x =&gt; x.Id == client.ClientAdditionalInformationId);
+    client.Addresses = results.Item3.FindAll(x =&gt; x.ClientId == client.Id);
+}
+</code></pre><p>In this case, our search procedure is searching for clients and their related entities, and it&#39;s returning three result sets. We want this call to be transparent, like a Select using the <code>DatabaseAccess</code>. So for each client in the first result set, we&#39;ll find all the addresses owned by this client and assign them to it.</p>
+<p>Working with the other two types of stored procedures is similar if not easier, because you don&#39;t have result sets but a scalar or no return at all.</p>
+<div class="TIP"><h5>Tip</h5><p>If you&#39;re planning on using dependency injection, all 3 types have a constructor accepting a <code>IServiceProvider</code> instance as parameter. Internally, the procedure will use the provider to resolve the database connector, mappers or any other required object.</p>
+</div>
+<h3 id="scalar">Scalar</h3>
+<p>Let&#39;s execute a stored procedure to retrieve the client id:</p>
+<pre><code class="lang-csharp">var id = new ScalarStoredProcedure&lt;GetClientIdParameters, int&gt;(connector).Execute();
+</code></pre><h3 id="non-query">Non Query</h3>
+<p>Let&#39;s execute a stored procedure that saves a client:</p>
+<pre><code class="lang-csharp">new NonQueryStoredProcedure&lt;SaveClientParameters&gt;(connector).Execute();
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-3 col-lg-offset-1" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/doc/tutorials/1.gettingstarted/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <div class="container-fluid">
+          <!-- <span class="pull-right"><a href="#top">Back to top</a></span> -->
+          
+          <div class="footer-logo">
+            <a href="http://miracledevs.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" viewbox="0 0 160 31" height="31"><style>.md-logo-0{fill:#5DC4E9;} .md-logo-1{fill:#D2534C;} .md-logo-2{fill:#46B8AF;} .md-logo-3{fill:#52A7C7;} .md-logo-4{fill:#B64941;} .md-logo-5{fill:#3FA39C;} .md-logo-6{fill:#444444;}</style><path class="md-logo-0" d="M41.6 0L27.9 20.4l2.7 2L41.1 30c.2.2.5 0 .5-.2V0z"></path><path class="md-logo-1" d="M41.6 0L13.7 20.4l2.2 3.3 4.8 7.2c.1.1.2.1.2 0L40.7 1.4l.9-1.4z"></path><path class="md-logo-2" d="M41.6 0L12.8 9.4 0 0v29.8c0 .2.3.4.5.2L41.6 0z"></path><path class="md-logo-3" d="M27.9 20.4l2.7 2L41.6.6V0z"></path><path class="md-logo-4" d="M13.7 20.4l2.2 3.3L40.7 1.4l.9-1.4z"></path><path class="md-logo-5" d="M0 0v13.5l12.8-4.1z"></path><path class="md-logo-6" d="M55.5 22.2V7.9h3l4.2 9.5 3.8-9.5h3v14.3h-2.8v-8l-3.4 8.1h-1l-3.8-8.1v8.1h-3zM73.5 10.7c-.6 0-1-.2-1.3-.5-.3-.3-.4-.7-.4-1 0-.4.1-.7.4-1 .3-.3.7-.5 1.3-.5s1 .2 1.3.5c.3.3.4.7.4 1 0 .4-.1.7-.4 1-.3.4-.8.5-1.3.5zm-1.4 11.5V11.9h2.8v10.3h-2.8zM77.2 22.2V11.9h2.5l.1.9c.4-.4.8-.7 1.2-.9.4-.2.8-.2 1.2-.2.2 0 .5 0 .8.1.3.1.5.1.8.2l-.5 2.4c-.3-.1-.6-.2-.8-.3-.2-.1-.5-.1-.7-.1-.4 0-.8.1-1.1.3-.3.2-.6.4-.8.6v7.2h-2.7zM90.2 22.2l-.1-.8c-.3.3-.7.6-1.1.7-.5.2-1 .3-1.5.3s-.9-.1-1.3-.2-.8-.4-1.1-.6c-.3-.3-.6-.6-.8-1-.2-.4-.3-.9-.3-1.4 0-.5.1-1 .3-1.4.2-.4.5-.7.9-1 .4-.3.8-.5 1.2-.7.5-.2 1-.3 1.5-.4.4-.1.7-.1 1.2-.2.4 0 .8-.1 1.1-.1v-.3c0-.4-.1-.7-.4-1-.3-.3-.6-.4-1-.4-.2 0-.5.1-.9.2s-.7.4-1.1.7l-1.9-1.3.9-.9c.3-.2.7-.4 1.1-.5.4-.1.7-.2 1.1-.3.4 0 .7-.1 1-.1.6 0 1.1.1 1.6.2s.9.4 1.3.7c.4.3.6.7.8 1.2.2.5.3 1.1.3 1.8V22h-2.8zm-.2-4.8c-.3 0-.6 0-.9.1-.3 0-.6.1-.9.1-.6.1-1 .3-1.3.6s-.4.6-.4.9c0 .3.1.6.4.8.3.2.6.3 1.1.3.4 0 .7-.1 1-.2.3-.1.6-.3.9-.5v-2.1zM103.9 19.7c-.4.9-1 1.6-1.8 2.1-.7.4-1.6.7-2.6.7-.7 0-1.3-.1-1.9-.3-.6-.2-1.1-.6-1.6-1s-.8-1-1.1-1.7c-.3-.7-.4-1.4-.4-2.3 0-.9.1-1.7.4-2.4.3-.7.6-1.3 1.1-1.7.4-.5 1-.8 1.6-1 .6-.2 1.2-.3 1.8-.3.6 0 1.2.1 1.7.3s.9.4 1.3.7c.4.3.7.6.9 1 .2.4.4.7.5 1.1l-2.2 1.1c-.2-.7-.5-1.2-.9-1.4-.4-.3-.8-.4-1.2-.4-.3 0-.6.1-.8.2-.3.1-.5.3-.7.6-.2.3-.4.6-.5 1-.1.4-.2.9-.2 1.4 0 1 .2 1.7.7 2.3.4.5 1 .8 1.7.8.5 0 1-.1 1.3-.4.3-.3.6-.7.9-1.2l2 .8zM105.1 22.2V7.9h2.8v14.3h-2.8zM112.4 17.7c.1.9.3 1.5.8 1.9.5.4 1 .6 1.6.6.5 0 .9-.1 1.3-.3.4-.2.8-.6 1.2-1.2l2.1 1.3c-.6.9-1.3 1.5-2 1.9-.8.4-1.7.5-2.7.5-.7 0-1.3-.1-1.9-.3-.6-.2-1.2-.5-1.6-1-.5-.4-.8-1-1.1-1.7-.3-.7-.4-1.5-.4-2.4 0-.9.1-1.6.4-2.3.3-.7.6-1.2 1.1-1.7.5-.5 1-.8 1.6-1 .6-.2 1.3-.4 1.9-.4 1.4 0 2.6.5 3.5 1.5.9 1 1.3 2.5 1.4 4.6h-7.2zm4.2-1.9c-.1-.7-.3-1.2-.7-1.5-.4-.3-.8-.5-1.3-.5-.2 0-.5 0-.7.1-.2.1-.5.2-.7.4-.2.2-.4.4-.5.7-.1.3-.2.5-.3.9h4.2zM121.4 22.2V7.9h3.7c.6 0 1.1 0 1.7.1.6.1 1.2.3 1.7.5s1 .6 1.4.9c.4.4.8.8 1.1 1.4.3.5.5 1.1.7 1.8.2.7.3 1.4.3 2.2 0 1-.1 1.9-.3 2.7-.2.8-.5 1.5-1 2.1-.4.6-.9 1.1-1.4 1.5-.6.4-1.2.7-1.8.9-.3.1-.7.2-1.2.2-.4 0-.9.1-1.2.1h-3.7zm1.7-1.5h1.8c.3 0 .7 0 1.1-.1.4 0 .8-.1 1.1-.2.4-.2.8-.4 1.2-.7.4-.3.7-.7 1-1.1.3-.4.5-1 .7-1.6.2-.6.2-1.3.2-2.1 0-1.2-.2-2.2-.6-3-.4-.8-.9-1.3-1.6-1.8-.4-.3-.9-.5-1.5-.6-.6-.1-1.1-.2-1.6-.2h-1.8v11.4zM135.1 17c0 1.3.3 2.3.9 3 .6.7 1.4 1.1 2.5 1.1.6 0 1.2-.2 1.6-.5.4-.3.8-.7 1.1-1.2l1.1.7c-.4.6-.9 1.2-1.4 1.6-.6.4-1.4.6-2.4.6-.8 0-1.5-.1-2.1-.4-.6-.2-1.1-.6-1.6-1-.4-.4-.8-1-1-1.7-.2-.7-.4-1.4-.4-2.3 0-.8.1-1.5.3-2.2.2-.6.5-1.2.9-1.7s.9-.8 1.4-1.1c.6-.2 1.2-.4 1.9-.4.8 0 1.4.1 2 .4.6.3 1 .6 1.4 1.1.4.5.6 1 .8 1.7.2.6.3 1.4.3 2.1h-7.3zm5.5-1.3c0-.4-.1-.8-.3-1.2-.2-.3-.4-.6-.6-.8-.2-.2-.5-.4-.8-.5-.3-.1-.6-.2-.9-.2-.7 0-1.3.2-1.8.6-.5.4-.8 1.1-1 2h5.4zM146.6 22.2L142.8 12h1.8l3 8.3 3.1-8.3h1.7l-3.8 10.2h-2zM153.9 19.7c.2.5.6.8.9 1.1.4.2.9.4 1.5.4 1.4 0 2.1-.5 2.1-1.5 0-.3 0-.6-.1-.8-.1-.2-.2-.4-.4-.6-.2-.2-.5-.3-.8-.5-.3-.1-.7-.3-1.2-.5s-.9-.4-1.3-.5c-.4-.2-.6-.4-.9-.6-.2-.2-.4-.5-.5-.8-.1-.3-.2-.6-.2-1 0-.8.3-1.5.9-1.9.6-.5 1.4-.7 2.4-.7.8 0 1.5.1 2.1.4.6.3 1 .7 1.4 1.2l-1.2.9c-.3-.3-.6-.6-1-.9-.4-.2-.8-.3-1.3-.3-.6 0-1 .1-1.3.4-.3.2-.4.5-.4.9 0 .2 0 .4.1.6.1.2.2.3.4.4.2.1.5.3.8.4.3.1.7.3 1.2.5.9.3 1.7.7 2.1 1.2.5.5.7 1.2.7 2 0 .5-.1.9-.3 1.3-.2.4-.4.7-.8 1-.3.3-.7.5-1.1.6-.4.1-.9.2-1.5.2-1 0-1.8-.2-2.4-.6-.6-.4-1-.8-1.4-1.4l1.5-.9z"></path></svg>
+            </a>
+          </div>
+          <div>
+            <div>Powered by <strong><a href="http://miracledevs.com" target="_blank">MiracleDevs</a></strong> ©2017. Code licensed under the MIT License.</div>
+            <div> Documentation generated by DocFX.</div>
+          </div>
+        </div>
+      </div>    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

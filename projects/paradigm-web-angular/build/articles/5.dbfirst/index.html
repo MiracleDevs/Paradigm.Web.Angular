@@ -1,0 +1,489 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Miracle Devs DbFirst </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Miracle Devs DbFirst ">
+    <meta name="generator" content="docfx 2.27.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <meta name="theme-color" content="#28b693">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container-fluid hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container-fluid body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article grid-right clearfix">
+          <div class="col-md-9 col-lg-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="miracle-devs-dbfirst">Miracle Devs DbFirst</h1>
+
+<p>One of the main objectives behind Paradigm ORM was the ability to seamlessly integrate Database First workflows. We wanted to have full control of the database, and then derive our domain and logic from the database rather than the other way around. That allows us to leverage the DB muscle to retrieve and sort data: but it also means that the database needs to be designed with the domain in mind.</p>
+<p>Paradigm ORM DbFirst CLI tool allows users to create a object model from a database schema, and use that intermediate model to run the <code>Code Generation</code> tool that automatically outputs  the relevant classes. If you are planning on using this tool (and we highly encourage you to do so) have in mind that you&#39;ll be using other components of the Paradigm Core Suite.</p>
+<p>Below you&#39;ll find a brief explanation of the DbFirst tool, its command line interface and how to use it.</p>
+<div class="NOTE"><h5>Note</h5><p>Right now the configuration needs to be manually generated. We intend to add a configuration tool in the near future.</p>
+</div>
+<h2 id="command-line-arguments">Command Line Arguments</h2>
+<table>
+<thead>
+<tr>
+<th>Short</th>
+<th>Long</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-f</code></td>
+<td><code>--filenames &lt;filename&gt;</code></td>
+<td>Indicates the path of a configuration file.</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td><code>--directories &lt;directory&gt;</code></td>
+<td>Indicates the path of a directory in which the tool should search for configuration files.</td>
+</tr>
+<tr>
+<td><code>-t</code></td>
+<td><code>--topdirectory</code></td>
+<td>If directories were provided, indicates if the system should search only on the top directory.</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td><code>--extension &lt;extension&gt;</code></td>
+<td>If directories were provided, indicates the configuration file extension. The default extension is &#39;json&#39;.</td>
+</tr>
+<tr>
+<td><code>-?</code> or <code>-h</code></td>
+<td><code>--help</code></td>
+<td>Prints the help.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>This example opens two configuration files called module1 and module2.</p>
+<pre><code>dbfirst -f config/module1.json -f config/module2.json
+</code></pre><p>This example provides two folders, &quot;config&quot; and &quot;other/folder&quot; to lookup for configuration files. Also, the <code>-t</code> is asking to search only in the top directory. And the <code>-e</code> is telling the tool to look for &quot;*.dbf&quot; files.</p>
+<pre><code>dbfirst -d config -d other/folder -t -e dbf
+</code></pre><h2 id="configuration">Configuration</h2>
+<p>As we saw in the previous point, we must provide at least one configuration file for the tool to work. There are many options to consider when translating a DB schema into an object model, and it&#39;s simply not practical to provide all of them in the command line. Instead, we provide the tool a configuration file with all this settings. We&#39;ll see how to write this configuration file below.</p>
+<div class="TIP"><h5>Tip</h5><p>Internally, the configuration file is structured as a json file. If you have other configuration files (dbpublisher, codegen, etc) in the same folder, you can use different extensions for each to facilitate the search routine to find your files.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>databaseType</code></td>
+<td><strong>string</strong></td>
+<td>The database identification type used by the ORM configuration files. It can be one of the following values: <strong>MySql</strong> | <strong>PostgreSql</strong> | <strong>SqlServer</strong> | <strong>Cassandra</strong></td>
+</tr>
+<tr>
+<td><code>connectionString</code></td>
+<td><strong>string</strong></td>
+<td>A standard <a href="https://msdn.microsoft.com/en-us/library/ms254500(v=vs.110).aspx">ADO.NET</a> connection string. Note that each database may implement and use their own parameters, with their own meaning.</td>
+</tr>
+<tr>
+<td><code>databaseName</code></td>
+<td><strong>string</strong></td>
+<td>Name of the database being used.</td>
+</tr>
+<tr>
+<td><code>outputFileName</code></td>
+<td><strong>string</strong></td>
+<td>A filename to save the resulting object model file.</td>
+</tr>
+<tr>
+<td><code>tables</code></td>
+<td><strong>Array of <a href="#table-configuration">TableConfiguration</a></strong></td>
+<td>List of table configurations</td>
+</tr>
+<tr>
+<td><code>views</code></td>
+<td><strong>Array of <a href="#view-configuration">TableConfiguration</a></strong></td>
+<td>List of view configurations.</td>
+</tr>
+<tr>
+<td><code>storedProcedures</code></td>
+<td><strong>Array of <a href="#stored-procedure-configuration">StoredProcedureConfiguration</a></strong></td>
+<td>List of stored procedure configurations.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">{
+  &quot;databaseType&quot;: &quot;mysql&quot;,
+  &quot;databaseName&quot;: &quot;test.database&quot;,
+  &quot;connectionString&quot;: &quot;Server=localhost;Database=test.database;UserId=test;Password=test1234;Pooling=true&quot;,
+  &quot;outputFileName&quot;: &quot;models/testmodel.dbf&quot;,
+
+  &quot;tables&quot;: [...],
+  &quot;views&quot;: [...],
+  &quot;storedProcedures&quot;: [...]
+}
+</code></pre><p>First of all, you need to provide the database type you&#39;re planning to use. The database type needs to be supported by the ORM. Additionally, you need to include a connection string allowing the tool to connect to the database. When configuring the connection string, remember that the user should have permissions to retrieve schema information. Internally, the DbFirst will utilize the <a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html">ISchemaProvider</a> to obtain the tables, views, procedures, columns, constraints and parameters to create the object model.
+The configuration also expects the database name and output filename to save the object model.</p>
+<div class="NOTE"><h5>Note</h5><p>The object model produced by this tool is a <code>json</code> file with a specific format that the Code Generator tool understands. When fed to the Code Generator tool, this configuration file allows generation of all the scaffolding code and necessary files, making for a true DbFirst workflow.</p>
+</div>
+<p>The <code>tables</code>, <code>views</code> and <code>storedProcedures</code> parameters need a more thorough explanation, and we&#39;ll go through each one in more detail below. But we can say that they will basically help you configure individual elements to be mapped.</p>
+<h3 id="table-configuration">Table Configuration</h3>
+<p>The <code>tables</code> configuration allows mapping customizations on tables, columns and constraints to objects. When mapping these objects, the naming conventions of the origin may not match your code naming conventions, and here you can map tables, columns or constraints to a name other than the one they have on the DB. You can also ignore existing columns or constraints if you don&#39;t want to map them, and even add your own.</p>
+<div class="NOTE"><h5>Note</h5><p>As we&#39;ll see in the next point, views use the same configuration as tables. Views don&#39;t have constraints like foreign or primary keys. But the DbFirst tool reads these keys to create navigation relationships, so its useful to be able to add your own constraints to elements. For example, adding a primary key to a view is mandatory, but you could also add a foreign key to another view as well and generate a navigation property.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><strong>string</strong></td>
+<td>The name of the table you want to map.</td>
+</tr>
+<tr>
+<td><code>newName</code></td>
+<td><strong>string</strong></td>
+<td>You can provide a different name for the entity that will map to the table. This is useful when, for instance, your code convention is upper camel case and the database uses lowercase names.</td>
+</tr>
+<tr>
+<td><code>columnsToRename</code></td>
+<td><strong>Array of <a href="#rename-configuration">RenameConfiguration</a></strong></td>
+<td>An array of columns renames. Like the <code>newName</code> for the table, this array allows to rename columns.</td>
+</tr>
+<tr>
+<td><code>constraintsToRename</code></td>
+<td><strong>Array of <a href="#rename-configuration">RenameConfiguration</a></strong></td>
+<td>An array of constraint renames. Like the <code>columnsToRename</code>, this array allows to rename constraints.</td>
+</tr>
+<tr>
+<td><code>columnsToAdd</code></td>
+<td><strong>Array of <a href="#column-configuration">ColumnConfiguration</a></strong></td>
+<td>Allows you to add new columns to the object. These columns won&#39;t be mapped to a table column in the DB, but there are occasions where this can come in handy. In PostgreSql for example, there are hidden system columns like oid. With this array you can add your own columns.</td>
+</tr>
+<tr>
+<td><code>constraintsToAdd</code></td>
+<td><strong>Array of <a href="#constraint-configuration">ConstraintConfiguration</a></strong></td>
+<td>Like the <code>columnsToAdd</code>, allows to add new custom constraints.</td>
+</tr>
+<tr>
+<td><code>columnsToRemove</code></td>
+<td><strong>Array of string</strong></td>
+<td>Array of column names that will be removed from the final object; they won&#39;t be mapped.</td>
+</tr>
+<tr>
+<td><code>constraintsToRemove</code></td>
+<td><strong>Array of string</strong></td>
+<td>Array of constraint names that will be removed from the final object; they won&#39;t be mapped.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;project&quot;,
+    &quot;newName&quot;: &quot;Project&quot;,
+    &quot;columsToRename&quot;: [...],
+    &quot;constraintsToRename&quot;: [...],
+    &quot;columnsToAdd&quot;: [...],
+    &quot;constraintsToAdd&quot;: [...],
+    &quot;columnsToRemove&quot;: [...],
+    &quot;constraintsToRemove&quot;: [...]
+}
+</code></pre><div class="TIP"><h5>Tip</h5><p>If you are working with a stored procedure that returns a custom result (not a table or view) that is not mapped and does not have schema, you can add a custom table or view, and manually add the columns. The tool will treat it like any other existing database object.</p>
+</div>
+<h4 id="rename-configuration">Rename Configuration</h4>
+<p>The rename configuration allows to map both columns and constraints in the DB to a different name in your object model. This can be used to change the name of the entity property in the case of the columns.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><strong>string</strong></td>
+<td>The name of the column or constraint you want to change.</td>
+</tr>
+<tr>
+<td><code>newName</code></td>
+<td><strong>string</strong></td>
+<td>The new name for the column or constraint.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;client_id&quot;,
+    &quot;newName&quot;: &quot;ClientId&quot;
+}
+</code></pre><h4 id="column-configuration">Column Configuration</h4>
+<p>The column configuration allows you to add new columns to a table or view. This is helpful in some cases if you want to add a system column, or if you need to add a new entity.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><strong>string</strong></td>
+<td>Sets the column name.</td>
+</tr>
+<tr>
+<td><code>dataType</code></td>
+<td><strong>string</strong></td>
+<td>Sets the column database type.</td>
+</tr>
+<tr>
+<td><code>maxSize</code></td>
+<td><strong>int</strong></td>
+<td>Sets the maximum size.</td>
+</tr>
+<tr>
+<td><code>precision</code></td>
+<td><strong>int</strong></td>
+<td>Set the numeric precision.</td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><strong>int</strong></td>
+<td>Set the numeric scale.</td>
+</tr>
+<tr>
+<td><code>defaultValue</code></td>
+<td><strong>string</strong></td>
+<td>Set the default value.</td>
+</tr>
+<tr>
+<td><code>isNullable</code></td>
+<td><strong>bool</strong></td>
+<td>Indicates if the column is nullable.</td>
+</tr>
+<tr>
+<td><code>isIdentity</code></td>
+<td><strong>bool</strong></td>
+<td>Indicates if the column is an identity column (<code>AUTO_INCREMENT</code>, <code>SERIAL</code>, <code>IDENTITY</code>, etc).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;Total&quot;,
+    &quot;dataType&quot;: &quot;decimal&quot;,
+    &quot;precision&quot;: &quot;20&quot;,
+    &quot;scale&quot;: &quot;9&quot;,
+    &quot;IsNullable&quot;: &quot;true&quot;
+}
+</code></pre><h4 id="constraint-configuration">Constraint Configuration</h4>
+<p>The constraint configuration allows to add new constraints to a table or view. This can come in handy when mapping views, to add new navigation relationships that are not available in the database.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td><strong>string</strong></td>
+<td>Sets the name of the constraint.</td>
+</tr>
+<tr>
+<td>Type</td>
+<td><strong><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.Structure.ConstraintType.html">ConstraintType</a></strong></td>
+<td>Sets the type of the constraint.</td>
+</tr>
+<tr>
+<td>FromColumnName</td>
+<td><strong>string</strong></td>
+<td>Sets the source column.</td>
+</tr>
+<tr>
+<td>ToTableName</td>
+<td><strong>string</strong></td>
+<td>Sets the destination table.</td>
+</tr>
+<tr>
+<td>ToColumnName</td>
+<td><strong>string</strong></td>
+<td>Sets the destination column.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;Total&quot;,
+    &quot;dataType&quot;: &quot;decimal&quot;,
+    &quot;precision&quot;: &quot;20&quot;,
+    &quot;scale&quot;: &quot;9&quot;,
+    &quot;IsNullable&quot;: &quot;true&quot;
+}
+</code></pre><h3 id="view-configuration">View Configuration</h3>
+<p>As we can see in the table above, the view configuration is a list of <a href="#table-configuration">TableConfiguration</a> so the previous point is valid for views. You can add new columns, constraints, rename objects, remove objects, etc. using the same structure reviewed above.
+If you are planning to use the existing Code Generator templates in conjunction with the Paradigm Core suite, be sure to add a primary key to each view, because if not, repositories will fail.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">&quot;views&quot;: [
+    {
+      &quot;name&quot;: &quot;clientview&quot;,
+      &quot;newName&quot;: &quot;ClientView&quot;,
+      &quot;constraintsToAdd&quot;: [
+        {
+          &quot;type&quot;: &quot;PrimaryKey&quot;,
+          &quot;fromColumnName&quot;: &quot;Id&quot;
+        }
+      ]
+    }
+]
+</code></pre><h3 id="stored-procedure-configuration">Stored Procedure Configuration</h3>
+<p>The stored procedure configuration allows you to map stored procedures. The procedures are mapped in two different objects: <code>parameters</code> and <code>caller</code>. You can learn more <a href="../4.shared/index.html#46-stored-procedures">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><strong>string</strong></td>
+<td>The name of the stored procedure you want to map.</td>
+</tr>
+<tr>
+<td>newName</td>
+<td><strong>string</strong></td>
+<td>Sets a new name for the stored procedure mapping.</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong><a class="xref" href="../../api/Paradigm.ORM.Data.Database.Schema.Structure.StoredProcedureType.html">StoredProcedureType</a></strong></td>
+<td>Sets the type of stored procedure.</td>
+</tr>
+<tr>
+<td>parametersToRename</td>
+<td><strong>Array of <a href="#rename-configuration">RenameConfiguration</a></strong></td>
+<td>An array of parameter renames. Allows renaming of each parameter individually.</td>
+</tr>
+<tr>
+<td>resultTypes</td>
+<td><strong>Array of string</strong></td>
+<td>An array of result objects. If your procedure retrieves a lists of clients, then the result types should include <code>Client</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;SearchClients&quot;,
+    &quot;type&quot;: &quot;Reader&quot;,
+    &quot;resultTypes&quot;: [ &quot;ClientView&quot; ]
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-3 col-lg-offset-1" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/doc/articles/5.dbfirst/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <div class="container-fluid">
+          <!-- <span class="pull-right"><a href="#top">Back to top</a></span> -->
+          
+          <div class="footer-logo">
+            <a href="http://miracledevs.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" viewbox="0 0 160 31" height="31"><style>.md-logo-0{fill:#5DC4E9;} .md-logo-1{fill:#D2534C;} .md-logo-2{fill:#46B8AF;} .md-logo-3{fill:#52A7C7;} .md-logo-4{fill:#B64941;} .md-logo-5{fill:#3FA39C;} .md-logo-6{fill:#444444;}</style><path class="md-logo-0" d="M41.6 0L27.9 20.4l2.7 2L41.1 30c.2.2.5 0 .5-.2V0z"></path><path class="md-logo-1" d="M41.6 0L13.7 20.4l2.2 3.3 4.8 7.2c.1.1.2.1.2 0L40.7 1.4l.9-1.4z"></path><path class="md-logo-2" d="M41.6 0L12.8 9.4 0 0v29.8c0 .2.3.4.5.2L41.6 0z"></path><path class="md-logo-3" d="M27.9 20.4l2.7 2L41.6.6V0z"></path><path class="md-logo-4" d="M13.7 20.4l2.2 3.3L40.7 1.4l.9-1.4z"></path><path class="md-logo-5" d="M0 0v13.5l12.8-4.1z"></path><path class="md-logo-6" d="M55.5 22.2V7.9h3l4.2 9.5 3.8-9.5h3v14.3h-2.8v-8l-3.4 8.1h-1l-3.8-8.1v8.1h-3zM73.5 10.7c-.6 0-1-.2-1.3-.5-.3-.3-.4-.7-.4-1 0-.4.1-.7.4-1 .3-.3.7-.5 1.3-.5s1 .2 1.3.5c.3.3.4.7.4 1 0 .4-.1.7-.4 1-.3.4-.8.5-1.3.5zm-1.4 11.5V11.9h2.8v10.3h-2.8zM77.2 22.2V11.9h2.5l.1.9c.4-.4.8-.7 1.2-.9.4-.2.8-.2 1.2-.2.2 0 .5 0 .8.1.3.1.5.1.8.2l-.5 2.4c-.3-.1-.6-.2-.8-.3-.2-.1-.5-.1-.7-.1-.4 0-.8.1-1.1.3-.3.2-.6.4-.8.6v7.2h-2.7zM90.2 22.2l-.1-.8c-.3.3-.7.6-1.1.7-.5.2-1 .3-1.5.3s-.9-.1-1.3-.2-.8-.4-1.1-.6c-.3-.3-.6-.6-.8-1-.2-.4-.3-.9-.3-1.4 0-.5.1-1 .3-1.4.2-.4.5-.7.9-1 .4-.3.8-.5 1.2-.7.5-.2 1-.3 1.5-.4.4-.1.7-.1 1.2-.2.4 0 .8-.1 1.1-.1v-.3c0-.4-.1-.7-.4-1-.3-.3-.6-.4-1-.4-.2 0-.5.1-.9.2s-.7.4-1.1.7l-1.9-1.3.9-.9c.3-.2.7-.4 1.1-.5.4-.1.7-.2 1.1-.3.4 0 .7-.1 1-.1.6 0 1.1.1 1.6.2s.9.4 1.3.7c.4.3.6.7.8 1.2.2.5.3 1.1.3 1.8V22h-2.8zm-.2-4.8c-.3 0-.6 0-.9.1-.3 0-.6.1-.9.1-.6.1-1 .3-1.3.6s-.4.6-.4.9c0 .3.1.6.4.8.3.2.6.3 1.1.3.4 0 .7-.1 1-.2.3-.1.6-.3.9-.5v-2.1zM103.9 19.7c-.4.9-1 1.6-1.8 2.1-.7.4-1.6.7-2.6.7-.7 0-1.3-.1-1.9-.3-.6-.2-1.1-.6-1.6-1s-.8-1-1.1-1.7c-.3-.7-.4-1.4-.4-2.3 0-.9.1-1.7.4-2.4.3-.7.6-1.3 1.1-1.7.4-.5 1-.8 1.6-1 .6-.2 1.2-.3 1.8-.3.6 0 1.2.1 1.7.3s.9.4 1.3.7c.4.3.7.6.9 1 .2.4.4.7.5 1.1l-2.2 1.1c-.2-.7-.5-1.2-.9-1.4-.4-.3-.8-.4-1.2-.4-.3 0-.6.1-.8.2-.3.1-.5.3-.7.6-.2.3-.4.6-.5 1-.1.4-.2.9-.2 1.4 0 1 .2 1.7.7 2.3.4.5 1 .8 1.7.8.5 0 1-.1 1.3-.4.3-.3.6-.7.9-1.2l2 .8zM105.1 22.2V7.9h2.8v14.3h-2.8zM112.4 17.7c.1.9.3 1.5.8 1.9.5.4 1 .6 1.6.6.5 0 .9-.1 1.3-.3.4-.2.8-.6 1.2-1.2l2.1 1.3c-.6.9-1.3 1.5-2 1.9-.8.4-1.7.5-2.7.5-.7 0-1.3-.1-1.9-.3-.6-.2-1.2-.5-1.6-1-.5-.4-.8-1-1.1-1.7-.3-.7-.4-1.5-.4-2.4 0-.9.1-1.6.4-2.3.3-.7.6-1.2 1.1-1.7.5-.5 1-.8 1.6-1 .6-.2 1.3-.4 1.9-.4 1.4 0 2.6.5 3.5 1.5.9 1 1.3 2.5 1.4 4.6h-7.2zm4.2-1.9c-.1-.7-.3-1.2-.7-1.5-.4-.3-.8-.5-1.3-.5-.2 0-.5 0-.7.1-.2.1-.5.2-.7.4-.2.2-.4.4-.5.7-.1.3-.2.5-.3.9h4.2zM121.4 22.2V7.9h3.7c.6 0 1.1 0 1.7.1.6.1 1.2.3 1.7.5s1 .6 1.4.9c.4.4.8.8 1.1 1.4.3.5.5 1.1.7 1.8.2.7.3 1.4.3 2.2 0 1-.1 1.9-.3 2.7-.2.8-.5 1.5-1 2.1-.4.6-.9 1.1-1.4 1.5-.6.4-1.2.7-1.8.9-.3.1-.7.2-1.2.2-.4 0-.9.1-1.2.1h-3.7zm1.7-1.5h1.8c.3 0 .7 0 1.1-.1.4 0 .8-.1 1.1-.2.4-.2.8-.4 1.2-.7.4-.3.7-.7 1-1.1.3-.4.5-1 .7-1.6.2-.6.2-1.3.2-2.1 0-1.2-.2-2.2-.6-3-.4-.8-.9-1.3-1.6-1.8-.4-.3-.9-.5-1.5-.6-.6-.1-1.1-.2-1.6-.2h-1.8v11.4zM135.1 17c0 1.3.3 2.3.9 3 .6.7 1.4 1.1 2.5 1.1.6 0 1.2-.2 1.6-.5.4-.3.8-.7 1.1-1.2l1.1.7c-.4.6-.9 1.2-1.4 1.6-.6.4-1.4.6-2.4.6-.8 0-1.5-.1-2.1-.4-.6-.2-1.1-.6-1.6-1-.4-.4-.8-1-1-1.7-.2-.7-.4-1.4-.4-2.3 0-.8.1-1.5.3-2.2.2-.6.5-1.2.9-1.7s.9-.8 1.4-1.1c.6-.2 1.2-.4 1.9-.4.8 0 1.4.1 2 .4.6.3 1 .6 1.4 1.1.4.5.6 1 .8 1.7.2.6.3 1.4.3 2.1h-7.3zm5.5-1.3c0-.4-.1-.8-.3-1.2-.2-.3-.4-.6-.6-.8-.2-.2-.5-.4-.8-.5-.3-.1-.6-.2-.9-.2-.7 0-1.3.2-1.8.6-.5.4-.8 1.1-1 2h5.4zM146.6 22.2L142.8 12h1.8l3 8.3 3.1-8.3h1.7l-3.8 10.2h-2zM153.9 19.7c.2.5.6.8.9 1.1.4.2.9.4 1.5.4 1.4 0 2.1-.5 2.1-1.5 0-.3 0-.6-.1-.8-.1-.2-.2-.4-.4-.6-.2-.2-.5-.3-.8-.5-.3-.1-.7-.3-1.2-.5s-.9-.4-1.3-.5c-.4-.2-.6-.4-.9-.6-.2-.2-.4-.5-.5-.8-.1-.3-.2-.6-.2-1 0-.8.3-1.5.9-1.9.6-.5 1.4-.7 2.4-.7.8 0 1.5.1 2.1.4.6.3 1 .7 1.4 1.2l-1.2.9c-.3-.3-.6-.6-1-.9-.4-.2-.8-.3-1.3-.3-.6 0-1 .1-1.3.4-.3.2-.4.5-.4.9 0 .2 0 .4.1.6.1.2.2.3.4.4.2.1.5.3.8.4.3.1.7.3 1.2.5.9.3 1.7.7 2.1 1.2.5.5.7 1.2.7 2 0 .5-.1.9-.3 1.3-.2.4-.4.7-.8 1-.3.3-.7.5-1.1.6-.4.1-.9.2-1.5.2-1 0-1.8-.2-2.4-.6-.6-.4-1-.8-1.4-1.4l1.5-.9z"></path></svg>
+            </a>
+          </div>
+          <div>
+            <div>Powered by <strong><a href="http://miracledevs.com" target="_blank">MiracleDevs</a></strong> ©2017. Code licensed under the MIT License.</div>
+            <div> Documentation generated by DocFX.</div>
+          </div>
+        </div>
+      </div>    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

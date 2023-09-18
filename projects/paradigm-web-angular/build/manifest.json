@@ -1,0 +1,3053 @@
+{
+  "homepages": [],
+  "source_base_path": "d:/Repositories/github/Paradigm Framework/Paradigm.ORM/doc",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.ColumnAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.ColumnAttribute.html",
+          "hash": "u/xbnEB97zxy75titRi+EA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.ForeignKeyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.ForeignKeyAttribute.html",
+          "hash": "6PANH+Zai7ft7LNYNGQr/w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.IdentityAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.IdentityAttribute.html",
+          "hash": "V8zHqEUYlDT4UaDEJHTGEQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.NavigationAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.NavigationAttribute.html",
+          "hash": "vKJ7xzC9C8uci+wfAzKG6w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.NotNullableAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.NotNullableAttribute.html",
+          "hash": "jaaunwFKH8IVd9JiQL+PaQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.NumericAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.NumericAttribute.html",
+          "hash": "RjMAzJ5FRnc6+3my4qQFIw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.ParameterAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.ParameterAttribute.html",
+          "hash": "1lB5fAas3cezLhxmWa7v5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.PrimaryKeyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.PrimaryKeyAttribute.html",
+          "hash": "BWEMIoURVKr0edRQiaHq/A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.RangeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.RangeAttribute.html",
+          "hash": "GaDh7gk3Ky6//iqhgASJDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.RoutineAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.RoutineAttribute.html",
+          "hash": "VjGHSYqVHJw6G+gsL6seKA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.RoutineResultAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.RoutineResultAttribute.html",
+          "hash": "r2EMSslXew30GWqacdH9HA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.RoutineTypeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.RoutineTypeAttribute.html",
+          "hash": "N4nIAmFBrvln9sQbL/WRLw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.SizeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.SizeAttribute.html",
+          "hash": "BnkJxE8c29SFWA14UJwv7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.StoredProcedureTypeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.StoredProcedureTypeAttribute.html",
+          "hash": "+m7mwopvDI+QPeUKwFNbww=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.TableAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.TableAttribute.html",
+          "hash": "qRB+Le7NWN0zntRF1Yt1qA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.TableTypeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.TableTypeAttribute.html",
+          "hash": "wXhkeCE/OT6iO6L6M2xeSQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.UniqueKeyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.UniqueKeyAttribute.html",
+          "hash": "jQArclAQsqIQ7orpR0hdeg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Attributes.html",
+          "hash": "K9kJRlPBZvAhDSX0Ja1Dew=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Batching.BatchManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Batching.BatchManager.html",
+          "hash": "c/AbFCutZYTdXXPnwGZd/g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Batching.CommandBatchStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Batching.CommandBatchStep.html",
+          "hash": "3SafnnEqvuJWMg+Kx+UZXA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Batching.IBatchManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Batching.IBatchManager.html",
+          "hash": "CpDuWnw+FF0onIa4SkFb7w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Batching.ICommandBatchStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Batching.ICommandBatchStep.html",
+          "hash": "6E/8YfBPjKarRYyEoWhl3Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Batching.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Batching.html",
+          "hash": "j68mGf+tRuBeIQbZtmRsYw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlCommandBuilderBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlCommandBuilderBase.html",
+          "hash": "kNZVWReiRiSe6BUgDdNObg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlCommandBuilderFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlCommandBuilderFactory.html",
+          "hash": "GcAWu5q8o30Z/ov0Z19NKg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlCommandFormatProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlCommandFormatProvider.html",
+          "hash": "nOOsaayxRXTOzNg4/wps5Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlDeleteCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlDeleteCommandBuilder.html",
+          "hash": "T0EVxw8LigCeruP/9eUmIQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlInsertCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlInsertCommandBuilder.html",
+          "hash": "kq2p0UZSrxWvT1dJCGjznA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlSelectCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlSelectCommandBuilder.html",
+          "hash": "2yn1E40UfVn8jx63yw7FaA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlSelectOneCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlSelectOneCommandBuilder.html",
+          "hash": "gndeZNlfqvMSZfcVoKcKxg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlUpdateCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.CqlUpdateCommandBuilder.html",
+          "hash": "gULPmmACcGIXemw6QskqTQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CommandBuilders.html",
+          "hash": "Gk8Njfik6hOyFxyrPraYzw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Converters.CqlDbStringTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Converters.CqlDbStringTypeConverter.html",
+          "hash": "xDLmZ27peuD8l9fQhLtJAQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Converters.CqlValueConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Converters.CqlValueConverter.html",
+          "hash": "b8/jnxzrl8ON01uYWfBnmw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Converters.html",
+          "hash": "fJD8/zJEdquh1heb4VTiag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.html",
+          "hash": "kfPDtqcsR4RyNVn/Tl48LA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.CqlSchemaProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.CqlSchemaProvider.html",
+          "hash": "gEtlHl3+7YMGvIR/aAzHPw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlColumn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlColumn.html",
+          "hash": "/4Y+sL7OCyQFbPaaWmDcKQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlConstraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlConstraint.html",
+          "hash": "4uAgqlvbClAtlXnZWvOxgg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlTable.html",
+          "hash": "su3lHbCw1cyYR+/rmB4chg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.CqlView.html",
+          "hash": "XzZeIcWABRHImpMoXQp0nQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.Structure.html",
+          "hash": "/7qO98X8EgP6fCx+kOudGw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.Schema.html",
+          "hash": "9z9OnftXK4mHPC5vduJ0Rw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Cassandra.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Cassandra.html",
+          "hash": "skPwrWkMUv5AOKRle0e1dQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.CommandBuilderBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.CommandBuilderBase.html",
+          "hash": "2W6ad3Mdy88PPa7ENlh/aQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.CommandBuilderManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.CommandBuilderManager.html",
+          "hash": "i1zS9Ykk4Y8rtGVVZifmAg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandBuilder.html",
+          "hash": "h3B540oFxc57hf1+cFg0FQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandBuilderFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandBuilderFactory.html",
+          "hash": "Sx42D+195wXVeQ3RkN+r9g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandBuilderManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandBuilderManager.html",
+          "hash": "w2R3OfE0kOAMDg9dcnxI+g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandFormatProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ICommandFormatProvider.html",
+          "hash": "MFaiDhZ3t+Kza3LsMjoB7g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.IDeleteCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.IDeleteCommandBuilder.html",
+          "hash": "y95cpFRR0iPzcqvLVBWY5Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.IInsertCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.IInsertCommandBuilder.html",
+          "hash": "P2MoyuhzJLY+rNeUPd2XiA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ILastInsertIdCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ILastInsertIdCommandBuilder.html",
+          "hash": "+WXmgWh18TLrBTOxNK8xvA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ISelectCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ISelectCommandBuilder.html",
+          "hash": "x8JHlfqxhFYy9QtdDee5Zw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ISelectOneCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.ISelectOneCommandBuilder.html",
+          "hash": "WR6VucalDptC2StNxMLQDA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.IUpdateCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.IUpdateCommandBuilder.html",
+          "hash": "9l33TKolxaRCYybPRqzkPw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.CommandBuilders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.CommandBuilders.html",
+          "hash": "Uy3tzCQbvkPVn6EHNYy9xQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Converters.DbTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Converters.DbTypeConverter.html",
+          "hash": "hFW8XB9S65uOAWghA4Ok0Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Converters.IDbStringTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Converters.IDbStringTypeConverter.html",
+          "hash": "x1/GL0OuHQI/Xb6Ku3FwYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Converters.IValueConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Converters.IValueConverter.html",
+          "hash": "UWd2QNhcR10EhiU2cPte3A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Converters.NativeTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Converters.NativeTypeConverter.html",
+          "hash": "W1/Vxc/l6ra5UA8cdjFqMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Converters.ValueConverterBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Converters.ValueConverterBase.html",
+          "hash": "ahMaMzN62Rc9Dvg1oktuFw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Converters.html",
+          "hash": "KQxTtf8Q4xarkM0Z7By81g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.DatabaseConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.DatabaseConfiguration.html",
+          "hash": "fJZn0j8aNWQ7teFzf5G10g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseCommand.html",
+          "hash": "9dGelZ9ODwD3P2OdVgLyFg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseConfiguration.html",
+          "hash": "EDTPNGMvOvPt1jHiFIQO5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseConnector.html",
+          "hash": "4n4cCgV4ZSy220hK2ILYkg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseReader.html",
+          "hash": "y4cYHEupyyl0CAT71I+cYw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseTransaction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.IDatabaseTransaction.html",
+          "hash": "MBEwgjc0GmUbLQSXqYsUmA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.IDbTypeValueRangeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.IDbTypeValueRangeProvider.html",
+          "hash": "NTozP+uOye/Qw/ms3Ectjw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html",
+          "hash": "GLZAJmC1eHKOH7uaLYfWHA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.ConstraintType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.ConstraintType.html",
+          "hash": "KggDNKHKdVQUnVBr3xdB+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IColumn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IColumn.html",
+          "hash": "2WuH8MOcq/1s4tWIbBXklQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IConstraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IConstraint.html",
+          "hash": "q+b1wRYstbRs47LA9KR4zg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IParameter.html",
+          "hash": "4G24PK+fmWaVADwelhEdTw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IStoredProcedure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IStoredProcedure.html",
+          "hash": "IMCr6eg0dU/OwrmTwEIJzA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.ITable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.ITable.html",
+          "hash": "UfINrEfnDwaIVLzAxPPGqQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.IView.html",
+          "hash": "4bVbuKxhGY/3MBwpekG2xw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.StoredProcedureType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.StoredProcedureType.html",
+          "hash": "NhhbMTv95cR0wWZ9vrEgqg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.Structure.html",
+          "hash": "J6j1JlZJOpZoXhkigSeNUQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.Schema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.Schema.html",
+          "hash": "HGh8fA4awzWksgsRhyaZhA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Database.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Database.html",
+          "hash": "CwUP1FPs2gvrZPLfn6GgMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.DatabaseAccess.html",
+          "hash": "sFTIwFLcfXnC5TFZaYqbNA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.Generic.DatabaseAccess-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.Generic.DatabaseAccess-1.html",
+          "hash": "44/HZXwIq24kdj7MNEPnxg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.Generic.IDatabaseAccess-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.Generic.IDatabaseAccess-1.html",
+          "hash": "Qyr5LDlbDRBaN8427sly/g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.Generic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.Generic.html",
+          "hash": "vLeozbrtcMJmJq17WIqlsw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.IDatabaseAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.IDatabaseAccess.html",
+          "hash": "pyOHABHVt/ITEXDAMTAPQQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.INavigationDatabaseAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.INavigationDatabaseAccess.html",
+          "hash": "XLCCgdhADd7Rfw7MRhq4FA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.NavigationDatabaseAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.NavigationDatabaseAccess.html",
+          "hash": "vfSSPzKN+2E0Qk+pVbrTVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.DatabaseAccess.html",
+          "hash": "S4DBQYQQYxwmPDPDKaXVHw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.CustomTypeDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.CustomTypeDescriptor.html",
+          "hash": "vLaJOEpsou6XsLqLZh5Eyw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.IColumnDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.IColumnDescriptor.html",
+          "hash": "oxCybAuf0Xf7CUARL/fRpQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.IColumnPropertyDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.IColumnPropertyDescriptor.html",
+          "hash": "074SiHMLya+vpTNyvupOAA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.IColumnPropertyDescriptorCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.IColumnPropertyDescriptorCollection.html",
+          "hash": "fkL8AiQa40mTfbG7MTqw6w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.ICustomTypeDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.ICustomTypeDescriptor.html",
+          "hash": "uTjLnvEZOWTFSs/ObusokA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.INavigationKeyDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.INavigationKeyDescriptor.html",
+          "hash": "qMWvyra+9NQxbH8rhURyLA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.INavigationPropertyDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.INavigationPropertyDescriptor.html",
+          "hash": "ajDSyWPd6b1Vvu9fjg3WKA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.IParameterPropertyDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.IParameterPropertyDescriptor.html",
+          "hash": "HtI06HQdGcGxDhxAZrW5/Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.IRoutineTypeDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.IRoutineTypeDescriptor.html",
+          "hash": "j64j+IfgufInHc8QgEHx9A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.ITableDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.ITableDescriptor.html",
+          "hash": "H4743F0LCC4Wp7E1qom+HA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.ITableTypeDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.ITableTypeDescriptor.html",
+          "hash": "Gso70jTZgrBkK4lOf+73eg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.RoutineTypeDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.RoutineTypeDescriptor.html",
+          "hash": "UqU9khBkySIr/0LXh5lJfg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.TableDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.TableDescriptor.html",
+          "hash": "ICXcwZkwKSYfVG8YnEv5YA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.TableTypeDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.TableTypeDescriptor.html",
+          "hash": "+oIvBj2ElhzFiQ4oZRW4kA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Descriptors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Descriptors.html",
+          "hash": "SZtYp0DWD0xzp5dxcLB3Dw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmCanNotCloseConnectionException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmCanNotCloseConnectionException.html",
+          "hash": "yeHE8z9Cu12qzLWoHwq/oA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmCanNotOpenConnectionException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmCanNotOpenConnectionException.html",
+          "hash": "U8GPFlITlCqhkO0Ts5R0Mg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmConnectorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmConnectorException.html",
+          "hash": "CikVDBgp5Z37WC9cSgnpcg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmConnectorNotInitializedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmConnectorNotInitializedException.html",
+          "hash": "9VqAnNGalCQyhUMNJ8sbHw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmDbTypeNotSupportedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmDbTypeNotSupportedException.html",
+          "hash": "h2BvzoQlCd/Pt8hLA+HngA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmException.html",
+          "hash": "QHoYqhDJO5f4K+ibONkMUA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmMissingRoutineMappingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmMissingRoutineMappingException.html",
+          "hash": "CQPT0/KUCHzmyQHiyFyJyg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmMissingTableMappingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmMissingTableMappingException.html",
+          "hash": "ubnBz30MR/NiqZtq8vl7sA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmNoPrimaryKeysException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmNoPrimaryKeysException.html",
+          "hash": "TCfDJAfHkRdmrV+Wz2LjGQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmTransactionStackEmptyException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmTransactionStackEmptyException.html",
+          "hash": "PxYjrkY6kvZmUaA3v+xsHg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmTypeNotSupportedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.OrmTypeNotSupportedException.html",
+          "hash": "tNLFo/SYas7fZ7chgLfvJQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Exceptions.html",
+          "hash": "7GeFqdvR0Ajhl5Asftrgzg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Extensions.DataReaderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Extensions.DataReaderExtensions.html",
+          "hash": "gWlhaIOUIyf9dn1CqeAXAw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Extensions.DatabaseConnectorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Extensions.DatabaseConnectorExtensions.html",
+          "hash": "B3BUtf7qEhsuIx6dv+IT/A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Extensions.ObjectExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Extensions.ObjectExtensions.html",
+          "hash": "8sXoWZGR/zG7rmgGFaSOJg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Extensions.TypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Extensions.TypeExtensions.html",
+          "hash": "CP9ao5kmZw7DQQdRJJzP5Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Extensions.TypeInfoExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Extensions.TypeInfoExtensions.html",
+          "hash": "v81HFMYvthHcR6lM8ki44g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Extensions.html",
+          "hash": "TkVmvCoyFgmmkwOkmFF4WA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Mappers.DatabaseReaderMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Mappers.DatabaseReaderMapper.html",
+          "hash": "uApPOyOuh0oGBCpiC24FmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Mappers.Generic.DatabaseReaderMapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Mappers.Generic.DatabaseReaderMapper-1.html",
+          "hash": "rmpJPquE6x/nvIl8wUB8ig=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Mappers.Generic.IDatabaseReaderMapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Mappers.Generic.IDatabaseReaderMapper-1.html",
+          "hash": "3T+Lqtw6HdZRD1Xsmu0fXg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Mappers.Generic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Mappers.Generic.html",
+          "hash": "/oVyOM+/OxlR/3gNjliyNQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Mappers.IDatabaseReaderMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Mappers.IDatabaseReaderMapper.html",
+          "hash": "FWNoGewJ6hdkMprzlM1MAg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Mappers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Mappers.html",
+          "hash": "qsMRgPiLAgT/0Gka5fzjvg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlCommandBuilderBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlCommandBuilderBase.html",
+          "hash": "pKsZzsWpLB9h+ZOLqWoH7w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlCommandBuilderFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlCommandBuilderFactory.html",
+          "hash": "ct2M6FcOsQ/cc/Q2ntacsg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlCommandFormatProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlCommandFormatProvider.html",
+          "hash": "yy6LwzjIXFwpAV0b2Dexxw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlDeleteCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlDeleteCommandBuilder.html",
+          "hash": "cQXeNu4wIhZ8Lh4iQ+rukg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlInsertCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlInsertCommandBuilder.html",
+          "hash": "6ExALD61AdOaQ1xo1oTXbg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlLastInsertIdCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlLastInsertIdCommandBuilder.html",
+          "hash": "TJTryo9pVlZl24iScA0Mfw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlSelectCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlSelectCommandBuilder.html",
+          "hash": "OVjHhhc0/dGgj/abjxRO7A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlSelectOneCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlSelectOneCommandBuilder.html",
+          "hash": "+igIM6YkmzOXsNULK9ERKw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlUpdateCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.MySqlUpdateCommandBuilder.html",
+          "hash": "mCkqojTxcTvf9iGnpcgxNw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.CommandBuilders.html",
+          "hash": "ZlOh+W5BPrDPC5eOUvjCVw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Converters.MySqlDbStringTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Converters.MySqlDbStringTypeConverter.html",
+          "hash": "0pnxrcCFcV3yaXGFZXJr2g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Converters.MySqlValueConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Converters.MySqlValueConverter.html",
+          "hash": "3eIGg9Tz8bWUwyctx4nfPA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Converters.html",
+          "hash": "C2arGsdusEve5qPIgouTqA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.MySqlDatabaseConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.MySqlDatabaseConnector.html",
+          "hash": "qtGcn127nSc8UBd3TLzz4w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.MySqlSchemaProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.MySqlSchemaProvider.html",
+          "hash": "HPoy0tWzIopV0GVVb3zp+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlColumn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlColumn.html",
+          "hash": "CddJ+5jV2ZKZGIsPgVLQzA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlConstraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlConstraint.html",
+          "hash": "CbC0jUfnzNchqEcqd/BBhQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlParameter.html",
+          "hash": "1KVVLz1VxQzeGU1evI6+wQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlStoredProcedure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlStoredProcedure.html",
+          "hash": "GZebiWd7yq8LWFiDcUTcuw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlTable.html",
+          "hash": "A4vqLhLsTzAZJZcdgIxh3Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.MySqlView.html",
+          "hash": "RKAnvEZJcNXLn/NpQjMQfQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.Structure.html",
+          "hash": "gOQ7uFukiHu3Sd1Nb6jgZQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.Schema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.Schema.html",
+          "hash": "cHcw8KhSZT2oIHeJJ9csbQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.MySql.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.MySql.html",
+          "hash": "B6O0C24TEy7GG4SD6nKQ3Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlCommandBuilderFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlCommandBuilderFactory.html",
+          "hash": "sPC269cHrPrnie7bI6BRdQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlCommandFormatProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlCommandFormatProvider.html",
+          "hash": "Yj+FIalBcxpPyPGbgTLYBg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlDeleteCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlDeleteCommandBuilder.html",
+          "hash": "7OxBm+Wovm4Gaf5Rs75jBg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlInsertCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlInsertCommandBuilder.html",
+          "hash": "uRKl/2hvKtACXpcVlzeApg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlLastInsertIdCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlLastInsertIdCommandBuilder.html",
+          "hash": "dhI/IPnt+hB0QViAr9CT6Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlSelectCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlSelectCommandBuilder.html",
+          "hash": "/0XBChpuk8cCLf2TJezcNQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlSelectOneCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlSelectOneCommandBuilder.html",
+          "hash": "Tj12HNF3Z7mGFtNe8HIyrg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlUpdateCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.PostgreSqlUpdateCommandBuilder.html",
+          "hash": "s0yuaW8+M/8HIIEbZ3MxQQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.CommandBuilders.html",
+          "hash": "iMwFVQN70jItKexxIyzIoA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Converters.PostgreSqlDbStringTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Converters.PostgreSqlDbStringTypeConverter.html",
+          "hash": "x9zaqZ3YsJuu2mNIEZ+Vjw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Converters.PostgreSqlValueConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Converters.PostgreSqlValueConverter.html",
+          "hash": "StffkZqxuGEzfOiS3M/eEQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Converters.html",
+          "hash": "QpxPvlhmQ09AK6BywzloiQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.PostgreSqlDatabaseConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.PostgreSqlDatabaseConnector.html",
+          "hash": "5tO31bHaYhgbPAdK70uvig=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.PostgreSqlSchemaProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.PostgreSqlSchemaProvider.html",
+          "hash": "JtFizCj7Czj/xcyj4mra8w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlColumn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlColumn.html",
+          "hash": "5b08QZqazb13IxOW9tT7Qg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlConstraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlConstraint.html",
+          "hash": "UwRGlbSwhfpGe9Osva0YBw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlParameter.html",
+          "hash": "yR+oAWD+0X5ttt41lOibVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlStoredProcedure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlStoredProcedure.html",
+          "hash": "hJyTrfcXod+vb34WRWfgoA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlTable.html",
+          "hash": "tyc9s2yrKSf0yg9i92qJ1A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.PostgreSqlView.html",
+          "hash": "Q0K1YuRQRJ77LE4t6JUDFA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.Structure.html",
+          "hash": "CRt1dpTb1kKgVPinMuGj2g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.Schema.html",
+          "hash": "lttK+uEJz71/4wK/YtyxaA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.PostgreSql.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.PostgreSql.html",
+          "hash": "/DFKAEzz17hxwxj6Y2Zr2w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Querying.CustomQuery-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Querying.CustomQuery-1.html",
+          "hash": "O+GrwOD5rkM/VTiDHlVRAQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Querying.IQuery-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Querying.IQuery-1.html",
+          "hash": "CwtyuoZtfKgJguWbPjWdNw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Querying.Query-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Querying.Query-1.html",
+          "hash": "D57oA9Nu1/g6ERm8WHMcKg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.Querying.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.Querying.html",
+          "hash": "DSRgK7gIDkLqdsHHNvM3Ow=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlCommandBuilderFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlCommandBuilderFactory.html",
+          "hash": "UBmvXVdp+a05B40sMWXQwA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlCommandFormatProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlCommandFormatProvider.html",
+          "hash": "lTlUxXFxem2a4NL5oLUCZw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlDeleteCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlDeleteCommandBuilder.html",
+          "hash": "n3+bcW7v1YmJ3afJUw8Spg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlInsertCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlInsertCommandBuilder.html",
+          "hash": "9aklYNkh+qPUnG2/AriZfQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlLastInsertIdCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlLastInsertIdCommandBuilder.html",
+          "hash": "BqRf2psQTiUce2gGWgta3A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlSelectCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlSelectCommandBuilder.html",
+          "hash": "dIc61tQFEfAtx5cx7zhpMw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlSelectOneCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlSelectOneCommandBuilder.html",
+          "hash": "veWnWrK2Pula5iN/g8yROw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlUpdateCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.SqlUpdateCommandBuilder.html",
+          "hash": "2jZWxrDJTvaLoI8ba6VBbg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.CommandBuilders.html",
+          "hash": "EhyUpkvdJ8p9swqhCXiT5g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Converters.SqlDbStringTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Converters.SqlDbStringTypeConverter.html",
+          "hash": "zYM5/8UC5gg186tFA/c1MA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Converters.SqlValueConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Converters.SqlValueConverter.html",
+          "hash": "5L+0sFZ+eHDJ7TPDm5ru5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Converters.html",
+          "hash": "uSha3E3vL0wN/afFzqSpcw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.SqlSchemaProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.SqlSchemaProvider.html",
+          "hash": "FUf9tGWOLK5Je4fpYXTt+w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlColumn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlColumn.html",
+          "hash": "FQti/hdocBSMhDbj6Bxz/g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlConstraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlConstraint.html",
+          "hash": "+DLbrKOo0qQrmUP5P5/P/w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlParameter.html",
+          "hash": "cwL3mJTH4okQOfpr8gg/BQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlStoredProcedure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlStoredProcedure.html",
+          "hash": "bYW6+03A9BTT6QTFKzZTvA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlTable.html",
+          "hash": "kkv+rdD5pGEWE4YojKv0pw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.SqlView.html",
+          "hash": "2FIMEtolef1/ZkjHEHwt1Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.Structure.html",
+          "hash": "gIWToPrRRuEPzLi/oY2gxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.Schema.html",
+          "hash": "7a4yR81JOszmXkO9BJWAfA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.SqlDatabaseConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.SqlDatabaseConnector.html",
+          "hash": "V8KkUlb0PF9pV/qJ94Qfug=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.SqlServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.SqlServer.html",
+          "hash": "diK2tvcvEZRZJ2BTx3RsXA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.INonQueryStoredProcedure-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.INonQueryStoredProcedure-1.html",
+          "hash": "CHqYkQkd1c1coSN2p42A5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-2.html",
+          "hash": "b13xvAEv6VoKPSbs5+/Gaw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-3.html",
+          "hash": "g20REREWWLbvETx+TsZwxA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-4.html",
+          "hash": "232kflPvS7xGaH/8fHTCOg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-5.html",
+          "hash": "Z9UEZp+6z0nMYCdO1RyUrQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-6.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-6.html",
+          "hash": "TW8hzrMxzw7lz8Z+RUA1KA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-7.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-7.html",
+          "hash": "RfFPtivhNRxw510CBRmZCQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-8.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-8.html",
+          "hash": "d25vzlqJVtttMr/vTfSQoQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-9.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IReaderStoredProcedure-9.html",
+          "hash": "TVURgMD7XFO7ncnIeDYhdg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IRoutine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IRoutine.html",
+          "hash": "fplWHESf3DRvbe6oFhGD+w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IScalarStoredProcedure-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.IScalarStoredProcedure-2.html",
+          "hash": "SPJvCihsM1m3WxE777qMEQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.NonQueryStoredProcedure-1.html",
+          "hash": "AVZuu+BQ5Lki5+Kiu6mhiA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-2.html",
+          "hash": "hMYzJugqI6+AeLGedNL7qw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-3.html",
+          "hash": "BZtX5/YGNO0eO54JJqCbIQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-4.html",
+          "hash": "oSMF4RJzw11MwrSgslxuhw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-5.html",
+          "hash": "oCXLeR4lRiPV1waYEwKDPQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-6.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-6.html",
+          "hash": "x8Lg0QNMiceFITZYxFJuBQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-7.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-7.html",
+          "hash": "Ok7Zs/ZPqTxMTYNxmuHS7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-8.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-8.html",
+          "hash": "3QCuBWASwWHap/AVTgpwcA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-9.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ReaderStoredProcedure-9.html",
+          "hash": "vmVWC0nRPVb9LfVFCHUWvw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ScalarStoredProcedure-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.ScalarStoredProcedure-2.html",
+          "hash": "0IEjqFUgfvVF+ipHQWoGQg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.StoredProcedureBase-1.html",
+          "hash": "Yk+kJU9Otu7095mBmTPF9A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.StoredProcedures.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.StoredProcedures.html",
+          "hash": "geUxhdepeBxe/dzgKzOzjA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.ValueProviders.ClassValueProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.ValueProviders.ClassValueProvider.html",
+          "hash": "MamDVONjBQ9VcNZ/6ErJfQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.ValueProviders.DatabaseReaderValueProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.ValueProviders.DatabaseReaderValueProvider.html",
+          "hash": "2xCjybALlQEDyFN2X9RHIA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.ValueProviders.IValueProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.ValueProviders.IValueProvider.html",
+          "hash": "rS8+2bMP7NsiyInlCz+Mhw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paradigm.ORM.Data.ValueProviders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paradigm.ORM.Data.ValueProviders.html",
+          "hash": "xF01dhfDanF9bgTFdUr9vw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "soOMKByh88A1SwznK5hnew=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "x5t/r+y/2HlupyrcFoRZrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/1.introduction/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/1.introduction/index.html",
+          "hash": "rMjjCCpKg+9rlv/snQYNhA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/2.databases/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/2.databases/index.html",
+          "hash": "MFDWwBioAa4iHHsJ5nOW1g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/3.core/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/3.core/index.html",
+          "hash": "3Cd/GF9OP3mYd3i5QeGT/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/4.shared/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/4.shared/index.html",
+          "hash": "O/PSOOldr+iJUyrgjxyl8A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/5.dbfirst/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/5.dbfirst/index.html",
+          "hash": "0Q7W+eVenYyaZUQ0mloLKA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/6.dbpublisher/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/6.dbpublisher/index.html",
+          "hash": "/S5eZfh6agP5z4ujykkA+A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "1ipt8V1szOp4i2qq8SJU9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon/favicon-16x16.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon/favicon-16x16.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon/favicon-32x32.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon/favicon-32x32.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon/favicon-96x96.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon/favicon-96x96.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/md-footer-logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/md-footer-logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/orm-tutorial-01-classes.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/orm-tutorial-01-classes.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/orm-tutorial-01-database.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/orm-tutorial-01-database.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/paradigm-hero-svg.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/paradigm-hero-svg.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "pL9EIw52yhW8UdKcrP+4kA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "7jJFxMgAjKGAtRDAuqnXPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/1.gettingstarted/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/1.gettingstarted/index.html",
+          "hash": "Sa9U06TJocnQqJ2pAmXfhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "tutorials/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/toc.html",
+          "hash": "ZNaIznB+REgaAjj5FWLRTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

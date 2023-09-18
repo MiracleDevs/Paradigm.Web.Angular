@@ -1,0 +1,791 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CqlDatabaseConnector
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CqlDatabaseConnector
+   ">
+    <meta name="generator" content="docfx 2.27.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <meta name="theme-color" content="#28b693">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container-fluid hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container-fluid body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article grid-right clearfix">
+          <div class="col-md-9 col-lg-8">
+            <article class="content wrap" id="_content" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector">
+  
+  
+  <h1 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector" class="text-break">Class CqlDatabaseConnector
+  </h1>
+  <div class="markdown level0 summary"><p>Provides a connection to a Cql Server database.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">CqlDatabaseConnector</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a></div>
+    <div><span class="xref">IDisposable</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Paradigm.ORM.Data.Cassandra.html">Paradigm.ORM.Data.Cassandra</a></h6>
+  <h6><strong>Assembly</strong>: Paradigm.ORM.Data.Cassandra.dll</h6>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CqlDatabaseConnector : object, IDatabaseConnector, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector__ctor.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L123">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector__ctor_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.#ctor*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector__ctor" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.#ctor">CqlDatabaseConnector()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.html">CqlDatabaseConnector</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqlDatabaseConnector()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector__ctor_System_String_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L132">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector__ctor_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.#ctor*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector__ctor_System_String_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.#ctor(System.String)">CqlDatabaseConnector(String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.html">CqlDatabaseConnector</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqlDatabaseConnector(string connectionString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>The connection string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Configuration.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Configuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L42">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Configuration_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Configuration*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Configuration" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Configuration">Configuration</h4>
+  <div class="markdown level1 summary"><p>Gets the database configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDatabaseConfiguration Configuration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseConfiguration.html">IDatabaseConfiguration</a></td>
+        <td><p>The configuration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_ConnectionTimeout.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.ConnectionTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L34">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_ConnectionTimeout_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.ConnectionTimeout*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_ConnectionTimeout" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.ConnectionTimeout">ConnectionTimeout</h4>
+  <div class="markdown level1 summary"><p>Gets the time to wait while trying to establish a connection before terminating
+the attempt and generating an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ConnectionTimeout { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The time (in seconds) to wait for a connection to open. The default value is
+15 seconds.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Close.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Close%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L210">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Close_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Close*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Close" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Close">Close()</h4>
+  <div class="markdown level1 summary"><p>Closes a previously opened connection to a database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Close()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CloseAsync.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CloseAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.Async.cs/#L25">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CloseAsync_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CloseAsync*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CloseAsync" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CloseAsync">CloseAsync()</h4>
+  <div class="markdown level1 summary"><p>Closes a previously opened connection to a database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task CloseAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateCommand.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateCommand%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L266">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateCommand_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateCommand*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateCommand" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateCommand">CreateCommand()</h4>
+  <div class="markdown level1 summary"><p>Creates a new database command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDatabaseCommand CreateCommand()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseCommand.html">IDatabaseCommand</a></td>
+        <td><p>A new <span class="xref">Paradigm.ORM.Data.Cassandra.CqlDatabaseCommand</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateTransaction.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L234">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateTransaction_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateTransaction*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateTransaction" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateTransaction">CreateTransaction()</h4>
+  <div class="markdown level1 summary"><p>Creates a new database transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDatabaseTransaction CreateTransaction()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseTransaction.html">IDatabaseTransaction</a></td>
+        <td><p>A new <span class="xref">Paradigm.ORM.Data.Cassandra.CqlDatabaseTransaction</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateTransaction_IsolationLevel_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateTransaction(IsolationLevel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L246">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateTransaction_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateTransaction*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_CreateTransaction_IsolationLevel_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.CreateTransaction(IsolationLevel)">CreateTransaction(IsolationLevel)</h4>
+  <div class="markdown level1 summary"><p>Creates a new database transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDatabaseTransaction CreateTransaction(IsolationLevel isolationLevel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IsolationLevel</span></td>
+        <td><span class="parametername">isolationLevel</span></td>
+        <td><p>Specifies the transaction isolation level.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseTransaction.html">IDatabaseTransaction</a></td>
+        <td><p>A new <span class="xref">Paradigm.ORM.Data.Cassandra.CqlDatabaseTransaction</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Dispose.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L144">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Dispose_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Dispose*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Dispose" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandBuilderFactory.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetCommandBuilderFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L291">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandBuilderFactory_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetCommandBuilderFactory*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandBuilderFactory" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetCommandBuilderFactory">GetCommandBuilderFactory()</h4>
+  <div class="markdown level1 summary"><p>Gets a command builder factory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommandBuilderFactory GetCommandBuilderFactory()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.CommandBuilders.ICommandBuilderFactory.html">ICommandBuilderFactory</a></td>
+        <td><p>The command builder factory related to this database type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandBuilderFactory_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The command builder factory creates command builders for
+standard crud actions over a given data type.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandFormatProvider.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetCommandFormatProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L308">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandFormatProvider_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetCommandFormatProvider*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandFormatProvider" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetCommandFormatProvider">GetCommandFormatProvider()</h4>
+  <div class="markdown level1 summary"><p>Get a command text format provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommandFormatProvider GetCommandFormatProvider()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.CommandBuilders.ICommandFormatProvider.html">ICommandFormatProvider</a></td>
+        <td><p>The command formatted realted to this database type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetCommandFormatProvider_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The command formatter gives basic functionality to format
+sql queries for each database type.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbStringTypeConverter.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetDbStringTypeConverter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L343">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbStringTypeConverter_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetDbStringTypeConverter*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbStringTypeConverter" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetDbStringTypeConverter">GetDbStringTypeConverter()</h4>
+  <div class="markdown level1 summary"><p>Gets a string type converter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDbStringTypeConverter GetDbStringTypeConverter()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Converters.IDbStringTypeConverter.html">IDbStringTypeConverter</a></td>
+        <td><p>A database type converter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbStringTypeConverter_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This converter can convert back and forth from a database type in string format, to a .NET type.</p>
+</div>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbStringTypeConverter_examples">Examples</h5>
+  <p>For the string &quot;int&quot; the converter will return <see cref="!:Int32"></see>.
+For the string &quot;text&quot; the converter will return <see cref="!:String"></see>.</p>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbTypeValueRangeProvider.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetDbTypeValueRangeProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L373">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbTypeValueRangeProvider_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetDbTypeValueRangeProvider*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbTypeValueRangeProvider" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetDbTypeValueRangeProvider">GetDbTypeValueRangeProvider()</h4>
+  <div class="markdown level1 summary"><p>Gets the database type size provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDbTypeValueRangeProvider GetDbTypeValueRangeProvider()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.IDbTypeValueRangeProvider.html">IDbTypeValueRangeProvider</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetDbTypeValueRangeProvider_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A database type size provider retrieves minimum and maximum values for regular sql types
+like tinyint, smallint, int, etc.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetSchemaProvider.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetSchemaProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L324">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetSchemaProvider_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetSchemaProvider*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetSchemaProvider" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetSchemaProvider">GetSchemaProvider()</h4>
+  <div class="markdown level1 summary"><p>Get a database schema provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISchemaProvider GetSchemaProvider()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Database.Schema.ISchemaProvider.html">ISchemaProvider</a></td>
+        <td><p>A schema provider related to this database connection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetSchemaProvider_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The schema provider, allows to retrieve schema information about database objects like tables, views, stored procedures, etc.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetValueConverter.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetValueConverter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L359">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetValueConverter_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetValueConverter*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetValueConverter" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.GetValueConverter">GetValueConverter()</h4>
+  <div class="markdown level1 summary"><p>Gets the value converter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IValueConverter GetValueConverter()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Paradigm.ORM.Data.Converters.IValueConverter.html">IValueConverter</a></td>
+        <td><p>A value converter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_GetValueConverter_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This converter can convert from database objects to specific .net types.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Initialize_System_String_.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Initialize(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L182">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Initialize_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Initialize*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Initialize_System_String_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Initialize(System.String)">Initialize(String)</h4>
+  <div class="markdown level1 summary"><p>Initializes the connection against the database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(string connectionString = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>A connection string containing information to connect to a given database.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_IsOpen.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.IsOpen%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L222">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_IsOpen_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.IsOpen*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_IsOpen" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.IsOpen">IsOpen()</h4>
+  <div class="markdown level1 summary"><p>Indicates if the connection is currently opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOpen()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the connection is opened, false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Open.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Open%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L201">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Open_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Open*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_Open" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.Open">Open()</h4>
+  <div class="markdown level1 summary"><p>Opens the conection to a database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Open()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_OpenAsync.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.OpenAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.Async.cs/#L15">View Source</a>
+  </span>
+  <a id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_OpenAsync_" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.OpenAsync*"></a>
+  <h4 id="Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector_OpenAsync" data-uid="Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector.OpenAsync">OpenAsync()</h4>
+  <div class="markdown level1 summary"><p>Opens the conection to a database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task OpenAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a>
+  </div>
+  <div>
+      <span class="xref">IDisposable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFails__1_System_Object_Action_System_String_">ObjectExtensions.ThrowIfFails&lt;TException&gt;(Object, Action, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFails__2_System_Object_Func___1__System_String_">ObjectExtensions.ThrowIfFails&lt;TException, TResult&gt;(Object, Func&lt;TResult&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFailsAsync__1_System_Object_Func_Task__System_String_">ObjectExtensions.ThrowIfFailsAsync&lt;TException&gt;(Object, Func&lt;Task&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Paradigm.ORM.Data.Extensions.ObjectExtensions.html#Paradigm_ORM_Data_Extensions_ObjectExtensions_ThrowIfFailsAsync__2_System_Object_Func_Task___1___System_String_">ObjectExtensions.ThrowIfFailsAsync&lt;TException, TResult&gt;(Object, Func&lt;Task&lt;TResult&gt;&gt;, String)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Paradigm.ORM.Data.Database.IDatabaseConnector.html">IDatabaseConnector</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-3 col-lg-offset-1" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/new/master/apiSpec/new?filename=Paradigm_ORM_Data_Cassandra_CqlDatabaseConnector.md&amp;value=---%0Auid%3A%20Paradigm.ORM.Data.Cassandra.CqlDatabaseConnector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/MiracleDevs/Paradigm.ORM/blob/master/src/Paradigm.ORM.Data.Cassandra/CqlDatabaseConnector.cs/#L22" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <div class="container-fluid">
+          <!-- <span class="pull-right"><a href="#top">Back to top</a></span> -->
+          
+          <div class="footer-logo">
+            <a href="http://miracledevs.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" viewbox="0 0 160 31" height="31"><style>.md-logo-0{fill:#5DC4E9;} .md-logo-1{fill:#D2534C;} .md-logo-2{fill:#46B8AF;} .md-logo-3{fill:#52A7C7;} .md-logo-4{fill:#B64941;} .md-logo-5{fill:#3FA39C;} .md-logo-6{fill:#444444;}</style><path class="md-logo-0" d="M41.6 0L27.9 20.4l2.7 2L41.1 30c.2.2.5 0 .5-.2V0z"></path><path class="md-logo-1" d="M41.6 0L13.7 20.4l2.2 3.3 4.8 7.2c.1.1.2.1.2 0L40.7 1.4l.9-1.4z"></path><path class="md-logo-2" d="M41.6 0L12.8 9.4 0 0v29.8c0 .2.3.4.5.2L41.6 0z"></path><path class="md-logo-3" d="M27.9 20.4l2.7 2L41.6.6V0z"></path><path class="md-logo-4" d="M13.7 20.4l2.2 3.3L40.7 1.4l.9-1.4z"></path><path class="md-logo-5" d="M0 0v13.5l12.8-4.1z"></path><path class="md-logo-6" d="M55.5 22.2V7.9h3l4.2 9.5 3.8-9.5h3v14.3h-2.8v-8l-3.4 8.1h-1l-3.8-8.1v8.1h-3zM73.5 10.7c-.6 0-1-.2-1.3-.5-.3-.3-.4-.7-.4-1 0-.4.1-.7.4-1 .3-.3.7-.5 1.3-.5s1 .2 1.3.5c.3.3.4.7.4 1 0 .4-.1.7-.4 1-.3.4-.8.5-1.3.5zm-1.4 11.5V11.9h2.8v10.3h-2.8zM77.2 22.2V11.9h2.5l.1.9c.4-.4.8-.7 1.2-.9.4-.2.8-.2 1.2-.2.2 0 .5 0 .8.1.3.1.5.1.8.2l-.5 2.4c-.3-.1-.6-.2-.8-.3-.2-.1-.5-.1-.7-.1-.4 0-.8.1-1.1.3-.3.2-.6.4-.8.6v7.2h-2.7zM90.2 22.2l-.1-.8c-.3.3-.7.6-1.1.7-.5.2-1 .3-1.5.3s-.9-.1-1.3-.2-.8-.4-1.1-.6c-.3-.3-.6-.6-.8-1-.2-.4-.3-.9-.3-1.4 0-.5.1-1 .3-1.4.2-.4.5-.7.9-1 .4-.3.8-.5 1.2-.7.5-.2 1-.3 1.5-.4.4-.1.7-.1 1.2-.2.4 0 .8-.1 1.1-.1v-.3c0-.4-.1-.7-.4-1-.3-.3-.6-.4-1-.4-.2 0-.5.1-.9.2s-.7.4-1.1.7l-1.9-1.3.9-.9c.3-.2.7-.4 1.1-.5.4-.1.7-.2 1.1-.3.4 0 .7-.1 1-.1.6 0 1.1.1 1.6.2s.9.4 1.3.7c.4.3.6.7.8 1.2.2.5.3 1.1.3 1.8V22h-2.8zm-.2-4.8c-.3 0-.6 0-.9.1-.3 0-.6.1-.9.1-.6.1-1 .3-1.3.6s-.4.6-.4.9c0 .3.1.6.4.8.3.2.6.3 1.1.3.4 0 .7-.1 1-.2.3-.1.6-.3.9-.5v-2.1zM103.9 19.7c-.4.9-1 1.6-1.8 2.1-.7.4-1.6.7-2.6.7-.7 0-1.3-.1-1.9-.3-.6-.2-1.1-.6-1.6-1s-.8-1-1.1-1.7c-.3-.7-.4-1.4-.4-2.3 0-.9.1-1.7.4-2.4.3-.7.6-1.3 1.1-1.7.4-.5 1-.8 1.6-1 .6-.2 1.2-.3 1.8-.3.6 0 1.2.1 1.7.3s.9.4 1.3.7c.4.3.7.6.9 1 .2.4.4.7.5 1.1l-2.2 1.1c-.2-.7-.5-1.2-.9-1.4-.4-.3-.8-.4-1.2-.4-.3 0-.6.1-.8.2-.3.1-.5.3-.7.6-.2.3-.4.6-.5 1-.1.4-.2.9-.2 1.4 0 1 .2 1.7.7 2.3.4.5 1 .8 1.7.8.5 0 1-.1 1.3-.4.3-.3.6-.7.9-1.2l2 .8zM105.1 22.2V7.9h2.8v14.3h-2.8zM112.4 17.7c.1.9.3 1.5.8 1.9.5.4 1 .6 1.6.6.5 0 .9-.1 1.3-.3.4-.2.8-.6 1.2-1.2l2.1 1.3c-.6.9-1.3 1.5-2 1.9-.8.4-1.7.5-2.7.5-.7 0-1.3-.1-1.9-.3-.6-.2-1.2-.5-1.6-1-.5-.4-.8-1-1.1-1.7-.3-.7-.4-1.5-.4-2.4 0-.9.1-1.6.4-2.3.3-.7.6-1.2 1.1-1.7.5-.5 1-.8 1.6-1 .6-.2 1.3-.4 1.9-.4 1.4 0 2.6.5 3.5 1.5.9 1 1.3 2.5 1.4 4.6h-7.2zm4.2-1.9c-.1-.7-.3-1.2-.7-1.5-.4-.3-.8-.5-1.3-.5-.2 0-.5 0-.7.1-.2.1-.5.2-.7.4-.2.2-.4.4-.5.7-.1.3-.2.5-.3.9h4.2zM121.4 22.2V7.9h3.7c.6 0 1.1 0 1.7.1.6.1 1.2.3 1.7.5s1 .6 1.4.9c.4.4.8.8 1.1 1.4.3.5.5 1.1.7 1.8.2.7.3 1.4.3 2.2 0 1-.1 1.9-.3 2.7-.2.8-.5 1.5-1 2.1-.4.6-.9 1.1-1.4 1.5-.6.4-1.2.7-1.8.9-.3.1-.7.2-1.2.2-.4 0-.9.1-1.2.1h-3.7zm1.7-1.5h1.8c.3 0 .7 0 1.1-.1.4 0 .8-.1 1.1-.2.4-.2.8-.4 1.2-.7.4-.3.7-.7 1-1.1.3-.4.5-1 .7-1.6.2-.6.2-1.3.2-2.1 0-1.2-.2-2.2-.6-3-.4-.8-.9-1.3-1.6-1.8-.4-.3-.9-.5-1.5-.6-.6-.1-1.1-.2-1.6-.2h-1.8v11.4zM135.1 17c0 1.3.3 2.3.9 3 .6.7 1.4 1.1 2.5 1.1.6 0 1.2-.2 1.6-.5.4-.3.8-.7 1.1-1.2l1.1.7c-.4.6-.9 1.2-1.4 1.6-.6.4-1.4.6-2.4.6-.8 0-1.5-.1-2.1-.4-.6-.2-1.1-.6-1.6-1-.4-.4-.8-1-1-1.7-.2-.7-.4-1.4-.4-2.3 0-.8.1-1.5.3-2.2.2-.6.5-1.2.9-1.7s.9-.8 1.4-1.1c.6-.2 1.2-.4 1.9-.4.8 0 1.4.1 2 .4.6.3 1 .6 1.4 1.1.4.5.6 1 .8 1.7.2.6.3 1.4.3 2.1h-7.3zm5.5-1.3c0-.4-.1-.8-.3-1.2-.2-.3-.4-.6-.6-.8-.2-.2-.5-.4-.8-.5-.3-.1-.6-.2-.9-.2-.7 0-1.3.2-1.8.6-.5.4-.8 1.1-1 2h5.4zM146.6 22.2L142.8 12h1.8l3 8.3 3.1-8.3h1.7l-3.8 10.2h-2zM153.9 19.7c.2.5.6.8.9 1.1.4.2.9.4 1.5.4 1.4 0 2.1-.5 2.1-1.5 0-.3 0-.6-.1-.8-.1-.2-.2-.4-.4-.6-.2-.2-.5-.3-.8-.5-.3-.1-.7-.3-1.2-.5s-.9-.4-1.3-.5c-.4-.2-.6-.4-.9-.6-.2-.2-.4-.5-.5-.8-.1-.3-.2-.6-.2-1 0-.8.3-1.5.9-1.9.6-.5 1.4-.7 2.4-.7.8 0 1.5.1 2.1.4.6.3 1 .7 1.4 1.2l-1.2.9c-.3-.3-.6-.6-1-.9-.4-.2-.8-.3-1.3-.3-.6 0-1 .1-1.3.4-.3.2-.4.5-.4.9 0 .2 0 .4.1.6.1.2.2.3.4.4.2.1.5.3.8.4.3.1.7.3 1.2.5.9.3 1.7.7 2.1 1.2.5.5.7 1.2.7 2 0 .5-.1.9-.3 1.3-.2.4-.4.7-.8 1-.3.3-.7.5-1.1.6-.4.1-.9.2-1.5.2-1 0-1.8-.2-2.4-.6-.6-.4-1-.8-1.4-1.4l1.5-.9z"></path></svg>
+            </a>
+          </div>
+          <div>
+            <div>Powered by <strong><a href="http://miracledevs.com" target="_blank">MiracleDevs</a></strong> ©2017. Code licensed under the MIT License.</div>
+            <div> Documentation generated by DocFX.</div>
+          </div>
+        </div>
+      </div>    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
